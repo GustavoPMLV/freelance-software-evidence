@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gustavo Lima Verde | Cada corrección llega con su prueba</title>
+<link rel="alternate" hreflang="pt-BR" href="https://gustavo-lima-verde-software.gustavo-pmlv6.chatgpt.site/pt.html">
+<link rel="alternate" hreflang="en" href="https://gustavo-lima-verde-software.gustavo-pmlv6.chatgpt.site/index.html">
+<link rel="alternate" hreflang="es" href="https://gustavo-lima-verde-software.gustavo-pmlv6.chatgpt.site/es.html">
+<link rel="alternate" hreflang="x-default" href="https://gustavo-lima-verde-software.gustavo-pmlv6.chatgpt.site/index.html">
+<meta name="description" content="Diagnóstico focalizado de errores, correcciones acotadas e integraciones de API/webhook con pruebas reproducibles. Demostraciones independientes de ingeniería de Gustavo Lima Verde, con datos sintéticos.">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F4F1E8">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#top">Gustavo Lima Verde<span>Confiabilidad de software · entregas con IA</span></a>
+    <nav class="nav" aria-label="Navegación principal">
+      <a href="#services">Servicios</a>
+      <a href="#work">Evidencias</a>
+      <a href="#brief">Crear solicitud</a>
+    </nav>
+    <p class="lang"><span aria-current="true" title="Español">ES</span><a id="language" href="pt.html" hreflang="pt-BR" lang="pt-BR" aria-label="Ler esta página em português">PT</a><a href="index.html" hreflang="en" lang="en" aria-label="Read this page in English">EN</a></p>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top" aria-labelledby="heroTitle">
+  <div class="wrap">
+    <p class="eyebrow">Expedientes de confiabilidad de software</p>
+    <h1 id="heroTitle">Cada corrección llega con su <em>prueba.</em></h1>
+    <div class="hero-row">
+      <div class="hero-copy">
+        <p class="lead">Diagnóstico focalizado de errores, correcciones acotadas e integraciones de API/webhook para software que tiene que funcionar.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#services">Empiece con un diagnóstico de US$100 <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn" href="#engramamed">Conocer EngramaMed</a>
+        </div>
+        <p class="communication-note">Colaboración escrita profesional en PT, EN y ES, con asistencia de IA. Reuniones en portugués.</p>
+      </div>
+
+      <figure class="plate on-ink" id="exhibitA" aria-labelledby="plateTitle">
+        <div class="plate-art" aria-hidden="true">
+          <img class="plate-photo" alt="" hidden>
+          <svg class="plate-mark" viewBox="0 0 260 200" focusable="false">
+            <g fill="none" stroke="#2E473B" stroke-width="2">
+              <rect x="18" y="14" width="46" height="46"/>
+              <rect x="18" y="77" width="46" height="46"/>
+              <rect x="18" y="140" width="46" height="46"/>
+              <path d="M64 37C118 37 128 100 172 100M64 100H172M64 163C118 163 128 100 172 100"/>
+            </g>
+            <rect x="172" y="66" width="68" height="68" fill="#2E473B"/>
+          </svg>
+        </div>
+        <div class="plate-head"><span id="plateTitle">Anexo A · ReplaySafe</span><span class="tag">Datos sintéticos</span></div>
+        <p class="plate-claim">Entran entregas repetidas. Sale un efecto por evento.</p>
+        <div class="flow">
+          <span class="flow-gate" aria-hidden="true">inbox persistente</span>
+          <div class="flow-fig">
+            <svg id="flowSvg" viewBox="0 0 520 212" role="img" aria-labelledby="flowTitle">
+              <title id="flowTitle">Entran 3,100 entregas. 1,000 eventos únicos llegan al proveedor. El inbox reconoce 2,100 repeticiones, que no generan ningún efecto nuevo. Sin protección, se convertirían en 2,100 efectos excedentes.</title>
+              <rect class="b-src" x="0" y="0" width="12" height="200"/>
+              <path class="b-unique" id="fUnique" d="M12 0H508V64.52H12Z"/>
+              <rect class="b-dst" id="fDst" x="508" y="0" width="12" height="64.52"/>
+              <path class="b-repeat" id="fRepeat" d="M12 64.52C120 64.52 170 102.45 232 102.45C170 102.45 120 200 12 200Z"/>
+              <rect class="b-ghost" id="fGhost" x="248" y="74.52" width="260" height="135.48"/>
+              <rect class="b-gate" x="232" y="-6" width="7" height="218"/>
+            </svg>
+            <span class="flow-ghost-label" aria-hidden="true">sin protección <b id="heroGhost">+2,100</b> efectos excedentes</span>
+          </div>
+        </div>
+        <dl class="legend">
+          <div class="k-src"><dt>Entregas recibidas</dt><dd id="heroDeliveries">3,100</dd></div>
+          <div class="k-eff"><dt>Efectos únicos</dt><dd id="heroEffects">1,000</dd></div>
+          <div class="k-rep"><dt>Repeticiones sin nuevo efecto</dt><dd id="heroRepeats">2,100</dd></div>
+        </dl>
+        <p class="zero"><b id="heroDuplicates">0</b><span>efectos duplicados con protección, en el mismo conjunto de prueba</span></p>
+        <figcaption class="plate-foot">Fuente: <a href="results.json">results.json</a> y <a href="CASE_REPLAYSAFE.md">CASE_REPLAYSAFE.md</a>. 13 verificaciones superadas. SQLite, un único despachador, el destino admite claves de idempotencia. Demostración independiente; no se afirma uso en producción de ningún cliente.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sources" aria-labelledby="sourcesTitle">
+  <div class="wrap sources-in">
+    <div>
+      <h2 class="sources-title" id="sourcesTitle">Verifique antes de contratar</h2>
+      <p>Diagnósticos focalizados desde US$100. Colaboración escrita y asíncrona.</p>
+    </div>
+    <ol class="cites">
+      <li><a href="https://www.upwork.com/freelancers/~0153456be778467e4e" target="_blank" rel="noopener noreferrer"><span class="cite-k">Upwork</span><span class="cite-v">Ver perfil en Upwork ↗</span><span class="cite-u">upwork.com/freelancers/~0153456be778467e4e</span></a></li>
+      <li><a href="https://www.99freelas.com.br/user/gustavo-1790992697889" target="_blank" rel="noopener noreferrer"><span class="cite-k">99Freelas</span><span class="cite-v">Perfil en 99Freelas ↗</span><span class="cite-u">99freelas.com.br/user/gustavo-1790992697889</span></a></li>
+      <li><a href="https://github.com/GustavoPMLV/freelance-software-evidence" target="_blank" rel="noopener noreferrer"><span class="cite-k">GitHub</span><span class="cite-v">Código en GitHub ↗</span><span class="cite-u">github.com/GustavoPMLV/freelance-software-evidence</span></a></li>
+    </ol>
+  </div>
+</section>
+
+<section id="services" class="services" aria-labelledby="servicesTitle">
+  <div class="wrap">
+    <header class="sec-head">
+      <h2 id="servicesTitle">Contrate un resultado definido.</h2>
+      <p>Empiece con un alcance suficiente para establecer los hechos. Amplíe el trabajo cuando la siguiente etapa esté clara. Diagnósticos acotados, integraciones de API y pruebas reproducibles, coordinados por Gustavo y entregados con herramientas avanzadas de IA.</p>
+    </header>
+
+    <ol class="ladder">
+      <li class="rung is-entry">
+        <p class="rung-when">Empiece aquí</p>
+        <p class="rung-name">Diagnóstico focalizado</p>
+        <h3>Localizar el punto de fallo.</h3>
+        <p class="price"><span class="price-pre">Alcance cerrado</span><span class="price-num"><span class="price-cur">US$</span>100</span></p>
+        <p class="rung-desc">Un problema reproducible, hasta 1.5 horas de investigación técnica, un informe conciso y una recomendación del siguiente paso.</p>
+        <ul class="rung-list">
+          <li>Logs, código y entradas de muestra aprobados</li>
+          <li>Reproducción o limitación explícita</li>
+          <li>Hallazgos y propuesta de corrección acotada</li>
+          <li>Implementación presupuestada aparte</li>
+        </ul>
+        <a class="btn btn-primary" href="#brief" data-service="diagnostic">Definir mi diagnóstico <span class="arr" aria-hidden="true">→</span></a>
+      </li>
+      <li class="rung">
+        <p class="rung-when">Presupuesto tras el diagnóstico</p>
+        <p class="rung-name">Corrección acotada</p>
+        <h3>Corregir y verificar.</h3>
+        <p class="price"><span class="price-pre">Desde</span><span class="price-num"><span class="price-cur">US$</span>500</span></p>
+        <p class="rung-desc">Una causa raíz confirmada, una corrección focalizada, evidencia de regresión y una entrega documentada en entorno local o de staging.</p>
+        <ul class="rung-list">
+          <li>Alcance confirmado tras la investigación</li>
+          <li>Prueba de regresión antes y después</li>
+          <li>Verificaciones de referencia relevantes</li>
+          <li>Una revisión según los criterios acordados</li>
+        </ul>
+        <a class="btn" href="#brief" data-service="repair">Definir la corrección <span class="arr" aria-hidden="true">→</span></a>
+      </li>
+      <li class="rung">
+        <p class="rung-when">Presupuesto tras la evaluación inicial</p>
+        <p class="rung-name">Integración confiable</p>
+        <h3>Conectar los sistemas críticos.</h3>
+        <p class="price"><span class="price-pre">Desde</span><span class="price-num"><span class="price-cur">US$</span>1,000</span></p>
+        <p class="rung-desc">Un proveedor, hasta dos tipos de evento acordados, validación, gestión de duplicados, reintentos y verificación de escenarios de fallo.</p>
+        <ul class="rung-list">
+          <li>Primero se revisa la semántica del proveedor</li>
+          <li>Estado persistente y fallos explícitos</li>
+          <li>Pruebas de repetición y reinicio</li>
+          <li>Instrucciones de ejecución y límites residuales</li>
+        </ul>
+        <a class="btn" href="#brief" data-service="integration">Definir la integración <span class="arr" aria-hidden="true">→</span></a>
+      </li>
+    </ol>
+
+    <p class="fineprint">Precios de lanzamiento en USD (dólares estadounidenses). El alcance exacto, el acceso, la aceptación y el soporte se acuerdan antes de la contratación. Las API y la infraestructura de pago deben ser financiadas por el cliente. Sin revisiones ilimitadas.</p>
+
+    <details class="catalog" id="catalog" open>
+      <summary><span class="cat-sum-t">Explore el catálogo completo de servicios</span><span class="cat-sum-n">12 servicios</span></summary>
+      <div class="cat-tools" role="group" aria-label="Filtrar el catálogo por área"></div>
+      <div id="catalogGrid" class="cat-groups">
+        <section class="cat-group" data-group="fix" aria-labelledby="cg-fix">
+          <h3 id="cg-fix">Diagnosticar y corregir</h3>
+          <ol class="cat-list">
+            <li class="cat-item"><h4>Diagnóstico focalizado de software</h4><p class="cat-scope">Un problema reproducible; revisión de logs y código, un informe breve de hallazgos y una recomendación del siguiente paso. No incluye implementación.</p><p class="cat-limit"><span class="cat-limit-k">Límite</span>Un problema · hasta 1.5 h · sin corrección</p><p class="cat-price"><span class="cat-price-k">Desde</span>US$ 100</p><a class="cat-cta" href="#brief" data-service="diagnostic">Preparar solicitud<span class="vh">: Diagnóstico focalizado de software</span> <span class="arr" aria-hidden="true">→</span></a></li>
+            <li class="cat-item"><h4>Corrección acotada de errores</h4><p class="cat-scope">Una causa raíz acordada, una corrección focalizada, evidencia de regresión y entrega en entorno local o de staging. Presupuesto tras el diagnóstico.</p><p class="cat-limit"><span class="cat-limit-k">Límite</span>Una causa confirmada · presupuesto tras el diagnóstico</p><p class="cat-price"><span class="cat-price-k">Desde</span>US$ 500</p><a class="cat-cta" href="#brief" data-service="repair">Preparar solicitud<span class="vh">: Corrección acotada de errores</span> <span class="arr" aria-hidden="true">→</span></a></li>
+            <li class="cat-item"><h4>Diagnóstico de rendimiento de consultas SQL</h4><p class="cat-scope">Una consulta sobre un conjunto de datos representativo en entorno local o de staging, medición de referencia y propuesta de optimización focalizada.</p><p class="cat-limit"><span class="cat-limit-k">Límite</span>Una consulta · local o staging</p><p class="cat-price"><span class="cat-price-k">Desde</span>US$ 250</p><a class="cat-cta" href="#brief" data-service="sql">Preparar solicitud<span class="vh">: Diagnóstico de rendimiento de consultas SQL</span> <span class="arr" aria-hidden="true">→</span></a></li>
+          </ol>
+        </section>
+        <section class="cat-group" data-group="connect" aria-labelledby="cg-connect">
+          <h3 id="cg-connect">Integrar y automatizar</h3>
+          <ol class="cat-list">
+            <li class="cat-item"><h4>Integración confiable de API o webhook</h4><p class="cat-scope">Un proveedor, hasta dos tipos de evento, validación de entradas, gestión de duplicados, reintentos y pruebas de fallos. Presupuesto tras la evaluación inicial.</p><p class="cat-limit"><span class="cat-limit-k">Límite</span>Un proveedor · hasta dos eventos</p><p class="cat-price"><span class="cat-price-k">Desde</span>US$ 1,000</p><a class="cat-cta" href="#brief" data-service="integration">Preparar solicitud<span class="vh">: Integración confiable de API o webhook</span> <span class="arr" aria-hidden="true">→</span></a></li>
+            <li class="cat-item"><h4>Automatización de flujos con Python</h4><p class="cat-scope">Un flujo definido de entrada a salida, con datos de muestra, validación e instrucciones de ejecución.</p><p class="cat-limit"><span class="cat-limit-k">Límite</span>Un flujo de entrada a salida</p><p class="cat-price"><span class="cat-price-k">Desde</span>US$ 250</p><a class="cat-cta" href="#brief" data-service="automation">Preparar solicitud<span class="vh">: Automatización de flujos con Python</span> <span class="arr" aria-hidden="true">→</span></a></li>
+            <li class="cat-item"><h4>Extracción de documentos a datos estructurados</h4><p class="cat-scope">Un formato de documento basado en texto, hasta 30 páginas de muestra, salida JSON/CSV y validación de campos. El OCR de documentos escaneados se presupuesta aparte.</p><p class="cat-limit"><span class="cat-limit-k">Límite</span>Un formato de texto · hasta 30 páginas de muestra</p><p class="cat-price"><span class="cat-price-k">Desde</span>US$ 300</p><a class="cat-cta" href="#brief" data-service="extraction">Preparar solicitud<span class="vh">: Extracción de documentos a datos estructurados</span> <span class="arr" aria-hidden="true">→</span></a></li>
+          </ol>
+        </section>
+        <section class="cat-group" data-group="data" aria-labelledby="cg-data">
+          <h3 id="cg-data">Datos y búsqueda documental</h3>
+          <ol class="cat-list">
+            <li class="cat-item"><h4>Limpieza de datos e informe de calidad</h4><p class="cat-scope">Un conjunto de datos CSV/XLSX y reglas de validación acordadas; archivo corregido e informe de errores.</p><p class="cat-limit"><span class="cat-limit-k">Límite</span>Un conjunto de datos · reglas acordadas</p><p class="cat-price"><span class="cat-price-k">Desde</span>US$ 150</p><a class="cat-cta" href="#brief" data-service="data_cleaning">Preparar solicitud<span class="vh">: Limpieza de datos e informe de calidad</span> <span class="arr" aria-hidden="true">→</span></a></li>
+            <li class="cat-item"><h4>Dashboard de datos de negocio</h4><p class="cat-scope">Un conjunto de datos preparado, hasta cuatro indicadores acordados, presentación interactiva e instrucciones de actualización.</p><p class="cat-limit"><span class="cat-limit-k">Límite</span>Un conjunto de datos · hasta cuatro indicadores</p><p class="cat-price"><span class="cat-price-k">Desde</span>US$ 400</p><a class="cat-cta" href="#brief" data-service="dashboard">Preparar solicitud<span class="vh">: Dashboard de datos de negocio</span> <span class="arr" aria-hidden="true">→</span></a></li>
+            <li class="cat-item"><h4>Evaluación de búsqueda documental</h4><p class="cat-scope">Un corpus aprobado, hasta 30 preguntas etiquetadas, informe de referencia, ajuste de una versión candidata y análisis de errores residuales. El uso de modelos de pago queda excluido, salvo que lo financie el cliente.</p><p class="cat-limit"><span class="cat-limit-k">Límite</span>Un corpus · hasta 30 preguntas etiquetadas</p><p class="cat-price"><span class="cat-price-k">Desde</span>US$ 500</p><a class="cat-cta" href="#brief" data-service="retrieval">Preparar solicitud<span class="vh">: Evaluación de búsqueda documental</span> <span class="arr" aria-hidden="true">→</span></a></li>
+          </ol>
+        </section>
+        <section class="cat-group" data-group="keep" aria-labelledby="cg-keep">
+          <h3 id="cg-keep">Probar, documentar, mantener</h3>
+          <ol class="cat-list">
+            <li class="cat-item"><h4>Pruebas de regresión para un flujo crítico</h4><p class="cat-scope">Hasta seis escenarios de regresión acordados para un componente, datos de prueba reproducibles e instrucciones de ejecución.</p><p class="cat-limit"><span class="cat-limit-k">Límite</span>Un componente · hasta seis escenarios</p><p class="cat-price"><span class="cat-price-k">Desde</span>US$ 350</p><a class="cat-cta" href="#brief" data-service="tests">Preparar solicitud<span class="vh">: Pruebas de regresión para un flujo crítico</span> <span class="arr" aria-hidden="true">→</span></a></li>
+            <li class="cat-item"><h4>Documentación técnica de configuración y entrega</h4><p class="cat-scope">Un repositorio y un flujo de desarrollo/despliegue, notas de configuración verificadas y lista de verificación para la entrega.</p><p class="cat-limit"><span class="cat-limit-k">Límite</span>Un repositorio · un flujo</p><p class="cat-price"><span class="cat-price-k">Desde</span>US$ 200</p><a class="cat-cta" href="#brief" data-service="documentation">Preparar solicitud<span class="vh">: Documentación técnica de configuración y entrega</span> <span class="arr" aria-hidden="true">→</span></a></li>
+            <li class="cat-item"><h4>Mantenimiento técnico mensual acotado</h4><p class="cat-scope">Hasta cuatro horas programadas al mes en un sistema acordado; soporte asíncrono y registro de cambios. Sin soporte 24/7 ni ilimitado.</p><p class="cat-limit"><span class="cat-limit-k">Límite</span>Hasta cuatro horas programadas al mes</p><p class="cat-price"><span class="cat-price-k">Desde</span>US$ 300/mes</p><a class="cat-cta" href="#brief" data-service="maintenance">Preparar solicitud<span class="vh">: Mantenimiento técnico mensual acotado</span> <span class="arr" aria-hidden="true">→</span></a></li>
+          </ol>
+        </section>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section id="work" class="work" aria-labelledby="workTitle">
+  <div class="wrap">
+    <header class="sec-head">
+      <h2 id="workTitle">Abra el trabajo. Revise las pruebas.</h2>
+      <p>Un producto propio en operación y dos demostraciones independientes de ingeniería. Las demostraciones usan datos sintéticos; los resultados provienen de pruebas ejecutadas, con el código y las limitaciones incluidos.</p>
+    </header>
+
+    <article class="exhibit ex-c featured-product" id="engramamed" aria-labelledby="emTitle">
+      <div>
+        <p class="ex-tag">SaaS propio destacado · Educación médica</p>
+        <h3 id="emTitle" class="product">EngramaMed</h3>
+        <p class="product-desc">Un SaaS educativo propio para el estudio de Medicina y la preparación de exámenes de residencia médica, creado por Gustavo Lima Verde. Una plataforma en operación que combina una interfaz de estudio, flujos educativos y desarrollo de producto. Las demostraciones siguientes muestran capacidades de ingeniería específicas que ofrezco como servicios.</p>
+        <a class="ex-link" href="https://engramamed.com.br" target="_blank" rel="noopener noreferrer">Visitar EngramaMed <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="product-visual">
+        <img class="product-cover" src="assets/cover-engramamed-es.svg" width="1500" height="1002" loading="lazy" alt="EngramaMed: SaaS educativo propio para el estudio de Medicina y la preparación de exámenes de residencia médica">
+      <dl class="product-facts">
+        <div><dt>Tipo</dt><dd>SaaS educativo propio, en operación</dd></div>
+        <div><dt>Enfoque</dt><dd>Estudio de Medicina. Preparación para la residencia.</dd></div>
+        <div><dt>Incluye</dt><dd>Flujos educativos, una interfaz de estudio y un dominio en operación.</dd></div>
+        <div><dt>Dominio</dt><dd><a href="https://engramamed.com.br" target="_blank" rel="noopener noreferrer">engramamed.com.br ↗</a></dd></div>
+        <div><dt>Creador</dt><dd>Gustavo Lima Verde. SaaS educativo propio.</dd></div>
+      </dl>
+      </div>
+    </article>
+
+    <article class="exhibit ex-a" id="replaysafe" aria-labelledby="rsTitle">
+      <div class="ex-head">
+        <p class="ex-tag">Anexo A · Confiabilidad de integraciones</p>
+        <h3 id="rsTitle">ReplaySafe</h3>
+        <p class="ex-sum">Una entrega repetida no debería generar efectos de negocio repetidos. Esta demostración aplica inbox y outbox persistentes, verificación de la identidad de cada evento e idempotencia en el destino.</p>
+        <dl class="facts">
+          <div><dt>Entregas</dt><dd>3,100</dd></div>
+          <div><dt>Eventos únicos</dt><dd>1,000</dd></div>
+          <div><dt>Hilos receptores</dt><dd>8</dd></div>
+          <div><dt>Fallos transitorios</dt><dd>25</dd></div>
+          <div><dt>Acuses de recibo perdidos</dt><dd>25</dd></div>
+          <div><dt>Verificaciones</dt><dd>13 superadas</dd></div>
+        </dl>
+        <a class="ex-link" href="CASE_REPLAYSAFE.md">Leer el caso y sus limitaciones <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="ex-body">
+        <p class="checks">Prueba de repetición ejecutada</p>
+        <div class="compare reveal" role="group" aria-label="Efectos excedentes en el mismo conjunto de prueba">
+          <div class="cmp cmp-before"><span class="cmp-label">Efectos excedentes sin protección</span><b class="cmp-num" id="baselineDup">2,100</b><i class="cmp-bar" aria-hidden="true"></i></div>
+          <div class="cmp cmp-after"><span class="cmp-label">Efectos excedentes con protección</span><b class="cmp-num" id="protectedDup">0</b><i class="cmp-bar" aria-hidden="true"></i></div>
+        </div>
+        <div class="runner">
+          <fieldset id="replayScenario" class="runner-list">
+            <legend>Examine un escenario verificado</legend>
+            <label class="run is-checked"><input type="radio" name="replayScenario" value="replay" checked><span class="run-mark" aria-hidden="true">✓</span><span class="run-name">Entregas duplicadas concurrentes</span><span class="run-state">Superada · test_concurrent_replays</span></label>
+            <label class="run"><input type="radio" name="replayScenario" value="ack"><span class="run-mark" aria-hidden="true">✓</span><span class="run-name">Solicitud registrada, acuse de recibo perdido</span><span class="run-state">Superada · test_lost_ack_does_not_duplicate_remote_effect</span></label>
+            <label class="run"><input type="radio" name="replayScenario" value="restart"><span class="run-mark" aria-hidden="true">✓</span><span class="run-name">Reinicio con outbox pendiente</span><span class="run-state">Superada · test_persisted_outbox_recovers_after_restart</span></label>
+            <label class="run"><input type="radio" name="replayScenario" value="dead"><span class="run-mark" aria-hidden="true">✓</span><span class="run-name">Fallo permanente del proveedor</span><span class="run-state">Superada · test_permanent_failure_reaches_dead_letter</span></label>
+          </fieldset>
+          <div class="output" id="replayOutput" aria-live="polite">PRUEBA VERIFICADA
+3,100 entregas → 1,000 eventos únicos
+8 hilos receptores concurrentes
+Efectos sin protección: 3,100
+Efectos con protección: 1,000
+Efectos duplicados con protección: 0</div>
+        </div>
+        <p class="limit">Resultados registrados de pruebas, no un sistema real de un cliente. SQLite; un único despachador; el proveedor de destino admite claves de idempotencia. No se afirma un procesamiento exactly-once universal ni un nivel de rendimiento.</p>
+      </div>
+    </article>
+
+    <article class="exhibit ex-b" id="evidencesearch" aria-labelledby="esTitle">
+      <div class="ex-top">
+        <div class="ex-head">
+          <p class="ex-tag">Anexo B · Calidad de la búsqueda documental</p>
+          <h3 id="esTitle">EvidenceSearch</h3>
+          <p class="ex-sum">Un asistente documental necesita la fuente correcta antes de poder respaldar una respuesta. Compare la búsqueda por coincidencia exacta de términos con un pipeline de puntuación transparente, con permisos y fragmentos de la fuente.</p>
+          <dl class="facts">
+            <div><dt>Preguntas etiquetadas</dt><dd>44</dd></div>
+            <div><dt>Documentos sintéticos</dt><dd>24</dd></div>
+            <div><dt>Errores en la primera fuente</dt><dd>0</dd></div>
+            <div><dt>Verificaciones</dt><dd>15 superadas</dd></div>
+          </dl>
+          <a class="ex-link" href="CASE_EVIDENCESEARCH.md">Leer la evaluación y el método <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="score">
+          <div class="score-item before"><span>Versión base: primera fuente correcta</span><b id="baselineTop">31/44</b></div>
+          <span class="score-arrow" aria-hidden="true">→</span>
+          <div class="score-item after"><span>Versión mejorada: primera fuente correcta</span><b id="improvedTop">44/44</b></div>
+          <p class="score-sub">Recall@3: <span id="recallBase">86.4%</span> → <span id="recallImp">100%</span>. MRR@3: <span id="mrrBase">0.784</span> → <span id="mrrImp">1.000</span>. Solo en este conjunto sintético.</p>
+        </div>
+      </div>
+      <details class="evaluation-details">
+        <summary>Examinar la evaluación: 44 de 44 primeras fuentes correctas</summary>
+      <div class="ex-grid">
+        <div class="matrix-wrap reveal">
+          <p class="matrix-cap" id="matrixCap">Las 44 preguntas del corpus de evaluación original (en inglés), una casilla por pregunta<span>Seleccione una casilla para ver sus fuentes. Las flechas del teclado permiten moverse entre casillas.</span></p>
+          <div id="queryMatrix" class="matrix" role="radiogroup" aria-labelledby="matrixCap"></div>
+          <ul id="mxLegend" class="mx-legend" aria-label="Leyenda por resultado">
+            <li><button type="button"><span class="mx-k c-both" aria-hidden="true"></span><span class="mx-k-t">Correcta en ambas versiones</span><span class="mx-k-n">31</span></button></li>
+            <li><button type="button"><span class="mx-k c-fixed" aria-hidden="true"></span><span class="mx-k-t">Corregida por la mejora</span><span class="mx-k-n">13</span></button></li>
+            <li><button type="button"><span class="mx-k c-miss" aria-hidden="true"></span><span class="mx-k-t">Incorrecta en ambas versiones</span><span class="mx-k-n">0</span></button></li>
+            <li><button type="button"><span class="mx-k c-regress" aria-hidden="true"></span><span class="mx-k-t">Empeoró con la mejora</span><span class="mx-k-n">0</span></button></li>
+          </ul>
+        </div>
+        <div class="inspector">
+          <label for="retrievalQuestion">Examine una pregunta etiquetada y sus fuentes (corpus de evaluación original, en inglés)</label>
+          <select id="retrievalQuestion"></select>
+          <div class="output" id="retrievalOutput" aria-live="polite">Los resultados de las 44 preguntas están en results.json.</div>
+        </div>
+      </div>
+      </details>
+      <p class="limit">También se aprobaron 22 preguntas sintéticas de desarrollo. No constituyen una evaluación ciega con datos reales.</p>
+      <p class="limit">Conjunto sintético elaborado manualmente. Línea base léxica exacta frente a normalización de términos, puntuación por campos y prioridad del tema en el título. Sin inferencia de LLM ni embeddings. Los resultados no demuestran generalización a corpus reales. Las preguntas y los fragmentos se muestran en inglés, tal como figuran en el corpus de evaluación original.</p>
+    </article>
+
+
+
+    <div class="dossier-files">
+      <div class="dossier-head"><h3>Archivos que puede verificar</h3><p>Los mismos archivos que generan las cifras anteriores. Documentación técnica en inglés.</p></div>
+      <a class="file file-primary" href="reproducible-demos.zip" download><span class="file-ext">ZIP</span><span class="file-desc">Descargar código, pruebas y evidencias</span><span class="file-name">reproducible-demos.zip · 27 kB</span><span class="arr" aria-hidden="true">↓</span></a>
+      <a class="file" href="results.json"><span class="file-ext">JSON</span><span class="file-desc">Examinar los resultados de las 44 consultas</span><span class="file-name">results.json · 72 kB</span><span class="arr" aria-hidden="true">↗</span></a>
+      <a class="file" href="CASE_REPLAYSAFE.md"><span class="file-ext">MD</span><span class="file-desc">ReplaySafe: caso y limitaciones</span><span class="file-name">CASE_REPLAYSAFE.md</span><span class="arr" aria-hidden="true">↗</span></a>
+      <a class="file" href="CASE_EVIDENCESEARCH.md"><span class="file-ext">MD</span><span class="file-desc">EvidenceSearch: evaluación y errores residuales</span><span class="file-name">CASE_EVIDENCESEARCH.md</span><span class="arr" aria-hidden="true">↗</span></a>
+      <details class="zip-list">
+        <summary>Contenido del ZIP (13 archivos)</summary>
+        <ul>
+          <li>technical/README.md</li>
+          <li>technical/replaysafe.py</li>
+          <li>technical/test_replaysafe.py</li>
+          <li>technical/evidence_search.py</li>
+          <li>technical/test_evidence_search.py</li>
+          <li>technical/run_evidence.py</li>
+          <li>evidence/results.json</li>
+          <li>evidence/source-hashes.json</li>
+          <li>evidence/tests.txt</li>
+          <li>technical/fixtures/original-corpus.json</li>
+          <li>technical/fixtures/additional-retrieval.json</li>
+          <li>portfolio/CASE_REPLAYSAFE.md</li>
+          <li>portfolio/CASE_EVIDENCESEARCH.md</li>
+        </ul>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="process" class="process" aria-labelledby="processTitle">
+  <div class="wrap">
+    <h2 id="processTitle">Un alcance pequeño. Una cadena visible de evidencias.</h2>
+    <ol class="chain">
+      <li><h3>Definir el fallo</h3><p>Acordar un flujo, entradas de muestra, resultados esperados y restricciones de acceso.</p><p class="artifact">Registro: alcance y criterios de aceptación</p></li>
+      <li><h3>Registrar la situación inicial</h3><p>Investigar en un entorno local o de staging aprobado y conservar la evidencia de partida.</p><p class="artifact">Registro: evidencia antes del cambio</p></li>
+      <li><h3>Verificar el cambio</h3><p>Aplicar una implementación acotada y probar los caminos normales y de fallo acordados.</p><p class="artifact">Registro: cambio y pruebas ejecutadas</p></li>
+      <li><h3>Entregar el comprobante</h3><p>Entregar el código, la configuración, los resultados, los límites conocidos y las recomendaciones de próximos pasos.</p><p class="artifact">Registro: código, resultados y límites</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="about" class="about" aria-labelledby="aboutTitle">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <h2 id="aboutTitle">Gustavo Lima Verde.</h2>
+      <p>Soy Gustavo Lima Verde y trabajo desde Ceará, Brasil. Me ocupo de problemas de software bien definidos: el error inexplicable, el webhook que se dispara dos veces, la consulta lenta, los datos que no cuadran. El trabajo se realiza con asistencia de IA y se verifica con pruebas que usted puede volver a ejecutar. Coordino el alcance y reviso las evidencias antes de cada entrega.</p>
+      <p>Ofrezco colaboración escrita en portugués, inglés y español. Las herramientas de IA apoyan la lectura, la redacción y la revisión profesional en inglés y español. Las reuniones son en portugués; mi nivel oral de inglés y español es básico. También soy estudiante de quinto semestre de Medicina en la UECE, con un gran interés en la IA y la programación.</p>
+    </div>
+    <dl class="dossier">
+      <div><dt>Ubicación</dt><dd>Fortaleza, Ceará, Brasil</dd></div>
+      <div><dt>Formación</dt><dd>Estudiante de Medicina en la UECE (2024.2-2030), quinto semestre</dd></div>
+      <div><dt>Idiomas</dt><dd>Portugués excelente. Lectura y escritura en inglés y español con asistencia de IA; nivel oral básico. Reuniones en portugués.</dd></div>
+      <div><dt>Modalidad de trabajo</dt><dd>Por escrito y asíncrona. Ejecución asistida por IA; Gustavo revisa el alcance, el acceso y las evidencias.</dd></div>
+      <div><dt>Pruebas publicadas</dt><dd>Dos demostraciones independientes con datos sintéticos y un producto propio.</dd></div>
+    </dl>
+    <div class="faq">
+      <h3>Preguntas frecuentes</h3>
+      <details><summary>¿Cómo se usa la IA en la entrega?</summary><p>Herramientas avanzadas de programación con IA apoyan la investigación, la implementación y la documentación. Los entregables incluyen verificaciones reproducibles. Las preferencias del cliente, las herramientas aprobadas y las restricciones de tratamiento de datos se acuerdan antes de comenzar.</p></details>
+      <details><summary>¿Estos resultados provienen de proyectos de clientes?</summary><p>ReplaySafe y EvidenceSearch son demostraciones independientes con datos sintéticos. Sus resultados ilustran las condiciones declaradas de cada conjunto de prueba. EngramaMed se presenta por separado como producto propio.</p></details>
+      <details><summary>¿Qué incluye el diagnóstico de US$100?</summary><p>Un problema y hasta 1.5 horas de investigación técnica, seguidas de un informe conciso de hallazgos. La implementación, las auditorías exhaustivas y las investigaciones ampliadas se presupuestan por separado.</p></details>
+      <details><summary>¿El trabajo puede desplegarse en producción?</summary><p>La oferta base cubre una entrega en entorno local o de staging. El acceso a producción, los pasos de despliegue, la reversión (rollback) y las aprobaciones deben acordarse por separado con el cliente.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="brief" class="brief" aria-labelledby="briefTitle">
+  <div class="wrap brief-grid">
+    <div class="brief-intro">
+      <h2 id="briefTitle">Describa el problema. Defina el siguiente paso.</h2>
+      <p class="lead">Prepare una solicitud estructurada para pegarla en la conversación de su plataforma.</p>
+      <p class="privacy">Este formulario funciona en su navegador. No envía ni almacena nada. No incluya credenciales ni registros privados.</p>
+    </div>
+    <div class="brief-form">
+      <form id="briefForm">
+        <div class="field">
+          <label for="projectName">Proyecto / flujo</label>
+          <input id="projectName" name="projectName" required maxlength="120" autocomplete="off" placeholder="p. ej., Los eventos de pedido se duplican tras un reintento">
+        </div>
+        <div class="field">
+          <label for="serviceChoice">Servicio</label>
+          <select id="serviceChoice" name="serviceChoice" aria-describedby="serviceNote">
+            <optgroup label="Diagnosticar y corregir">
+              <option value="diagnostic">Diagnóstico focalizado de software · desde US$ 100</option>
+              <option value="repair">Corrección acotada de errores · desde US$ 500</option>
+              <option value="sql">Diagnóstico de rendimiento de consultas SQL · desde US$ 250</option>
+            </optgroup>
+            <optgroup label="Integrar y automatizar">
+              <option value="integration">Integración confiable de API o webhook · desde US$ 1,000</option>
+              <option value="automation">Automatización de flujos con Python · desde US$ 250</option>
+              <option value="extraction">Extracción de documentos a datos estructurados · desde US$ 300</option>
+            </optgroup>
+            <optgroup label="Datos y búsqueda documental">
+              <option value="data_cleaning">Limpieza de datos e informe de calidad · desde US$ 150</option>
+              <option value="dashboard">Dashboard de datos de negocio · desde US$ 400</option>
+              <option value="retrieval">Evaluación de búsqueda documental · desde US$ 500</option>
+            </optgroup>
+            <optgroup label="Probar, documentar, mantener">
+              <option value="tests">Pruebas de regresión para un flujo crítico · desde US$ 350</option>
+              <option value="documentation">Documentación técnica de configuración y entrega · desde US$ 200</option>
+              <option value="maintenance">Mantenimiento técnico mensual acotado · desde US$ 300/mes</option>
+            </optgroup>
+          </select>
+          <p class="hint" id="serviceNote" aria-live="polite">Precios iniciales en USD (dólares estadounidenses); alcance exacto por acordar.</p>
+        </div>
+        <div class="field">
+          <div class="field-row"><label for="problem">¿Qué ocurre y qué debería ocurrir?</label><span class="count" id="problemCount" aria-hidden="true">0/2000</span></div>
+          <textarea id="problem" name="problem" required maxlength="2000" placeholder="Describa un fallo o un resultado concreto."></textarea>
+        </div>
+        <div class="field">
+          <label for="stack">Tecnologías, datos de muestra y entorno aprobado</label>
+          <input id="stack" name="stack" maxlength="200" autocomplete="off" placeholder="p. ej., Python, SQLite, entradas sintéticas, staging">
+        </div>
+        <div class="form-foot">
+          <button class="btn btn-primary" type="submit">Preparar mi solicitud <span class="arr" aria-hidden="true">→</span></button>
+          <p class="hint">Nada sale de su navegador.</p>
+        </div>
+      </form>
+      <div id="briefOutput" class="hidden" role="status" hidden></div>
+      <div id="briefActions" class="hidden" hidden><button class="btn" id="copyBrief" type="button">Copiar solicitud</button><button class="btn" id="downloadBrief" type="button">Descargar .txt</button></div>
+      <p id="copyStatus" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot-grid">
+    <p><strong>Gustavo Lima Verde / Confiabilidad de software</strong>Entrega técnica asistida por IA. Ceará, Brasil.</p>
+    <p>Demostraciones independientes con datos sintéticos, 2026.<br>Alcance y aceptación acordados antes de la contratación.</p>
+    <ul class="foot-links">
+      <li><a href="https://www.upwork.com/freelancers/~0153456be778467e4e" target="_blank" rel="noopener noreferrer">Upwork ↗</a></li>
+      <li><a href="https://www.99freelas.com.br/user/gustavo-1790992697889" target="_blank" rel="noopener noreferrer">99Freelas ↗</a></li>
+      <li><a href="https://github.com/GustavoPMLV/freelance-software-evidence" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+      <li><a href="pt.html" hreflang="pt-BR" lang="pt-BR">Versão em português</a></li>
+      <li><a href="index.html" hreflang="en" lang="en">English version</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="portfolio-data.js"></script>
+<script src="catalog-data.es.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

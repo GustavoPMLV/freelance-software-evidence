@@ -1,8 +1,13 @@
 {
-  "schema": 1,
-  "created": "2026-10-02",
+  "schema": 2,
+  "created": "2026-10-03",
   "demo_label": "Independent demonstrations / synthetic data",
-  "tests_passed": 17,
+  "tests_passed": 28,
+  "tests_skipped": [],
+  "verified_environment": {
+    "os": "Linux",
+    "python": "3.12.3"
+  },
   "replaysafe": {
     "deliveries": 3100,
     "unique_events": 1000,
@@ -14,7 +19,7 @@
     "synthetic_transient_failures": 25,
     "lost_acknowledgements": 25,
     "parallel_receivers": 8,
-    "tests": 10,
+    "tests": 13,
     "scope": "Synthetic SQLite fixture; single dispatcher; downstream supports idempotency keys; not a production throughput benchmark"
   },
   "retrieval": {
@@ -26,9 +31,9 @@
       "mrr_at_3": 0.7841
     },
     "improved": {
-      "top1_correct": 42,
+      "top1_correct": 44,
       "recall_at_3": 1.0,
-      "mrr_at_3": 0.9773
+      "mrr_at_3": 1.0
     },
     "cases": [
       {
@@ -45,7 +50,8 @@
           {
             "id": "cancel",
             "title": "Subscription cancel",
-            "score": 8.703017,
+            "score": 1.879071,
+            "lexical_score": 7.269299,
             "excerpt": "A subscription can be canceled from Account settings. Access continues until the paid period ends.",
             "tenant": "atlas",
             "source": "synthetic-policy/cancel"
@@ -53,7 +59,8 @@
           {
             "id": "organization",
             "title": "Organization migration",
-            "score": 2.459421,
+            "score": 0.714395,
+            "lexical_score": 2.501341,
             "excerpt": "Moving an organization requires a separately reviewed migration plan and a backup.",
             "tenant": "atlas",
             "source": "synthetic-policy/organization"
@@ -77,7 +84,8 @@
           {
             "id": "cancel",
             "title": "Subscription cancel",
-            "score": 10.858289,
+            "score": 1.896933,
+            "lexical_score": 8.702458,
             "excerpt": "A subscription can be canceled from Account settings. Access continues until the paid period ends.",
             "tenant": "atlas",
             "source": "synthetic-policy/cancel"
@@ -85,7 +93,8 @@
           {
             "id": "organization",
             "title": "Organization migration",
-            "score": 2.459421,
+            "score": 0.714395,
+            "lexical_score": 2.501341,
             "excerpt": "Moving an organization requires a separately reviewed migration plan and a backup.",
             "tenant": "atlas",
             "source": "synthetic-policy/organization"
@@ -93,7 +102,8 @@
           {
             "id": "invitation",
             "title": "Member invitation",
-            "score": 1.436848,
+            "score": 0.589012,
+            "lexical_score": 1.433159,
             "excerpt": "Owners can send an invitation from workspace settings. Invitations expire after seven days.",
             "tenant": "atlas",
             "source": "synthetic-policy/invitation"
@@ -105,23 +115,15 @@
         "expected": "invoice",
         "baseline": [],
         "improved": [
-          "export",
           "invoice",
           "currencies"
         ],
         "results": [
           {
-            "id": "export",
-            "title": "Data export",
-            "score": 4.607051,
-            "excerpt": "A member can export their own records as CSV. Workspace exports require owner access.",
-            "tenant": "atlas",
-            "source": "synthetic-policy/export"
-          },
-          {
             "id": "invoice",
             "title": "Invoice history",
-            "score": 4.441481,
+            "score": 1.791368,
+            "lexical_score": 3.79312,
             "excerpt": "Invoice PDFs are available under Account billing. An owner can update the recipient address.",
             "tenant": "atlas",
             "source": "synthetic-policy/invoice"
@@ -129,7 +131,8 @@
           {
             "id": "currencies",
             "title": "Supported currencies",
-            "score": 2.161081,
+            "score": 0.681876,
+            "lexical_score": 2.143426,
             "excerpt": "Invoices in this synthetic workspace support USD and EUR. Currency selection happens before purchase.",
             "tenant": "atlas",
             "source": "synthetic-policy/currencies"
@@ -150,7 +153,8 @@
           {
             "id": "invoice",
             "title": "Invoice history",
-            "score": 4.441481,
+            "score": 1.791368,
+            "lexical_score": 3.79312,
             "excerpt": "Invoice PDFs are available under Account billing. An owner can update the recipient address.",
             "tenant": "atlas",
             "source": "synthetic-policy/invoice"
@@ -158,7 +162,8 @@
           {
             "id": "currencies",
             "title": "Supported currencies",
-            "score": 2.161081,
+            "score": 0.681876,
+            "lexical_score": 2.143426,
             "excerpt": "Invoices in this synthetic workspace support USD and EUR. Currency selection happens before purchase.",
             "tenant": "atlas",
             "source": "synthetic-policy/currencies"
@@ -180,7 +185,8 @@
           {
             "id": "password",
             "title": "Password reset",
-            "score": 9.65232,
+            "score": 1.878202,
+            "lexical_score": 7.210327,
             "excerpt": "Use the password reset link on the login screen. Reset links expire after 30 minutes.",
             "tenant": "atlas",
             "source": "synthetic-policy/password"
@@ -188,7 +194,8 @@
           {
             "id": "session",
             "title": "Session expiration",
-            "score": 4.457336,
+            "score": 0.816375,
+            "lexical_score": 4.445892,
             "excerpt": "The demo session expires after 24 hours. A password reset revokes existing sessions.",
             "tenant": "atlas",
             "source": "synthetic-policy/session"
@@ -210,7 +217,8 @@
           {
             "id": "password",
             "title": "Password reset",
-            "score": 9.65232,
+            "score": 1.878202,
+            "lexical_score": 7.210327,
             "excerpt": "Use the password reset link on the login screen. Reset links expire after 30 minutes.",
             "tenant": "atlas",
             "source": "synthetic-policy/password"
@@ -218,7 +226,8 @@
           {
             "id": "session",
             "title": "Session expiration",
-            "score": 4.457336,
+            "score": 0.816375,
+            "lexical_score": 4.445892,
             "excerpt": "The demo session expires after 24 hours. A password reset revokes existing sessions.",
             "tenant": "atlas",
             "source": "synthetic-policy/session"
@@ -238,7 +247,8 @@
           {
             "id": "refund",
             "title": "Refund request",
-            "score": 11.056922,
+            "score": 1.895307,
+            "lexical_score": 8.551718,
             "excerpt": "Request a refund within 14 days through support. Eligibility is reviewed against the purchase terms.",
             "tenant": "atlas",
             "source": "synthetic-policy/refund"
@@ -255,33 +265,36 @@
         ],
         "improved": [
           "refund",
-          "currencies",
-          "support"
+          "support",
+          "currencies"
         ],
         "results": [
           {
             "id": "refund",
             "title": "Refund request",
-            "score": 9.294263,
+            "score": 1.888827,
+            "lexical_score": 7.994995,
             "excerpt": "Request a refund within 14 days through support. Eligibility is reviewed against the purchase terms.",
             "tenant": "atlas",
             "source": "synthetic-policy/refund"
           },
           {
-            "id": "currencies",
-            "title": "Supported currencies",
-            "score": 3.749769,
-            "excerpt": "Invoices in this synthetic workspace support USD and EUR. Currency selection happens before purchase.",
-            "tenant": "atlas",
-            "source": "synthetic-policy/currencies"
-          },
-          {
             "id": "support",
             "title": "Support hours",
-            "score": 2.69641,
+            "score": 1.717595,
+            "lexical_score": 2.541012,
             "excerpt": "Support for the synthetic Atlas workspace operates Monday to Friday from 09:00 to 17:00 UTC.",
             "tenant": "atlas",
             "source": "synthetic-policy/support"
+          },
+          {
+            "id": "currencies",
+            "title": "Supported currencies",
+            "score": 0.788097,
+            "lexical_score": 3.719136,
+            "excerpt": "Invoices in this synthetic workspace support USD and EUR. Currency selection happens before purchase.",
+            "tenant": "atlas",
+            "source": "synthetic-policy/currencies"
           }
         ]
       },
@@ -300,7 +313,8 @@
           {
             "id": "export",
             "title": "Data export",
-            "score": 7.308402,
+            "score": 1.865216,
+            "lexical_score": 6.419285,
             "excerpt": "A member can export their own records as CSV. Workspace exports require owner access.",
             "tenant": "atlas",
             "source": "synthetic-policy/export"
@@ -308,7 +322,8 @@
           {
             "id": "history",
             "title": "Event history",
-            "score": 2.934324,
+            "score": 0.744032,
+            "lexical_score": 2.906741,
             "excerpt": "Event history records the actor, timestamp and event ID. Exportable audit records require owner access.",
             "tenant": "atlas",
             "source": "synthetic-policy/history"
@@ -332,7 +347,8 @@
           {
             "id": "export",
             "title": "Data export",
-            "score": 9.600178,
+            "score": 1.891748,
+            "lexical_score": 8.237728,
             "excerpt": "A member can export their own records as CSV. Workspace exports require owner access.",
             "tenant": "atlas",
             "source": "synthetic-policy/export"
@@ -340,7 +356,8 @@
           {
             "id": "invitation",
             "title": "Member invitation",
-            "score": 2.363451,
+            "score": 1.722336,
+            "lexical_score": 2.60148,
             "excerpt": "Owners can send an invitation from workspace settings. Invitations expire after seven days.",
             "tenant": "atlas",
             "source": "synthetic-policy/invitation"
@@ -348,7 +365,8 @@
           {
             "id": "attachment",
             "title": "Attachment upload",
-            "score": 2.228668,
+            "score": 0.689725,
+            "lexical_score": 2.222946,
             "excerpt": "Attachment uploads support PDF and CSV. The maximum file size in the demo is 20 MB.",
             "tenant": "atlas",
             "source": "synthetic-policy/attachment"
@@ -372,7 +390,8 @@
           {
             "id": "deletion",
             "title": "Account deletion",
-            "score": 9.979351,
+            "score": 1.882281,
+            "lexical_score": 7.494774,
             "excerpt": "Account deletion requires confirmation from the owner. The demo policy defines a 30-day removal window.",
             "tenant": "atlas",
             "source": "synthetic-policy/deletion"
@@ -380,7 +399,8 @@
           {
             "id": "invoice",
             "title": "Invoice history",
-            "score": 1.951803,
+            "score": 0.661999,
+            "lexical_score": 1.958568,
             "excerpt": "Invoice PDFs are available under Account billing. An owner can update the recipient address.",
             "tenant": "atlas",
             "source": "synthetic-policy/invoice"
@@ -388,7 +408,8 @@
           {
             "id": "cancel",
             "title": "Subscription cancel",
-            "score": 1.890761,
+            "score": 0.653488,
+            "lexical_score": 1.885906,
             "excerpt": "A subscription can be canceled from Account settings. Access continues until the paid period ends.",
             "tenant": "atlas",
             "source": "synthetic-policy/cancel"
@@ -412,7 +433,8 @@
           {
             "id": "deletion",
             "title": "Account deletion",
-            "score": 13.849767,
+            "score": 1.909425,
+            "lexical_score": 10.040516,
             "excerpt": "Account deletion requires confirmation from the owner. The demo policy defines a 30-day removal window.",
             "tenant": "atlas",
             "source": "synthetic-policy/deletion"
@@ -420,7 +442,8 @@
           {
             "id": "invoice",
             "title": "Invoice history",
-            "score": 1.951803,
+            "score": 0.661999,
+            "lexical_score": 1.958568,
             "excerpt": "Invoice PDFs are available under Account billing. An owner can update the recipient address.",
             "tenant": "atlas",
             "source": "synthetic-policy/invoice"
@@ -428,7 +451,8 @@
           {
             "id": "cancel",
             "title": "Subscription cancel",
-            "score": 1.890761,
+            "score": 0.653488,
+            "lexical_score": 1.885906,
             "excerpt": "A subscription can be canceled from Account settings. Access continues until the paid period ends.",
             "tenant": "atlas",
             "source": "synthetic-policy/cancel"
@@ -450,7 +474,8 @@
           {
             "id": "region",
             "title": "Data region",
-            "score": 10.462337,
+            "score": 1.887028,
+            "lexical_score": 7.851721,
             "excerpt": "Atlas demo data stays in the EU region selected at workspace creation.",
             "tenant": "atlas",
             "source": "synthetic-policy/region"
@@ -458,7 +483,8 @@
           {
             "id": "export",
             "title": "Data export",
-            "score": 2.701351,
+            "score": 1.754082,
+            "lexical_score": 3.066404,
             "excerpt": "A member can export their own records as CSV. Workspace exports require owner access.",
             "tenant": "atlas",
             "source": "synthetic-policy/export"
@@ -480,7 +506,8 @@
           {
             "id": "region",
             "title": "Data region",
-            "score": 10.462337,
+            "score": 1.887028,
+            "lexical_score": 7.851721,
             "excerpt": "Atlas demo data stays in the EU region selected at workspace creation.",
             "tenant": "atlas",
             "source": "synthetic-policy/region"
@@ -488,7 +515,8 @@
           {
             "id": "export",
             "title": "Data export",
-            "score": 2.701351,
+            "score": 1.754082,
+            "lexical_score": 3.066404,
             "excerpt": "A member can export their own records as CSV. Workspace exports require owner access.",
             "tenant": "atlas",
             "source": "synthetic-policy/export"
@@ -511,7 +539,8 @@
           {
             "id": "rotation",
             "title": "API key rotation",
-            "score": 15.913463,
+            "score": 1.914463,
+            "lexical_score": 10.690833,
             "excerpt": "A workspace owner can create a replacement API key and revoke the old key after testing.",
             "tenant": "atlas",
             "source": "synthetic-policy/rotation"
@@ -519,7 +548,8 @@
           {
             "id": "limit",
             "title": "API rate limit",
-            "score": 3.593911,
+            "score": 1.770712,
+            "lexical_score": 3.361324,
             "excerpt": "The demo API limit is 120 requests per minute. HTTP 429 includes a retry-after header.",
             "tenant": "atlas",
             "source": "synthetic-policy/limit"
@@ -527,7 +557,8 @@
           {
             "id": "idempotency",
             "title": "Webhook idempotency",
-            "score": 2.161081,
+            "score": 0.681876,
+            "lexical_score": 2.143426,
             "excerpt": "Each event ID is an idempotency key. Repeated deliveries must not create a second effect.",
             "tenant": "atlas",
             "source": "synthetic-policy/idempotency"
@@ -549,7 +580,8 @@
           {
             "id": "rotation",
             "title": "API key rotation",
-            "score": 10.94491,
+            "score": 1.90171,
+            "lexical_score": 9.173986,
             "excerpt": "A workspace owner can create a replacement API key and revoke the old key after testing.",
             "tenant": "atlas",
             "source": "synthetic-policy/rotation"
@@ -557,7 +589,8 @@
           {
             "id": "idempotency",
             "title": "Webhook idempotency",
-            "score": 2.161081,
+            "score": 0.681876,
+            "lexical_score": 2.143426,
             "excerpt": "Each event ID is an idempotency key. Repeated deliveries must not create a second effect.",
             "tenant": "atlas",
             "source": "synthetic-policy/idempotency"
@@ -579,7 +612,8 @@
           {
             "id": "limit",
             "title": "API rate limit",
-            "score": 9.618101,
+            "score": 1.882303,
+            "lexical_score": 7.496371,
             "excerpt": "The demo API limit is 120 requests per minute. HTTP 429 includes a retry-after header.",
             "tenant": "atlas",
             "source": "synthetic-policy/limit"
@@ -587,7 +621,8 @@
           {
             "id": "rotation",
             "title": "API key rotation",
-            "score": 3.745009,
+            "score": 1.773107,
+            "lexical_score": 3.40737,
             "excerpt": "A workspace owner can create a replacement API key and revoke the old key after testing.",
             "tenant": "atlas",
             "source": "synthetic-policy/rotation"
@@ -611,7 +646,8 @@
           {
             "id": "limit",
             "title": "API rate limit",
-            "score": 8.2541,
+            "score": 1.878779,
+            "lexical_score": 7.249393,
             "excerpt": "The demo API limit is 120 requests per minute. HTTP 429 includes a retry-after header.",
             "tenant": "atlas",
             "source": "synthetic-policy/limit"
@@ -619,7 +655,8 @@
           {
             "id": "retry",
             "title": "Webhook retry",
-            "score": 5.361497,
+            "score": 1.824141,
+            "lexical_score": 4.686389,
             "excerpt": "A webhook retries after delivery failure, with an exponential backoff and a maximum of five attempts.",
             "tenant": "atlas",
             "source": "synthetic-policy/retry"
@@ -627,7 +664,8 @@
           {
             "id": "domain",
             "title": "Workspace domain",
-            "score": 1.241889,
+            "score": 0.55812,
+            "lexical_score": 1.263057,
             "excerpt": "An owner can configure a workspace domain after validating DNS ownership.",
             "tenant": "atlas",
             "source": "synthetic-policy/domain"
@@ -651,7 +689,8 @@
           {
             "id": "retry",
             "title": "Webhook retry",
-            "score": 8.899228,
+            "score": 1.882717,
+            "lexical_score": 7.526384,
             "excerpt": "A webhook retries after delivery failure, with an exponential backoff and a maximum of five attempts.",
             "tenant": "atlas",
             "source": "synthetic-policy/retry"
@@ -659,7 +698,8 @@
           {
             "id": "limit",
             "title": "API rate limit",
-            "score": 3.066341,
+            "score": 0.756948,
+            "lexical_score": 3.114345,
             "excerpt": "The demo API limit is 120 requests per minute. HTTP 429 includes a retry-after header.",
             "tenant": "atlas",
             "source": "synthetic-policy/limit"
@@ -667,7 +707,8 @@
           {
             "id": "domain",
             "title": "Workspace domain",
-            "score": 1.241889,
+            "score": 0.55812,
+            "lexical_score": 1.263057,
             "excerpt": "An owner can configure a workspace domain after validating DNS ownership.",
             "tenant": "atlas",
             "source": "synthetic-policy/domain"
@@ -690,7 +731,8 @@
           {
             "id": "retry",
             "title": "Webhook retry",
-            "score": 13.627764,
+            "score": 1.908099,
+            "lexical_score": 9.881316,
             "excerpt": "A webhook retries after delivery failure, with an exponential backoff and a maximum of five attempts.",
             "tenant": "atlas",
             "source": "synthetic-policy/retry"
@@ -698,7 +740,8 @@
           {
             "id": "idempotency",
             "title": "Webhook idempotency",
-            "score": 2.701351,
+            "score": 1.754082,
+            "lexical_score": 3.066404,
             "excerpt": "Each event ID is an idempotency key. Repeated deliveries must not create a second effect.",
             "tenant": "atlas",
             "source": "synthetic-policy/idempotency"
@@ -706,7 +749,8 @@
           {
             "id": "limit",
             "title": "API rate limit",
-            "score": 2.037501,
+            "score": 0.674203,
+            "lexical_score": 2.069399,
             "excerpt": "The demo API limit is 120 requests per minute. HTTP 429 includes a retry-after header.",
             "tenant": "atlas",
             "source": "synthetic-policy/limit"
@@ -728,7 +772,8 @@
           {
             "id": "idempotency",
             "title": "Webhook idempotency",
-            "score": 8.770082,
+            "score": 1.884534,
+            "lexical_score": 7.660575,
             "excerpt": "Each event ID is an idempotency key. Repeated deliveries must not create a second effect.",
             "tenant": "atlas",
             "source": "synthetic-policy/idempotency"
@@ -736,7 +781,8 @@
           {
             "id": "retry",
             "title": "Webhook retry",
-            "score": 3.909369,
+            "score": 1.778793,
+            "lexical_score": 3.52066,
             "excerpt": "A webhook retries after delivery failure, with an exponential backoff and a maximum of five attempts.",
             "tenant": "atlas",
             "source": "synthetic-policy/retry"
@@ -758,7 +804,8 @@
           {
             "id": "idempotency",
             "title": "Webhook idempotency",
-            "score": 4.819608,
+            "score": 1.870761,
+            "lexical_score": 6.737597,
             "excerpt": "Each event ID is an idempotency key. Repeated deliveries must not create a second effect.",
             "tenant": "atlas",
             "source": "synthetic-policy/idempotency"
@@ -766,7 +813,8 @@
           {
             "id": "history",
             "title": "Event history",
-            "score": 4.23054,
+            "score": 1.787625,
+            "lexical_score": 3.708654,
             "excerpt": "Event history records the actor, timestamp and event ID. Exportable audit records require owner access.",
             "tenant": "atlas",
             "source": "synthetic-policy/history"
@@ -783,33 +831,36 @@
         ],
         "improved": [
           "access",
-          "export",
-          "domain"
+          "domain",
+          "export"
         ],
         "results": [
           {
             "id": "access",
             "title": "Workspace access",
-            "score": 5.552969,
+            "score": 1.806478,
+            "lexical_score": 4.167364,
             "excerpt": "Roles are member and owner. Only the owner can change workspace-level access settings.",
             "tenant": "atlas",
             "source": "synthetic-policy/access"
           },
           {
-            "id": "export",
-            "title": "Data export",
-            "score": 2.558046,
-            "excerpt": "A member can export their own records as CSV. Workspace exports require owner access.",
-            "tenant": "atlas",
-            "source": "synthetic-policy/export"
-          },
-          {
             "id": "domain",
             "title": "Workspace domain",
-            "score": 1.834048,
+            "score": 1.616017,
+            "lexical_score": 1.604283,
             "excerpt": "An owner can configure a workspace domain after validating DNS ownership.",
             "tenant": "atlas",
             "source": "synthetic-policy/domain"
+          },
+          {
+            "id": "export",
+            "title": "Data export",
+            "score": 0.717286,
+            "lexical_score": 2.537148,
+            "excerpt": "A member can export their own records as CSV. Workspace exports require owner access.",
+            "tenant": "atlas",
+            "source": "synthetic-policy/export"
           }
         ]
       },
@@ -829,7 +880,8 @@
           {
             "id": "access",
             "title": "Workspace access",
-            "score": 7.753425,
+            "score": 1.866761,
+            "lexical_score": 6.505301,
             "excerpt": "Roles are member and owner. Only the owner can change workspace-level access settings.",
             "tenant": "atlas",
             "source": "synthetic-policy/access"
@@ -837,7 +889,8 @@
           {
             "id": "cancel",
             "title": "Subscription cancel",
-            "score": 3.529135,
+            "score": 0.778765,
+            "lexical_score": 3.520074,
             "excerpt": "A subscription can be canceled from Account settings. Access continues until the paid period ends.",
             "tenant": "atlas",
             "source": "synthetic-policy/cancel"
@@ -856,7 +909,8 @@
           {
             "id": "invitation",
             "title": "Member invitation",
-            "score": 4.705977,
+            "score": 1.811393,
+            "lexical_score": 4.302026,
             "excerpt": "Owners can send an invitation from workspace settings. Invitations expire after seven days.",
             "tenant": "atlas",
             "source": "synthetic-policy/invitation"
@@ -864,7 +918,8 @@
           {
             "id": "update",
             "title": "Profile update",
-            "score": 2.741672,
+            "score": 0.732236,
+            "lexical_score": 2.734633,
             "excerpt": "Members can update their own display name and locale from their profile page.",
             "tenant": "atlas",
             "source": "synthetic-policy/update"
@@ -887,7 +942,8 @@
           {
             "id": "invitation",
             "title": "Member invitation",
-            "score": 7.491812,
+            "score": 1.867109,
+            "lexical_score": 6.524972,
             "excerpt": "Owners can send an invitation from workspace settings. Invitations expire after seven days.",
             "tenant": "atlas",
             "source": "synthetic-policy/invitation"
@@ -895,7 +951,8 @@
           {
             "id": "update",
             "title": "Profile update",
-            "score": 2.741672,
+            "score": 0.732236,
+            "lexical_score": 2.734633,
             "excerpt": "Members can update their own display name and locale from their profile page.",
             "tenant": "atlas",
             "source": "synthetic-policy/update"
@@ -903,7 +960,8 @@
           {
             "id": "password",
             "title": "Password reset",
-            "score": 2.161081,
+            "score": 0.681876,
+            "lexical_score": 2.143426,
             "excerpt": "Use the password reset link on the login screen. Reset links expire after 30 minutes.",
             "tenant": "atlas",
             "source": "synthetic-policy/password"
@@ -921,7 +979,8 @@
           {
             "id": "organization",
             "title": "Organization migration",
-            "score": 5.03,
+            "score": 1.81481,
+            "lexical_score": 4.399854,
             "excerpt": "Moving an organization requires a separately reviewed migration plan and a backup.",
             "tenant": "atlas",
             "source": "synthetic-policy/organization"
@@ -945,7 +1004,8 @@
           {
             "id": "organization",
             "title": "Organization migration",
-            "score": 12.072001,
+            "score": 1.897956,
+            "lexical_score": 8.799708,
             "excerpt": "Moving an organization requires a separately reviewed migration plan and a backup.",
             "tenant": "atlas",
             "source": "synthetic-policy/organization"
@@ -953,7 +1013,8 @@
           {
             "id": "export",
             "title": "Data export",
-            "score": 2.161081,
+            "score": 0.681876,
+            "lexical_score": 2.143426,
             "excerpt": "A member can export their own records as CSV. Workspace exports require owner access.",
             "tenant": "atlas",
             "source": "synthetic-policy/export"
@@ -961,7 +1022,8 @@
           {
             "id": "history",
             "title": "Event history",
-            "score": 2.097472,
+            "score": 0.674203,
+            "lexical_score": 2.069399,
             "excerpt": "Event history records the actor, timestamp and event ID. Exportable audit records require owner access.",
             "tenant": "atlas",
             "source": "synthetic-policy/history"
@@ -981,7 +1043,8 @@
           {
             "id": "retention",
             "title": "Backup retention",
-            "score": 8.572901,
+            "score": 1.879768,
+            "lexical_score": 7.317265,
             "excerpt": "The synthetic backup retention policy keeps daily backups for 30 days.",
             "tenant": "atlas",
             "source": "synthetic-policy/retention"
@@ -1005,7 +1068,8 @@
           {
             "id": "retention",
             "title": "Backup retention",
-            "score": 18.650035,
+            "score": 1.9299,
+            "lexical_score": 13.26537,
             "excerpt": "The synthetic backup retention policy keeps daily backups for 30 days.",
             "tenant": "atlas",
             "source": "synthetic-policy/retention"
@@ -1013,7 +1077,8 @@
           {
             "id": "organization",
             "title": "Organization migration",
-            "score": 2.459421,
+            "score": 0.714395,
+            "lexical_score": 2.501341,
             "excerpt": "Moving an organization requires a separately reviewed migration plan and a backup.",
             "tenant": "atlas",
             "source": "synthetic-policy/organization"
@@ -1021,7 +1086,8 @@
           {
             "id": "deletion",
             "title": "Account deletion",
-            "score": 2.097472,
+            "score": 0.674203,
+            "lexical_score": 2.069399,
             "excerpt": "Account deletion requires confirmation from the owner. The demo policy defines a 30-day removal window.",
             "tenant": "atlas",
             "source": "synthetic-policy/deletion"
@@ -1041,7 +1107,8 @@
           {
             "id": "session",
             "title": "Session expiration",
-            "score": 10.749025,
+            "score": 1.822339,
+            "lexical_score": 4.628691,
             "excerpt": "The demo session expires after 24 hours. A password reset revokes existing sessions.",
             "tenant": "atlas",
             "source": "synthetic-policy/session"
@@ -1065,7 +1132,8 @@
           {
             "id": "session",
             "title": "Session expiration",
-            "score": 10.946182,
+            "score": 1.90074,
+            "lexical_score": 9.074582,
             "excerpt": "The demo session expires after 24 hours. A password reset revokes existing sessions.",
             "tenant": "atlas",
             "source": "synthetic-policy/session"
@@ -1073,7 +1141,8 @@
           {
             "id": "password",
             "title": "Password reset",
-            "score": 9.65232,
+            "score": 1.878202,
+            "lexical_score": 7.210327,
             "excerpt": "Use the password reset link on the login screen. Reset links expire after 30 minutes.",
             "tenant": "atlas",
             "source": "synthetic-policy/password"
@@ -1081,7 +1150,8 @@
           {
             "id": "rotation",
             "title": "API key rotation",
-            "score": 2.658527,
+            "score": 0.732236,
+            "lexical_score": 2.734633,
             "excerpt": "A workspace owner can create a replacement API key and revoke the old key after testing.",
             "tenant": "atlas",
             "source": "synthetic-policy/rotation"
@@ -1103,7 +1173,8 @@
           {
             "id": "update",
             "title": "Profile update",
-            "score": 10.099599,
+            "score": 1.894024,
+            "lexical_score": 8.436105,
             "excerpt": "Members can update their own display name and locale from their profile page.",
             "tenant": "atlas",
             "source": "synthetic-policy/update"
@@ -1111,7 +1182,8 @@
           {
             "id": "access",
             "title": "Workspace access",
-            "score": 1.951803,
+            "score": 0.661999,
+            "lexical_score": 1.958568,
             "excerpt": "Roles are member and owner. Only the owner can change workspace-level access settings.",
             "tenant": "atlas",
             "source": "synthetic-policy/access"
@@ -1119,7 +1191,8 @@
           {
             "id": "invoice",
             "title": "Invoice history",
-            "score": 1.951803,
+            "score": 0.661999,
+            "lexical_score": 1.958568,
             "excerpt": "Invoice PDFs are available under Account billing. An owner can update the recipient address.",
             "tenant": "atlas",
             "source": "synthetic-policy/invoice"
@@ -1141,7 +1214,8 @@
           {
             "id": "update",
             "title": "Profile update",
-            "score": 13.654184,
+            "score": 1.90912,
+            "lexical_score": 10.003498,
             "excerpt": "Members can update their own display name and locale from their profile page.",
             "tenant": "atlas",
             "source": "synthetic-policy/update"
@@ -1149,7 +1223,8 @@
           {
             "id": "access",
             "title": "Workspace access",
-            "score": 1.951803,
+            "score": 0.661999,
+            "lexical_score": 1.958568,
             "excerpt": "Roles are member and owner. Only the owner can change workspace-level access settings.",
             "tenant": "atlas",
             "source": "synthetic-policy/access"
@@ -1157,7 +1232,8 @@
           {
             "id": "invoice",
             "title": "Invoice history",
-            "score": 1.951803,
+            "score": 0.661999,
+            "lexical_score": 1.958568,
             "excerpt": "Invoice PDFs are available under Account billing. An owner can update the recipient address.",
             "tenant": "atlas",
             "source": "synthetic-policy/invoice"
@@ -1179,7 +1255,8 @@
           {
             "id": "currencies",
             "title": "Supported currencies",
-            "score": 12.757873,
+            "score": 1.910647,
+            "lexical_score": 10.191526,
             "excerpt": "Invoices in this synthetic workspace support USD and EUR. Currency selection happens before purchase.",
             "tenant": "atlas",
             "source": "synthetic-policy/currencies"
@@ -1187,7 +1264,8 @@
           {
             "id": "invoice",
             "title": "Invoice history",
-            "score": 4.441481,
+            "score": 1.791368,
+            "lexical_score": 3.79312,
             "excerpt": "Invoice PDFs are available under Account billing. An owner can update the recipient address.",
             "tenant": "atlas",
             "source": "synthetic-policy/invoice"
@@ -1207,7 +1285,8 @@
           {
             "id": "currencies",
             "title": "Supported currencies",
-            "score": 2.658527,
+            "score": 0.725034,
+            "lexical_score": 2.636809,
             "excerpt": "Invoices in this synthetic workspace support USD and EUR. Currency selection happens before purchase.",
             "tenant": "atlas",
             "source": "synthetic-policy/currencies"
@@ -1228,7 +1307,8 @@
           {
             "id": "history",
             "title": "Event history",
-            "score": 11.686426,
+            "score": 1.862153,
+            "lexical_score": 6.254395,
             "excerpt": "Event history records the actor, timestamp and event ID. Exportable audit records require owner access.",
             "tenant": "atlas",
             "source": "synthetic-policy/history"
@@ -1236,7 +1316,8 @@
           {
             "id": "invoice",
             "title": "Invoice history",
-            "score": 5.751547,
+            "score": 1.754082,
+            "lexical_score": 3.066404,
             "excerpt": "Invoice PDFs are available under Account billing. An owner can update the recipient address.",
             "tenant": "atlas",
             "source": "synthetic-policy/invoice"
@@ -1259,7 +1340,8 @@
           {
             "id": "history",
             "title": "Event history",
-            "score": 7.898444,
+            "score": 1.868687,
+            "lexical_score": 6.615394,
             "excerpt": "Event history records the actor, timestamp and event ID. Exportable audit records require owner access.",
             "tenant": "atlas",
             "source": "synthetic-policy/history"
@@ -1267,7 +1349,8 @@
           {
             "id": "export",
             "title": "Data export",
-            "score": 7.308402,
+            "score": 1.865216,
+            "lexical_score": 6.419285,
             "excerpt": "A member can export their own records as CSV. Workspace exports require owner access.",
             "tenant": "atlas",
             "source": "synthetic-policy/export"
@@ -1275,7 +1358,8 @@
           {
             "id": "invoice",
             "title": "Invoice history",
-            "score": 2.875774,
+            "score": 1.754082,
+            "lexical_score": 3.066404,
             "excerpt": "Invoice PDFs are available under Account billing. An owner can update the recipient address.",
             "tenant": "atlas",
             "source": "synthetic-policy/invoice"
@@ -1293,7 +1377,8 @@
           {
             "id": "domain",
             "title": "Workspace domain",
-            "score": 10.060001,
+            "score": 1.81481,
+            "lexical_score": 4.399854,
             "excerpt": "An owner can configure a workspace domain after validating DNS ownership.",
             "tenant": "atlas",
             "source": "synthetic-policy/domain"
@@ -1313,7 +1398,8 @@
           {
             "id": "domain",
             "title": "Workspace domain",
-            "score": 6.051081,
+            "score": 0.860222,
+            "lexical_score": 6.154221,
             "excerpt": "An owner can configure a workspace domain after validating DNS ownership.",
             "tenant": "atlas",
             "source": "synthetic-policy/domain"
@@ -1333,7 +1419,8 @@
           {
             "id": "attachment",
             "title": "Attachment upload",
-            "score": 11.560157,
+            "score": 1.907161,
+            "lexical_score": 9.771292,
             "excerpt": "Attachment uploads support PDF and CSV. The maximum file size in the demo is 20 MB.",
             "tenant": "atlas",
             "source": "synthetic-policy/attachment"
@@ -1353,7 +1440,8 @@
           {
             "id": "attachment",
             "title": "Attachment upload",
-            "score": 13.872188,
+            "score": 1.915318,
+            "lexical_score": 10.8089,
             "excerpt": "Attachment uploads support PDF and CSV. The maximum file size in the demo is 20 MB.",
             "tenant": "atlas",
             "source": "synthetic-policy/attachment"
@@ -1369,31 +1457,34 @@
           "currencies"
         ],
         "improved": [
-          "invoice",
           "support",
+          "invoice",
           "attachment"
         ],
         "results": [
           {
-            "id": "invoice",
-            "title": "Invoice history",
-            "score": 2.830185,
-            "excerpt": "Invoice PDFs are available under Account billing. An owner can update the recipient address.",
-            "tenant": "atlas",
-            "source": "synthetic-policy/invoice"
-          },
-          {
             "id": "support",
             "title": "Support hours",
-            "score": 2.69641,
+            "score": 1.717595,
+            "lexical_score": 2.541012,
             "excerpt": "Support for the synthetic Atlas workspace operates Monday to Friday from 09:00 to 17:00 UTC.",
             "tenant": "atlas",
             "source": "synthetic-policy/support"
           },
           {
+            "id": "invoice",
+            "title": "Invoice history",
+            "score": 0.739583,
+            "lexical_score": 2.839995,
+            "excerpt": "Invoice PDFs are available under Account billing. An owner can update the recipient address.",
+            "tenant": "atlas",
+            "source": "synthetic-policy/invoice"
+          },
+          {
             "id": "attachment",
             "title": "Attachment upload",
-            "score": 1.638374,
+            "score": 0.620373,
+            "lexical_score": 1.634168,
             "excerpt": "Attachment uploads support PDF and CSV. The maximum file size in the demo is 20 MB.",
             "tenant": "atlas",
             "source": "synthetic-policy/attachment"
@@ -1417,7 +1508,8 @@
           {
             "id": "support",
             "title": "Support hours",
-            "score": 6.3819,
+            "score": 1.848655,
+            "lexical_score": 5.607416,
             "excerpt": "Support for the synthetic Atlas workspace operates Monday to Friday from 09:00 to 17:00 UTC.",
             "tenant": "atlas",
             "source": "synthetic-policy/support"
@@ -1425,7 +1517,8 @@
           {
             "id": "session",
             "title": "Session expiration",
-            "score": 2.228668,
+            "score": 0.689725,
+            "lexical_score": 2.222946,
             "excerpt": "The demo session expires after 24 hours. A password reset revokes existing sessions.",
             "tenant": "atlas",
             "source": "synthetic-policy/session"
@@ -1433,7 +1526,8 @@
           {
             "id": "attachment",
             "title": "Attachment upload",
-            "score": 1.638374,
+            "score": 0.620373,
+            "lexical_score": 1.634168,
             "excerpt": "Attachment uploads support PDF and CSV. The maximum file size in the demo is 20 MB.",
             "tenant": "atlas",
             "source": "synthetic-policy/attachment"
@@ -1441,7 +1535,694 @@
         ]
       }
     ],
-    "tests": 7,
-    "scope": "Hand-authored synthetic policies and queries; lexical baseline vs domain normalization + BM25 + title boost. No LLM, embeddings or live client data. Same access filters in both pipelines. Performance does not establish generalization to real corpora."
+    "tests": 15,
+    "scope": "Original hand-authored synthetic policies, questions and labels unchanged. Lexical baseline vs domain normalization, field-normalized lexical ranking and an explicit topical-title prior. No query-to-answer lookup, LLM, embeddings or live client data. Access filtering precedes scoring in both pipelines. Additional paraphrases are development checks, not a blind holdout. Performance does not establish generalization to real corpora.",
+    "original_corpus_sha256": "a59178860cbbed932978b83490cc7371b35d987dd44fc04c81d5b96d81eab46f",
+    "additional_development_checks": {
+      "queries": 22,
+      "baseline": {
+        "top1_correct": 22,
+        "recall_at_3": 1.0,
+        "mrr_at_3": 1.0
+      },
+      "improved": {
+        "top1_correct": 22,
+        "recall_at_3": 1.0,
+        "mrr_at_3": 1.0
+      },
+      "cases": [
+        {
+          "query": "Please explain cancelling the subscription",
+          "expected": "cancel",
+          "baseline": [
+            "cancel"
+          ],
+          "improved": [
+            "cancel",
+            "organization"
+          ],
+          "results": [
+            {
+              "id": "cancel",
+              "title": "Subscription cancel",
+              "score": 1.777632,
+              "lexical_score": 3.497058,
+              "excerpt": "A subscription can be canceled from Account settings. Access continues until the paid period ends.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/cancel"
+            },
+            {
+              "id": "organization",
+              "title": "Organization migration",
+              "score": 0.714395,
+              "lexical_score": 2.501341,
+              "excerpt": "Moving an organization requires a separately reviewed migration plan and a backup.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/organization"
+            }
+          ]
+        },
+        {
+          "query": "Can I get an invoice receipt PDF?",
+          "expected": "invoice",
+          "baseline": [
+            "invoice",
+            "attachment"
+          ],
+          "improved": [
+            "invoice",
+            "attachment",
+            "currencies"
+          ],
+          "results": [
+            {
+              "id": "invoice",
+              "title": "Invoice history",
+              "score": 1.791368,
+              "lexical_score": 3.79312,
+              "excerpt": "Invoice PDFs are available under Account billing. An owner can update the recipient address.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/invoice"
+            },
+            {
+              "id": "attachment",
+              "title": "Attachment upload",
+              "score": 0.732236,
+              "lexical_score": 2.734633,
+              "excerpt": "Attachment uploads support PDF and CSV. The maximum file size in the demo is 20 MB.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/attachment"
+            },
+            {
+              "id": "currencies",
+              "title": "Supported currencies",
+              "score": 0.681876,
+              "lexical_score": 2.143426,
+              "excerpt": "Invoices in this synthetic workspace support USD and EUR. Currency selection happens before purchase.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/currencies"
+            }
+          ]
+        },
+        {
+          "query": "Reset the password for login",
+          "expected": "password",
+          "baseline": [
+            "password",
+            "session"
+          ],
+          "improved": [
+            "password",
+            "session"
+          ],
+          "results": [
+            {
+              "id": "password",
+              "title": "Password reset",
+              "score": 1.90781,
+              "lexical_score": 9.847136,
+              "excerpt": "Use the password reset link on the login screen. Reset links expire after 30 minutes.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/password"
+            },
+            {
+              "id": "session",
+              "title": "Session expiration",
+              "score": 0.816375,
+              "lexical_score": 4.445892,
+              "excerpt": "The demo session expires after 24 hours. A password reset revokes existing sessions.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/session"
+            }
+          ]
+        },
+        {
+          "query": "Refund eligibility and purchase terms?",
+          "expected": "refund",
+          "baseline": [
+            "refund",
+            "currencies"
+          ],
+          "improved": [
+            "refund",
+            "currencies"
+          ],
+          "results": [
+            {
+              "id": "refund",
+              "title": "Refund request",
+              "score": 1.921216,
+              "lexical_score": 11.692902,
+              "excerpt": "Request a refund within 14 days through support. Eligibility is reviewed against the purchase terms.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/refund"
+            },
+            {
+              "id": "currencies",
+              "title": "Supported currencies",
+              "score": 0.681876,
+              "lexical_score": 2.143426,
+              "excerpt": "Invoices in this synthetic workspace support USD and EUR. Currency selection happens before purchase.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/currencies"
+            }
+          ]
+        },
+        {
+          "query": "Export my own records into a CSV",
+          "expected": "export",
+          "baseline": [
+            "export",
+            "history",
+            "attachment"
+          ],
+          "improved": [
+            "export"
+          ],
+          "results": [
+            {
+              "id": "export",
+              "title": "Data export",
+              "score": 1.914575,
+              "lexical_score": 10.706136,
+              "excerpt": "A member can export their own records as CSV. Workspace exports require owner access.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/export"
+            }
+          ]
+        },
+        {
+          "query": "Explain the deletion confirmation window",
+          "expected": "deletion",
+          "baseline": [
+            "deletion"
+          ],
+          "improved": [
+            "deletion"
+          ],
+          "results": [
+            {
+              "id": "deletion",
+              "title": "Account deletion",
+              "score": 1.906137,
+              "lexical_score": 9.65381,
+              "excerpt": "Account deletion requires confirmation from the owner. The demo policy defines a 30-day removal window.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/deletion"
+            }
+          ]
+        },
+        {
+          "query": "EU workspace region location",
+          "expected": "region",
+          "baseline": [
+            "region",
+            "access",
+            "domain"
+          ],
+          "improved": [
+            "region",
+            "domain",
+            "access"
+          ],
+          "results": [
+            {
+              "id": "region",
+              "title": "Data region",
+              "score": 1.891382,
+              "lexical_score": 8.20658,
+              "excerpt": "Atlas demo data stays in the EU region selected at workspace creation.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/region"
+            },
+            {
+              "id": "domain",
+              "title": "Workspace domain",
+              "score": 1.616017,
+              "lexical_score": 1.604283,
+              "excerpt": "An owner can configure a workspace domain after validating DNS ownership.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/domain"
+            },
+            {
+              "id": "access",
+              "title": "Workspace access",
+              "score": 1.612283,
+              "lexical_score": 1.579199,
+              "excerpt": "Roles are member and owner. Only the owner can change workspace-level access settings.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/access"
+            }
+          ]
+        },
+        {
+          "query": "Create a replacement API key through rotation",
+          "expected": "rotation",
+          "baseline": [
+            "rotation",
+            "idempotency",
+            "limit"
+          ],
+          "improved": [
+            "rotation",
+            "idempotency"
+          ],
+          "results": [
+            {
+              "id": "rotation",
+              "title": "API key rotation",
+              "score": 1.939934,
+              "lexical_score": 15.648411,
+              "excerpt": "A workspace owner can create a replacement API key and revoke the old key after testing.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/rotation"
+            },
+            {
+              "id": "idempotency",
+              "title": "Webhook idempotency",
+              "score": 0.810852,
+              "lexical_score": 4.286852,
+              "excerpt": "Each event ID is an idempotency key. Repeated deliveries must not create a second effect.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/idempotency"
+            }
+          ]
+        },
+        {
+          "query": "What is the rate limit for API requests?",
+          "expected": "limit",
+          "baseline": [
+            "limit",
+            "rotation"
+          ],
+          "improved": [
+            "limit",
+            "rotation"
+          ],
+          "results": [
+            {
+              "id": "limit",
+              "title": "API rate limit",
+              "score": 1.931605,
+              "lexical_score": 13.620855,
+              "excerpt": "The demo API limit is 120 requests per minute. HTTP 429 includes a retry-after header.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/limit"
+            },
+            {
+              "id": "rotation",
+              "title": "API key rotation",
+              "score": 1.773107,
+              "lexical_score": 3.40737,
+              "excerpt": "A workspace owner can create a replacement API key and revoke the old key after testing.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/rotation"
+            }
+          ]
+        },
+        {
+          "query": "A webhook fails; what retry backoff is used?",
+          "expected": "retry",
+          "baseline": [
+            "retry",
+            "idempotency",
+            "limit"
+          ],
+          "improved": [
+            "retry"
+          ],
+          "results": [
+            {
+              "id": "retry",
+              "title": "Webhook retry",
+              "score": 1.908099,
+              "lexical_score": 9.881316,
+              "excerpt": "A webhook retries after delivery failure, with an exponential backoff and a maximum of five attempts.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/retry"
+            }
+          ]
+        },
+        {
+          "query": "Repeating event deliveries with idempotency",
+          "expected": "idempotency",
+          "baseline": [
+            "idempotency",
+            "history"
+          ],
+          "improved": [
+            "idempotency",
+            "history"
+          ],
+          "results": [
+            {
+              "id": "idempotency",
+              "title": "Webhook idempotency",
+              "score": 1.903609,
+              "lexical_score": 9.374406,
+              "excerpt": "Each event ID is an idempotency key. Repeated deliveries must not create a second effect.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/idempotency"
+            },
+            {
+              "id": "history",
+              "title": "Event history",
+              "score": 1.787625,
+              "lexical_score": 3.708654,
+              "excerpt": "Event history records the actor, timestamp and event ID. Exportable audit records require owner access.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/history"
+            }
+          ]
+        },
+        {
+          "query": "Who changes workspace access roles?",
+          "expected": "access",
+          "baseline": [
+            "access",
+            "domain",
+            "export"
+          ],
+          "improved": [
+            "access",
+            "export"
+          ],
+          "results": [
+            {
+              "id": "access",
+              "title": "Workspace access",
+              "score": 1.875115,
+              "lexical_score": 7.007359,
+              "excerpt": "Roles are member and owner. Only the owner can change workspace-level access settings.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/access"
+            },
+            {
+              "id": "export",
+              "title": "Data export",
+              "score": 0.717286,
+              "lexical_score": 2.537148,
+              "excerpt": "A member can export their own records as CSV. Workspace exports require owner access.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/export"
+            }
+          ]
+        },
+        {
+          "query": "Member invitation expiration after seven days",
+          "expected": "invitation",
+          "baseline": [
+            "invitation",
+            "session",
+            "access"
+          ],
+          "improved": [
+            "invitation",
+            "session"
+          ],
+          "results": [
+            {
+              "id": "invitation",
+              "title": "Member invitation",
+              "score": 1.926721,
+              "lexical_score": 12.646526,
+              "excerpt": "Owners can send an invitation from workspace settings. Invitations expire after seven days.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/invitation"
+            },
+            {
+              "id": "session",
+              "title": "Session expiration",
+              "score": 1.830357,
+              "lexical_score": 4.894722,
+              "excerpt": "The demo session expires after 24 hours. A password reset revokes existing sessions.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/session"
+            }
+          ]
+        },
+        {
+          "query": "Organization migration backup plan",
+          "expected": "organization",
+          "baseline": [
+            "organization",
+            "retention"
+          ],
+          "improved": [
+            "organization",
+            "retention",
+            "cancel"
+          ],
+          "results": [
+            {
+              "id": "organization",
+              "title": "Organization migration",
+              "score": 1.932443,
+              "lexical_score": 13.802391,
+              "excerpt": "Moving an organization requires a separately reviewed migration plan and a backup.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/organization"
+            },
+            {
+              "id": "retention",
+              "title": "Backup retention",
+              "score": 1.780075,
+              "lexical_score": 3.547,
+              "excerpt": "The synthetic backup retention policy keeps daily backups for 30 days.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/retention"
+            },
+            {
+              "id": "cancel",
+              "title": "Subscription cancel",
+              "score": 1.777632,
+              "lexical_score": 3.497058,
+              "excerpt": "A subscription can be canceled from Account settings. Access continues until the paid period ends.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/cancel"
+            }
+          ]
+        },
+        {
+          "query": "Retention for daily backup copies",
+          "expected": "retention",
+          "baseline": [
+            "retention",
+            "organization"
+          ],
+          "improved": [
+            "retention",
+            "organization"
+          ],
+          "results": [
+            {
+              "id": "retention",
+              "title": "Backup retention",
+              "score": 1.915713,
+              "lexical_score": 10.864265,
+              "excerpt": "The synthetic backup retention policy keeps daily backups for 30 days.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/retention"
+            },
+            {
+              "id": "organization",
+              "title": "Organization migration",
+              "score": 0.714395,
+              "lexical_score": 2.501341,
+              "excerpt": "Moving an organization requires a separately reviewed migration plan and a backup.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/organization"
+            }
+          ]
+        },
+        {
+          "query": "Session expiration after resetting a password",
+          "expected": "session",
+          "baseline": [
+            "session",
+            "password",
+            "domain"
+          ],
+          "improved": [
+            "session",
+            "password"
+          ],
+          "results": [
+            {
+              "id": "session",
+              "title": "Session expiration",
+              "score": 1.933197,
+              "lexical_score": 13.969304,
+              "excerpt": "The demo session expires after 24 hours. A password reset revokes existing sessions.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/session"
+            },
+            {
+              "id": "password",
+              "title": "Password reset",
+              "score": 1.892388,
+              "lexical_score": 8.292654,
+              "excerpt": "Use the password reset link on the login screen. Reset links expire after 30 minutes.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/password"
+            }
+          ]
+        },
+        {
+          "query": "Profile display name and locale update",
+          "expected": "update",
+          "baseline": [
+            "update",
+            "invoice"
+          ],
+          "improved": [
+            "update"
+          ],
+          "results": [
+            {
+              "id": "update",
+              "title": "Profile update",
+              "score": 1.939294,
+              "lexical_score": 15.472764,
+              "excerpt": "Members can update their own display name and locale from their profile page.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/update"
+            }
+          ]
+        },
+        {
+          "query": "Currencies USD EUR before purchase",
+          "expected": "currencies",
+          "baseline": [
+            "currencies",
+            "refund"
+          ],
+          "improved": [
+            "currencies"
+          ],
+          "results": [
+            {
+              "id": "currencies",
+              "title": "Supported currencies",
+              "score": 1.934767,
+              "lexical_score": 14.329711,
+              "excerpt": "Invoices in this synthetic workspace support USD and EUR. Currency selection happens before purchase.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/currencies"
+            }
+          ]
+        },
+        {
+          "query": "Event history export for owner activity",
+          "expected": "history",
+          "baseline": [
+            "history",
+            "export",
+            "access"
+          ],
+          "improved": [
+            "history",
+            "export",
+            "invoice"
+          ],
+          "results": [
+            {
+              "id": "history",
+              "title": "Event history",
+              "score": 1.894317,
+              "lexical_score": 8.462254,
+              "excerpt": "Event history records the actor, timestamp and event ID. Exportable audit records require owner access.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/history"
+            },
+            {
+              "id": "export",
+              "title": "Data export",
+              "score": 1.842722,
+              "lexical_score": 5.358186,
+              "excerpt": "A member can export their own records as CSV. Workspace exports require owner access.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/export"
+            },
+            {
+              "id": "invoice",
+              "title": "Invoice history",
+              "score": 1.808873,
+              "lexical_score": 4.232132,
+              "excerpt": "Invoice PDFs are available under Account billing. An owner can update the recipient address.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/invoice"
+            }
+          ]
+        },
+        {
+          "query": "Domain ownership DNS configuration",
+          "expected": "domain",
+          "baseline": [
+            "domain"
+          ],
+          "improved": [
+            "domain"
+          ],
+          "results": [
+            {
+              "id": "domain",
+              "title": "Workspace domain",
+              "score": 1.91345,
+              "lexical_score": 10.554075,
+              "excerpt": "An owner can configure a workspace domain after validating DNS ownership.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/domain"
+            }
+          ]
+        },
+        {
+          "query": "Attachment upload maximum MB and PDF",
+          "expected": "attachment",
+          "baseline": [
+            "attachment",
+            "retry"
+          ],
+          "improved": [
+            "attachment"
+          ],
+          "results": [
+            {
+              "id": "attachment",
+              "title": "Attachment upload",
+              "score": 1.940357,
+              "lexical_score": 15.766479,
+              "excerpt": "Attachment uploads support PDF and CSV. The maximum file size in the demo is 20 MB.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/attachment"
+            }
+          ]
+        },
+        {
+          "query": "Support hours on Monday Friday UTC",
+          "expected": "support",
+          "baseline": [
+            "support",
+            "attachment",
+            "currencies"
+          ],
+          "improved": [
+            "support"
+          ],
+          "results": [
+            {
+              "id": "support",
+              "title": "Support hours",
+              "score": 1.929798,
+              "lexical_score": 13.24464,
+              "excerpt": "Support for the synthetic Atlas workspace operates Monday to Friday from 09:00 to 17:00 UTC.",
+              "tenant": "atlas",
+              "source": "synthetic-policy/support"
+            }
+          ]
+        }
+      ],
+      "scope": "Additional hand-authored synthetic paraphrases used during development; not a blind holdout or real-corpus benchmark."
+    }
   }
 }

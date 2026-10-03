@@ -1,0 +1,350 @@
+{
+  "cases": [
+    [
+      "How do I terminate my plan?",
+      "cancel"
+    ],
+    [
+      "How do I unsubscribe from a subscription?",
+      "cancel"
+    ],
+    [
+      "Where can I download receipts?",
+      "invoice"
+    ],
+    [
+      "I need a copy of invoices",
+      "invoice"
+    ],
+    [
+      "I forgot my password",
+      "password"
+    ],
+    [
+      "How do I reset credentials?",
+      "password"
+    ],
+    [
+      "How can I request reimbursement?",
+      "refund"
+    ],
+    [
+      "Can support reimburse my purchase?",
+      "refund"
+    ],
+    [
+      "How can I extract my records?",
+      "export"
+    ],
+    [
+      "Can a member export CSV?",
+      "export"
+    ],
+    [
+      "How can I erase an account?",
+      "deletion"
+    ],
+    [
+      "What is the account removal window?",
+      "deletion"
+    ],
+    [
+      "Where is the data residency?",
+      "region"
+    ],
+    [
+      "What is the data location?",
+      "region"
+    ],
+    [
+      "How can I rotate API tokens?",
+      "rotation"
+    ],
+    [
+      "How do I revoke the old key?",
+      "rotation"
+    ],
+    [
+      "What are API quotas?",
+      "limit"
+    ],
+    [
+      "Does throttle return retry-after?",
+      "limit"
+    ],
+    [
+      "Do webhooks resend after failure?",
+      "retry"
+    ],
+    [
+      "What is webhook redelivery backoff?",
+      "retry"
+    ],
+    [
+      "How do I prevent duplicate webhook effects?",
+      "idempotency"
+    ],
+    [
+      "Is a repeated event safe?",
+      "idempotency"
+    ],
+    [
+      "Who can edit workspace permissions?",
+      "access"
+    ],
+    [
+      "Which role can change access settings?",
+      "access"
+    ],
+    [
+      "Can I invite a colleague?",
+      "invitation"
+    ],
+    [
+      "When do team invites expire?",
+      "invitation"
+    ],
+    [
+      "How do I move an organisation?",
+      "organization"
+    ],
+    [
+      "What does organization migration require?",
+      "organization"
+    ],
+    [
+      "How long are backups retained?",
+      "retention"
+    ],
+    [
+      "What is daily backup storage policy?",
+      "retention"
+    ],
+    [
+      "When do sessions timeout?",
+      "session"
+    ],
+    [
+      "Does password reset revoke sessions?",
+      "session"
+    ],
+    [
+      "Can I modify my display name?",
+      "update"
+    ],
+    [
+      "Where is profile locale edited?",
+      "update"
+    ],
+    [
+      "Which invoice currency is supported?",
+      "currencies"
+    ],
+    [
+      "Can I pay in EUR?",
+      "currencies"
+    ],
+    [
+      "Where are actor activity logs?",
+      "history"
+    ],
+    [
+      "Who can export audit records?",
+      "history"
+    ],
+    [
+      "How can I add a custom hostname?",
+      "domain"
+    ],
+    [
+      "Who validates DNS ownership?",
+      "domain"
+    ],
+    [
+      "What attachment file size is allowed?",
+      "attachment"
+    ],
+    [
+      "Can I upload PDF files?",
+      "attachment"
+    ],
+    [
+      "When is support available?",
+      "support"
+    ],
+    [
+      "What are support operating hours?",
+      "support"
+    ]
+  ],
+  "documents": [
+    {
+      "body": "A subscription can be canceled from Account settings. Access continues until the paid period ends.",
+      "id": "cancel",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "Subscription cancel"
+    },
+    {
+      "body": "Invoice PDFs are available under Account billing. An owner can update the recipient address.",
+      "id": "invoice",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "Invoice history"
+    },
+    {
+      "body": "Use the password reset link on the login screen. Reset links expire after 30 minutes.",
+      "id": "password",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "Password reset"
+    },
+    {
+      "body": "Request a refund within 14 days through support. Eligibility is reviewed against the purchase terms.",
+      "id": "refund",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "Refund request"
+    },
+    {
+      "body": "A member can export their own records as CSV. Workspace exports require owner access.",
+      "id": "export",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "Data export"
+    },
+    {
+      "body": "Account deletion requires confirmation from the owner. The demo policy defines a 30-day removal window.",
+      "id": "deletion",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "Account deletion"
+    },
+    {
+      "body": "Atlas demo data stays in the EU region selected at workspace creation.",
+      "id": "region",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "Data region"
+    },
+    {
+      "body": "A workspace owner can create a replacement API key and revoke the old key after testing.",
+      "id": "rotation",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "API key rotation"
+    },
+    {
+      "body": "The demo API limit is 120 requests per minute. HTTP 429 includes a retry-after header.",
+      "id": "limit",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "API rate limit"
+    },
+    {
+      "body": "A webhook retries after delivery failure, with an exponential backoff and a maximum of five attempts.",
+      "id": "retry",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "Webhook retry"
+    },
+    {
+      "body": "Each event ID is an idempotency key. Repeated deliveries must not create a second effect.",
+      "id": "idempotency",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "Webhook idempotency"
+    },
+    {
+      "body": "Roles are member and owner. Only the owner can change workspace-level access settings.",
+      "id": "access",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "Workspace access"
+    },
+    {
+      "body": "Owners can send an invitation from workspace settings. Invitations expire after seven days.",
+      "id": "invitation",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "Member invitation"
+    },
+    {
+      "body": "Moving an organization requires a separately reviewed migration plan and a backup.",
+      "id": "organization",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "Organization migration"
+    },
+    {
+      "body": "The synthetic backup retention policy keeps daily backups for 30 days.",
+      "id": "retention",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "Backup retention"
+    },
+    {
+      "body": "The demo session expires after 24 hours. A password reset revokes existing sessions.",
+      "id": "session",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "Session expiration"
+    },
+    {
+      "body": "Members can update their own display name and locale from their profile page.",
+      "id": "update",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "Profile update"
+    },
+    {
+      "body": "Invoices in this synthetic workspace support USD and EUR. Currency selection happens before purchase.",
+      "id": "currencies",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "Supported currencies"
+    },
+    {
+      "body": "Event history records the actor, timestamp and event ID. Exportable audit records require owner access.",
+      "id": "history",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "Event history"
+    },
+    {
+      "body": "An owner can configure a workspace domain after validating DNS ownership.",
+      "id": "domain",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "Workspace domain"
+    },
+    {
+      "body": "Attachment uploads support PDF and CSV. The maximum file size in the demo is 20 MB.",
+      "id": "attachment",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "Attachment upload"
+    },
+    {
+      "body": "Support for the synthetic Atlas workspace operates Monday to Friday from 09:00 to 17:00 UTC.",
+      "id": "support",
+      "role": "member",
+      "tenant": "atlas",
+      "title": "Support hours"
+    },
+    {
+      "body": "Private owner runbook: incident access keys and recovery steps.",
+      "id": "admin-internal",
+      "role": "owner",
+      "tenant": "atlas",
+      "title": "Owner access runbook"
+    },
+    {
+      "body": "Boreal organization stores data in a different region.",
+      "id": "other-tenant",
+      "role": "member",
+      "tenant": "boreal",
+      "title": "Other organization region"
+    }
+  ]
+}

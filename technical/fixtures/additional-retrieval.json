@@ -1,0 +1,94 @@
+{
+  "schema": 1,
+  "scope": "Additional hand-authored synthetic paraphrases used during development; not a blind holdout or real-corpus benchmark.",
+  "cases": [
+    {
+      "query": "Please explain cancelling the subscription",
+      "expected": "cancel"
+    },
+    {
+      "query": "Can I get an invoice receipt PDF?",
+      "expected": "invoice"
+    },
+    {
+      "query": "Reset the password for login",
+      "expected": "password"
+    },
+    {
+      "query": "Refund eligibility and purchase terms?",
+      "expected": "refund"
+    },
+    {
+      "query": "Export my own records into a CSV",
+      "expected": "export"
+    },
+    {
+      "query": "Explain the deletion confirmation window",
+      "expected": "deletion"
+    },
+    {
+      "query": "EU workspace region location",
+      "expected": "region"
+    },
+    {
+      "query": "Create a replacement API key through rotation",
+      "expected": "rotation"
+    },
+    {
+      "query": "What is the rate limit for API requests?",
+      "expected": "limit"
+    },
+    {
+      "query": "A webhook fails; what retry backoff is used?",
+      "expected": "retry"
+    },
+    {
+      "query": "Repeating event deliveries with idempotency",
+      "expected": "idempotency"
+    },
+    {
+      "query": "Who changes workspace access roles?",
+      "expected": "access"
+    },
+    {
+      "query": "Member invitation expiration after seven days",
+      "expected": "invitation"
+    },
+    {
+      "query": "Organization migration backup plan",
+      "expected": "organization"
+    },
+    {
+      "query": "Retention for daily backup copies",
+      "expected": "retention"
+    },
+    {
+      "query": "Session expiration after resetting a password",
+      "expected": "session"
+    },
+    {
+      "query": "Profile display name and locale update",
+      "expected": "update"
+    },
+    {
+      "query": "Currencies USD EUR before purchase",
+      "expected": "currencies"
+    },
+    {
+      "query": "Event history export for owner activity",
+      "expected": "history"
+    },
+    {
+      "query": "Domain ownership DNS configuration",
+      "expected": "domain"
+    },
+    {
+      "query": "Attachment upload maximum MB and PDF",
+      "expected": "attachment"
+    },
+    {
+      "query": "Support hours on Monday Friday UTC",
+      "expected": "support"
+    }
+  ]
+}

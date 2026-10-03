@@ -1,19 +1,456 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="description" content="Scoped software diagnostics, reliable API integrations and reproducible testing. Independent engineering demonstrations by Gustavo Lima Verde."><title>Gustavo Lima Verde — Every fix arrives with its evidence</title><style>
-:root{--paper:#f5f2ea;--ink:#1d2922;--muted:#637066;--accent:#c8ed8e;--line:#d8ddd2;--white:#fffdf8;--mono:ui-monospace,SFMono-Regular,Consolas,monospace;--serif:Georgia,'Times New Roman',serif}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif}a{color:inherit}button,input,textarea,select{font:inherit}button,a,input,textarea,select{outline-offset:5px}button{cursor:pointer}a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,select:focus-visible{outline:3px solid #34794c}header,.wrap{max-width:1240px;margin:auto;padding:0 40px}.nav{display:flex;align-items:center;justify-content:space-between;height:98px;border-bottom:1px solid var(--line);gap:28px}.brand{font-size:18px;font-weight:750;text-decoration:none;letter-spacing:-.6px}.brand span{display:block;font:10px/1.4 var(--mono);text-transform:uppercase;letter-spacing:2.2px;color:var(--muted);margin-top:5px}.navlinks{display:flex;align-items:center;gap:26px}.navlinks a{text-decoration:none;font-size:13px}.lang{background:none;border:1px solid var(--line);border-radius:6px;font:12px var(--mono);padding:8px 10px}.hero{display:grid;grid-template-columns:1.12fr 1fr;gap:64px;padding:90px 0 72px}.eyebrow{font:11px/1.5 var(--mono);text-transform:uppercase;letter-spacing:2px;display:flex;align-items:center;gap:10px;color:var(--muted)}.dot{width:8px;height:8px;border-radius:50%;background:#51964f;display:inline-block}h1{font:normal clamp(46px,5.2vw,75px)/1.03 var(--serif);letter-spacing:-3px;margin:24px 0 24px;max-width:650px}h1 em{font-style:normal;color:#46734b}h2{font:normal clamp(34px,4vw,50px)/1.12 var(--serif);letter-spacing:-1.6px;margin:16px 0}h3{line-height:1.25;font-size:22px;letter-spacing:-.6px}.lead{max-width:540px;font-size:18px;color:var(--muted)}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;text-decoration:none;border:1px solid var(--ink);border-radius:6px;background:var(--ink);color:var(--white);padding:13px 20px;font-size:13px;font-weight:600}.btn.light{background:transparent;color:var(--ink)}.small{font-size:12px;color:var(--muted)}.receipt{background:var(--ink);color:#f5f5ed;border-radius:14px;padding:30px;align-self:center;box-shadow:18px 22px 0 #e5e9db;position:relative}.receipt .eyebrow{color:#b6c6b5;letter-spacing:1.2px}.receipt-top{display:flex;justify-content:space-between;align-items:center;padding-bottom:20px;border-bottom:1px solid #415047;font:11px var(--mono)}.badge{font:10px var(--mono);padding:6px 8px;border:1px solid #617459;border-radius:3px;color:var(--accent)}.pipe{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:32px 0}.pipe strong{display:block;font:42px/1.1 var(--mono);letter-spacing:-3px}.pipe small{font:10px var(--mono);color:#bdc7be}.arrow{color:var(--accent);font-size:30px}.receipt-result{background:#293d2d;border-left:3px solid var(--accent);padding:15px 18px;margin-top:22px;font:12px/1.7 var(--mono)}.receipt-result b{color:var(--accent)}.receipt-foot{font:10px/1.7 var(--mono);color:#acbdae;border-top:1px solid #415047;padding-top:18px;margin-top:24px}.strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:18px 0 76px}.strip div{padding:22px 15px;border-right:1px solid var(--line)}.strip div:last-child{border:0}.strip b{font:13px var(--mono);display:block}.strip span{font-size:12px;color:var(--muted)}section{scroll-margin-top:25px}.sectionhead{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:30px}.sectionhead p{max-width:440px;color:var(--muted);font-size:14px}.offers{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.offer{border:1px solid var(--line);background:var(--white);border-radius:10px;padding:28px;display:flex;flex-direction:column}.offer.featured{border:2px solid #56784f;padding:27px}.offer .num{font:11px var(--mono);color:var(--muted)}.price{font:40px/1.2 var(--serif);letter-spacing:-1.5px;margin:12px 0}.price small{font:12px system-ui;letter-spacing:0;color:var(--muted)}.offer p{font-size:14px;color:var(--muted)}.offer ul{padding-left:18px;font-size:13px;margin:12px 0 25px}.offer li{margin:10px 0}.offer .btn{margin-top:auto}.fineprint{font:11px/1.7 var(--mono);color:var(--muted);margin:20px 0 48px}.catalog{border-top:1px solid var(--line)}.catalog summary{padding:20px 0;font-weight:650;cursor:pointer}.catalog-grid{display:grid;grid-template-columns:1fr 1fr;gap:0 26px;padding-bottom:20px}.catalog-item{display:flex;align-items:start;justify-content:space-between;gap:20px;border-top:1px solid var(--line);padding:17px 0}.catalog-item h4{margin:0;font-size:14px}.catalog-item p{font-size:12px;color:var(--muted);margin:7px 0}.catalog-item b{font:17px var(--mono);white-space:nowrap}.work{margin-top:84px}.case{border-top:1px solid var(--line);padding:34px 0;display:grid;grid-template-columns:.8fr 1.2fr;gap:48px}.case-label{font:10px var(--mono);text-transform:uppercase;letter-spacing:1px;color:var(--muted)}.case p{font-size:14px;color:var(--muted)}.case a{font-size:12px}.lab{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:26px}.lab-top{display:flex;justify-content:space-between;align-items:center;font:10px var(--mono);text-transform:uppercase;letter-spacing:1px;border-bottom:1px solid var(--line);padding-bottom:16px}.lab-top span{color:#447246}.lab label{display:block;font-size:12px;font-weight:650;margin:20px 0 7px}.lab select{width:100%;padding:9px;border:1px solid var(--line);border-radius:4px;background:var(--paper);font-size:12px}.metrics{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:20px 0}.metric{background:var(--paper);padding:18px;border-radius:5px}.metric small{font:10px var(--mono);text-transform:uppercase;color:var(--muted)}.metric b{font:35px var(--serif);display:block;line-height:1.3}.metric.good{background:#e6efd9}.output{font:11px/1.7 var(--mono);background:var(--ink);color:#d9ead3;border-radius:5px;padding:15px;white-space:pre-wrap;overflow-wrap:anywhere;min-height:112px}.limit{font-size:11px!important;color:var(--muted);margin:16px 0 0}.process{background:var(--ink);color:var(--white);border-radius:12px;padding:42px;margin:65px 0}.process h2{max-width:650px}.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin-top:32px}.step b{font:11px var(--mono);color:var(--accent)}.step h4{margin:12px 0;font-size:16px}.step p{font-size:12px;color:#b6c5b7}.about{display:grid;grid-template-columns:1fr 1fr;gap:70px;padding:30px 0 50px}.about p{color:var(--muted);font-size:14px}.faq{border-top:1px solid var(--line)}.faq details{border-bottom:1px solid var(--line);padding:18px 0}.faq summary{cursor:pointer;font-size:14px;font-weight:600}.faq p{font-size:13px;margin-bottom:0}.brief{border-top:1px solid var(--line);padding:65px 0 70px;display:grid;grid-template-columns:.9fr 1.1fr;gap:65px}.brief form{display:grid;gap:15px}.brief label{font-size:12px;font-weight:600}.brief input,.brief textarea,.brief select{display:block;width:100%;border:1px solid var(--line);background:var(--white);padding:12px;border-radius:5px;margin-top:7px}.brief textarea{height:100px;resize:vertical}.brief .small{margin:0}#briefOutput{font:12px/1.6 var(--mono);white-space:pre-wrap;background:var(--white);border:1px solid var(--line);padding:18px;border-radius:6px;margin-top:18px}footer{border-top:1px solid var(--line);padding:28px 0 36px;display:flex;justify-content:space-between;gap:20px;font:10px/1.6 var(--mono);color:var(--muted)}.skip{position:absolute;top:-100px}.skip:focus{top:8px;left:8px;background:var(--white);padding:12px;z-index:10}.hidden{display:none!important}@media(max-width:900px){.hero{gap:35px;padding-top:55px}.offers{grid-template-columns:1fr}.offer{display:grid;grid-template-columns:1fr 1fr;gap:0 25px}.offer .num,.offer h3,.offer .price{grid-column:1}.offer ul,.offer .btn{grid-column:2}.offer ul{grid-row:2/5}.receipt{padding:22px}.pipe strong{font-size:34px}.case{gap:25px}.steps{grid-template-columns:1fr 1fr}.about,.brief{gap:35px}}@media(max-width:640px){header,.wrap{padding:0 22px}.nav{height:80px;gap:15px}.brand{font-size:15px}.brand span{font-size:8px;letter-spacing:1px}.navlinks{gap:12px}.navlinks a{display:none}.hero{display:block;padding:48px 0 35px}h1{font-size:53px;letter-spacing:-2.5px}.lead{font-size:16px}.receipt{margin-top:45px;box-shadow:9px 12px 0 #e5e9db}.strip{grid-template-columns:1fr 1fr;margin:40px 0 55px}.strip div:nth-child(2){border-right:0}.strip div:nth-child(-n+2){border-bottom:1px solid var(--line)}.sectionhead{display:block}.offers{gap:13px}.offer{display:flex;padding:24px}.catalog-grid{grid-template-columns:1fr}.case,.about,.brief{grid-template-columns:1fr;gap:20px}.work{margin-top:65px}.process{padding:27px;margin:38px 0}.steps{gap:20px}.lab{padding:20px}.metrics{gap:10px}.metric{padding:13px}.metric b{font-size:30px}footer{display:block}footer span{display:block;margin:8px 0}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}@media print{.navlinks,.actions,.btn,.brief{display:none!important}header,.wrap{padding:0;max-width:none}.hero{padding:30px 0;gap:35px}.receipt{box-shadow:none}.strip{margin-bottom:30px}.case,.offer,.lab{break-inside:avoid}.work{margin-top:30px}.process{margin:30px 0}.catalog[open] summary{display:none}body{background:white;font-size:12px}.hero h1{font-size:52px}.about{gap:30px}}
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gustavo Lima Verde | Every fix arrives with its evidence</title>
+<link rel="alternate" hreflang="pt-BR" href="https://gustavo-lima-verde-software.gustavo-pmlv6.chatgpt.site/pt.html">
+<link rel="alternate" hreflang="en" href="https://gustavo-lima-verde-software.gustavo-pmlv6.chatgpt.site/index.html">
+<link rel="alternate" hreflang="es" href="https://gustavo-lima-verde-software.gustavo-pmlv6.chatgpt.site/es.html">
+<link rel="alternate" hreflang="x-default" href="https://gustavo-lima-verde-software.gustavo-pmlv6.chatgpt.site/index.html">
+<meta name="description" content="Scoped software diagnostics, reliable API integrations and reproducible testing. Independent engineering demonstrations by Gustavo Lima Verde.">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#F4F1E8">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
 
-/* Creative direction by Claude Opus 5.5 Extra: Case File. */
-:root{--paper:#F4F1EA;--ink:#16181D;--muted:#5B616B;--line:#D9D3C7;--accent:#1F7A5A;--white:#F4F1EA;--serif:'Iowan Old Style',Charter,'Palatino Linotype',Georgia,serif;--mono:ui-monospace,'Cascadia Mono',Consolas,monospace}
-body{font-size:16px}p{max-width:68ch}.hero{grid-template-columns:1.4fr .8fr;gap:70px;padding-top:74px}.hero h1{font-size:clamp(48px,5.7vw,76px);line-height:1.07;letter-spacing:-2.8px}.hero .lead{max-width:45ch}.btn,.lang{border-radius:0}.btn{color:var(--paper)}.btn.light{color:var(--ink)}.receipt{background:transparent;color:var(--ink);border:1px solid var(--line);border-radius:0;box-shadow:none;padding:26px;align-self:center}.receipt-top,.receipt-foot{border-color:var(--line);color:var(--muted)}.badge{border-color:var(--line);color:var(--muted);border-radius:0;font-size:9px}.pipe strong{font-size:39px;letter-spacing:-2px}.pipe small{color:var(--muted)}.arrow{color:var(--muted)}.receipt-result{background:transparent;border:0;border-top:1px solid var(--line);padding:18px 0 0;color:var(--ink)}.receipt-result b{color:var(--accent)}.receipt-foot{font-size:10px}.strip{margin-bottom:64px}.offers{display:block}.offer,.offer.featured{display:grid;grid-template-columns:1.05fr 1.25fr 1.3fr .8fr;gap:12px 24px;border:0;border-top:1px solid var(--line);background:none;border-radius:0;padding:26px 0;align-items:start}.offer .num{grid-column:1;grid-row:1;font-size:10px}.offer h3{grid-column:1;grid-row:2;margin:0;font-size:20px}.offer p{grid-column:2;grid-row:1/4;margin:0}.offer ul{grid-column:3;grid-row:1/4;margin:0;padding-left:16px}.offer li{margin:0 0 7px}.offer .price{grid-column:4;grid-row:1;margin:0;font:30px var(--mono);white-space:nowrap;letter-spacing:-1px}.price small{display:block;font-size:10px;letter-spacing:0;white-space:normal;margin-top:8px}.offer .btn{grid-column:4;grid-row:2/4;padding:10px;font-size:11px;margin:0}.lab{border:0;border-top:1px solid var(--line);border-radius:0;background:transparent;padding:24px 0}.metric,.metric.good{background:transparent;border:0;border-top:1px solid var(--line);border-radius:0;padding:14px 0}.metric b{font:33px var(--mono);letter-spacing:-1px}.metric.good b,.lab-top span{color:var(--accent)}.output{border-radius:0;background:#ECE8DF;color:var(--ink);border-left:2px solid var(--line);min-height:132px}.lab select{background:transparent;border-radius:0}.process{color:var(--ink);background:transparent;border-top:1px solid var(--line);border-bottom:1px solid var(--line);border-radius:0;padding:36px 0}.step b,.step p{color:var(--muted)}.about{border:0}.scope-table{border-collapse:collapse;width:100%;font-size:12px;line-height:1.55;text-align:left}.scope-table th{font:10px/1.5 var(--mono);text-transform:uppercase;padding:13px 12px;border-bottom:1px solid var(--line)}.scope-table td{padding:17px 12px;vertical-align:top;border-bottom:1px solid var(--line)}.scope-table td:first-child{font-weight:650;width:24%}.scope-table td:nth-child(2){width:42%}.scope-table td:nth-child(3){width:22%;color:var(--muted)}.scope-table td:last-child{font:14px var(--mono);white-space:nowrap}.table-scroll{overflow:auto}.evidence-bars{margin-top:22px}.barline{display:grid;grid-template-columns:70px 1fr 55px;align-items:center;gap:10px;font:10px var(--mono);padding:6px 0}.barline i{display:block;height:10px}.before{background:#C2412D}.after{background:var(--accent);width:2px}.barline b{font-weight:400}.dot-chart{margin:16px 0;border-top:1px solid var(--line);padding-top:16px}.dot-chart span{font:10px var(--mono)}.dots{display:grid;grid-template-columns:repeat(22,1fr);gap:5px;margin:9px 0 14px}.dots i{display:block;width:8px;height:8px;border:1px solid var(--line);border-radius:50%}.dots .filled{background:var(--muted);border-color:var(--muted)}#improvedDots .filled{background:var(--accent);border-color:var(--accent)}.product-sheet{border:1px solid var(--line);padding:28px;display:flex;flex-direction:column;justify-content:center}.product-name{font:60px var(--serif);margin:20px 0 0;letter-spacing:-2px}.product-sheet a{font:12px var(--mono)}.product-sheet p{font-size:15px}.product-sheet .limit{font-size:11px}.brief input,.brief textarea,.brief select,#briefOutput{border-radius:0;background:transparent}.lang{font-size:11px}.navlinks a{font-size:12px}.fineprint{max-width:none}.case{grid-template-columns:.8fr 1.2fr}.case h3{font:32px var(--serif);margin:14px 0}.lab-top{font-size:9px}.receipt-result{font-size:11px}h1,h2,h3,.price,.metric b{font-variant-numeric:tabular-nums}
-@media(max-width:900px){.hero{gap:32px}.offer,.offer.featured{grid-template-columns:1fr 1.3fr}.offer .num,.offer h3{grid-column:1}.offer h3{grid-row:2}.offer .price{grid-column:1;grid-row:3}.offer .btn{grid-column:1;grid-row:4}.offer p{grid-column:2;grid-row:1/3}.offer ul{grid-column:2;grid-row:3/5}.scope-table{font-size:11px}.scope-table td{padding:12px 7px}.pipe strong{font-size:31px}.receipt{padding:20px}.receipt-top{display:block}.badge{display:inline-block;margin-top:12px}}
-@media(max-width:640px){.hero{display:block;padding-top:44px}.hero h1{font-size:51px;letter-spacing:-2px;line-height:1.05}.hero .lead{font-size:17px}.receipt{margin-top:35px;box-shadow:none}.offer,.offer.featured{display:block;padding:24px 0}.offer h3{margin:12px 0}.offer .price{margin:14px 0}.price small{display:inline-block;margin-left:10px}.offer ul{margin:18px 0}.offer .btn{display:inline-flex}.scope-table th:nth-child(3),.scope-table td:nth-child(3){display:none}.scope-table td:first-child{width:34%}.scope-table td:nth-child(2){width:49%}.scope-table td:last-child{white-space:normal;font-size:12px;width:17%}.case{grid-template-columns:1fr}.process{padding:28px 0}.dots{gap:4px}.dots i{width:7px;height:7px}.product-name{font-size:54px}.receipt-top{display:flex;align-items:start}.badge{margin:0}h2{font-size:36px}.brand span{letter-spacing:.8px}.table-scroll{margin:0 -5px}footer{font-size:9px}}
-</style></head><body><a class="skip" href="#services">Skip to services</a><header><nav class="nav" aria-label="Main navigation"><a class="brand" href="#">Gustavo Lima Verde<span>Software reliability · AI-assisted delivery</span></a><div class="navlinks"><a href="#services" data-en="Services" data-pt="Serviços">Services</a><a href="#work" data-en="Evidence" data-pt="Evidências">Evidence</a><a href="#brief" data-en="Start a brief" data-pt="Preparar pedido">Start a brief</a><button class="lang" id="language" aria-label="Switch between English and Portuguese">PT / EN</button></div></nav></header><main class="wrap"><div class="hero"><div><div class="eyebrow"><span data-en="CASE FILE / SOFTWARE RELIABILITY" data-pt="CASOS / CONFIABILIDADE DE SOFTWARE">CASE FILE / SOFTWARE RELIABILITY</span></div><h1 data-en="Every fix arrives<br>with its evidence." data-pt="Toda correção chega<br>com a sua prova.">Every fix arrives<br>with its evidence.</h1><p class="lead" data-en="Targeted bug diagnosis, bounded fixes and API/webhook integrations for software that has to work." data-pt="Diagnóstico direcionado de erros, correções delimitadas e integrações de API/webhook para software que precisa funcionar.">Targeted bug diagnosis, bounded fixes and API/webhook integrations for software that has to work.</p><p class="small" data-en="Scoped diagnostics, API integrations and reproducible testing — coordinated by Gustavo, delivered with advanced AI tools." data-pt="Diagnósticos, integrações de APIs e testes reproduzíveis — com coordenação de Gustavo e execução apoiada por IA.">Scoped diagnostics, API integrations and reproducible testing — coordinated by Gustavo, delivered with advanced AI tools.</p><div class="actions"><a class="btn" href="#services" data-en="Start with a $100 diagnosis ↗" data-pt="Comece pelo diagnóstico de US$100 ↗">Start with a $100 diagnosis ↗</a><a class="btn light" href="#work" data-en="Read the case files" data-pt="Ver os casos">Read the case files</a></div><p class="small"><a href="https://www.upwork.com/freelancers/~0153456be778467e4e" target="_blank" rel="noopener noreferrer">View Upwork profile ↗</a> · <a href="https://github.com/GustavoPMLV/freelance-software-evidence" target="_blank" rel="noopener noreferrer">Code on GitHub ↗</a></p><p class="small" data-en="Targeted diagnostics from US$100. Written, asynchronous collaboration." data-pt="Diagnósticos direcionados a partir de US$100. Colaboração por escrito e assíncrona.">Targeted diagnostics from US$100. Written, asynchronous collaboration.</p></div><div class="receipt"><div class="receipt-top"><span>CASE 001 / REPLAYSAFE</span><span class="badge">SYNTHETIC DATA</span></div><div class="pipe"><div><strong id="heroDeliveries">—</strong><small>DELIVERIES</small></div><span class="arrow">→</span><div><strong id="heroEffects">—</strong><small>UNIQUE EFFECTS</small></div></div><div class="receipt-result"><b id="heroDuplicates">Verification pending</b><br>✓ Concurrent retries<br>✓ Durable state<br>✓ Tested recovery</div><div class="receipt-foot">Independent demonstration. Actual fixture outcomes.<br>Source, tests and limits available below. No client production claim.</div></div></div><div class="strip"><div><b>01 / DIAGNOSE</b><span data-en="One issue, a clear next step" data-pt="Um problema, próximo passo claro">One issue, a clear next step</span></div><div><b>02 / REPAIR</b><span data-en="A bounded implementation" data-pt="Implementação delimitada">A bounded implementation</span></div><div><b>03 / VERIFY</b><span data-en="Before-and-after evidence" data-pt="Evidências antes e depois">Before-and-after evidence</span></div><div><b>04 / HAND OFF</b><span data-en="Documented, reproducible work" data-pt="Trabalho documentado e reproduzível">Documented, reproducible work</span></div></div>
-<section id="services"><div class="sectionhead"><div><div class="eyebrow">§01 / SCOPE</div><h2 data-en="Buy a defined outcome." data-pt="Contrate uma entrega definida.">Buy a defined outcome.</h2></div><p data-en="Start small enough to establish the facts. Extend the engagement once the next scope is clear." data-pt="Comece com um escopo que permita conhecer os fatos. Amplie o projeto quando a próxima etapa estiver clara.">Start small enough to establish the facts. Extend the engagement once the next scope is clear.</p></div><div class="offers"><article class="offer"><span class="num">01 / TARGETED DIAGNOSTIC</span><h3 data-en="Find the failing path." data-pt="Encontre o ponto de falha.">Find the failing path.</h3><div class="price">$100 <small>USD · fixed scope</small></div><p data-en="One reproducible issue, up to 1.5 hours of technical investigation, a concise report and next-step recommendation." data-pt="Um problema reproduzível, até 1,5 hora de investigação técnica, relatório curto e recomendação do próximo passo.">One reproducible issue, up to 1.5 hours of technical investigation, a concise report and next-step recommendation.</p><ul><li>Approved logs, code and sample inputs</li><li>Reproduction or explicit limitation</li><li>Findings and a scoped repair proposal</li><li>Implementation quoted separately</li></ul><a class="btn light" href="#brief" data-en="Define my diagnostic ↗" data-pt="Definir meu diagnóstico ↗">Define my diagnostic ↗</a></article><article class="offer featured"><span class="num">02 / BOUNDED REPAIR</span><h3 data-en="Fix it. Verify it." data-pt="Corrija. Comprove.">Fix it. Verify it.</h3><div class="price">$500 <small>USD · starting price</small></div><p data-en="One confirmed root cause, a targeted correction, regression evidence and a documented local or staging handoff." data-pt="Uma causa confirmada, correção direcionada, teste de regressão e entrega documentada local ou em staging.">One confirmed root cause, a targeted correction, regression evidence and a documented local or staging handoff.</p><ul><li>Scope confirmed after investigation</li><li>Before-and-after regression test</li><li>Meaningful baseline checks</li><li>One pass against agreed criteria</li></ul><a class="btn" href="#brief" data-en="Scope the correction ↗" data-pt="Definir a correção ↗">Scope the correction ↗</a></article><article class="offer"><span class="num">03 / RELIABLE INTEGRATION</span><h3 data-en="Connect the critical systems." data-pt="Conecte os sistemas críticos.">Connect the critical systems.</h3><div class="price">$1,000 <small>USD · starting price</small></div><p data-en="One provider, up to two agreed event types, validation, duplicate handling, retries and failure-case verification." data-pt="Um provedor, até dois tipos de evento, validação, controle de duplicações, novas tentativas e testes de falhas.">One provider, up to two agreed event types, validation, duplicate handling, retries and failure-case verification.</p><ul><li>Provider semantics reviewed first</li><li>Durable state and explicit failures</li><li>Replay and restart fixtures</li><li>Run instructions and residual limits</li></ul><a class="btn light" href="#brief" data-en="Discuss the integration ↗" data-pt="Definir a integração ↗">Discuss the integration ↗</a></article></div><p class="fineprint">Launch prices in USD. Exact scope, access, acceptance and support are agreed before purchase. Paid APIs and infrastructure require client funding. No unlimited revisions.</p><details class="catalog" open><summary data-en="Explore the complete service catalog · 12 entry points" data-pt="Explore o catálogo completo · 12 opções">Explore the complete service catalog · 12 entry points</summary><div class="table-scroll"><table class="scope-table"><thead><tr><th>Service</th><th>Deliverable</th><th>Boundary</th><th>From / USD</th></tr></thead><tbody id="catalogGrid"></tbody></table></div></details></section>
-<section id="work" class="work"><div class="sectionhead"><div><div class="eyebrow">§02 / EVIDENCE</div><h2 data-en="Open the work.<br>Inspect the proof." data-pt="Abra o trabalho.<br>Confira a comprovação.">Open the work.<br>Inspect the proof.</h2></div><p data-en="These are authored demonstrations using synthetic data. Every number comes from an executed fixture, with the code and limitations included." data-pt="Demonstrações próprias com dados sintéticos. Cada número vem de um teste executado, acompanhado de código e limites.">These are authored demonstrations using synthetic data. Every number comes from an executed fixture, with the code and limitations included.</p></div><article class="case"><div><span class="case-label">01 / INTEGRATION RELIABILITY</span><h3>ReplaySafe</h3><p data-en="Repeated delivery should not create repeated business effects. This demonstration applies a durable inbox and outbox, identity checks and downstream idempotency." data-pt="Entregas repetidas não devem produzir efeitos repetidos. A demonstração usa inbox/outbox duráveis, validação da identidade do evento e idempotência no destino.">Repeated delivery should not create repeated business effects. This demonstration applies a durable inbox and outbox, identity checks and downstream idempotency.</p><p>3,100 deliveries · 1,000 unique events · 8 receiver threads · 25 transient failures · 25 lost acknowledgements.</p><a href="CASE_REPLAYSAFE.md">Read the case and limitations ↗</a></div><div class="lab"><div class="lab-top"><b>Executed replay fixture</b><span>10 checks passed</span></div><div class="evidence-bars" aria-label="Excess effects on the same fixture"><div class="barline"><span>Baseline</span><i class="before"></i><b>2,100</b></div><div class="barline"><span>Protected</span><i class="after"></i><b>0 ✓</b></div></div><div class="metrics"><div class="metric"><small>Unprotected excess effects</small><b id="baselineDup">—</b></div><div class="metric good"><small>Protected excess effects</small><b id="protectedDup">—</b></div></div><label for="replayScenario">Inspect a verified scenario</label><select id="replayScenario"><option value="replay">Concurrent duplicate deliveries</option><option value="ack">Committed request, lost acknowledgement</option><option value="restart">Restart with pending outbox</option><option value="dead">Permanent provider failure</option></select><div class="output" id="replayOutput" aria-live="polite">Verification pending.</div><p class="limit">Recorded test outcomes, not a live client system. SQLite; single dispatcher; downstream provider supports idempotency keys. No universal exactly-once or throughput claim.</p></div></article><article class="case"><div><span class="case-label">02 / DOCUMENT RETRIEVAL QUALITY</span><h3>EvidenceSearch</h3><p data-en="A document assistant needs the right source before it can support an answer. Compare exact-token retrieval with a transparent scored pipeline, permissions and source excerpts." data-pt="Um assistente documental precisa da fonte certa para apoiar uma resposta. Compare busca lexical com uma busca pontuada, permissões e trechos rastreáveis.">A document assistant needs the right source before it can support an answer. Compare exact-token retrieval with a transparent scored pipeline, permissions and source excerpts.</p><p>44 labeled questions · 24 synthetic documents · tenant and role filters · two retained first-result errors.</p><a href="CASE_EVIDENCESEARCH.md">Read the evaluation and residual errors ↗</a></div><div class="lab"><div class="lab-top"><b>Executed evaluation fixture</b><span>7 checks passed</span></div><div class="metrics"><div class="metric"><small>Baseline: correct first source</small><b id="baselineTop">—</b></div><div class="metric good"><small>Improved: correct first source</small><b id="improvedTop">—</b></div></div><div class="dot-chart"><div><span>Baseline · 31/44</span><div id="baselineDots" class="dots"></div></div><div><span>Improved · 42/44</span><div id="improvedDots" class="dots"></div></div><p class="limit">Recall@3: 86.4% → 100% · Synthetic fixture only.</p></div><label for="retrievalQuestion">Inspect a labeled question and its sources</label><select id="retrievalQuestion"></select><div class="output" id="retrievalOutput" aria-live="polite">Verification pending.</div><p class="limit">Hand-authored synthetic fixture. Exact lexical baseline vs domain normalization, BM25 and title boost. No LLM inference or embeddings. Results do not establish real-corpus generalization.</p></div></article><article class="case own-product"><div><span class="case-label">03 / OWN PRODUCT · EDUCATION</span><h3>EngramaMed</h3><p>A personal software product for medical study and residency-exam preparation, created by Gustavo Lima Verde. This project adds product context to the focused engineering demonstrations above.</p><p>Educational workflows, a study interface and a live domain. No client engagement, revenue or clinical-outcome claim.</p><a href="https://engramamed.com.br" target="_blank" rel="noopener noreferrer">Visit EngramaMed ↗</a></div><div class="product-sheet"><div class="eyebrow">LIVE PRODUCT / PUBLIC DOMAIN</div><div class="product-name">EngramaMed.</div><p>Medical learning<br>Residency preparation</p><a href="https://engramamed.com.br" target="_blank" rel="noopener noreferrer">engramamed.com.br ↗</a><p class="limit">Own project. Authenticated account screens and internal data are excluded from this portfolio.</p></div></article><div class="actions"><a class="btn light" href="reproducible-demos.zip" download>Download code, tests and evidence ↓</a><a class="btn light" href="results.json">Inspect all 44 query outcomes ↗</a></div></section>
-<section class="process"><div class="eyebrow" >§03 / PROCESS</div><h2 data-en="A small scope.<br>A visible chain of evidence." data-pt="Escopo pequeno.<br>Uma trilha visível de evidências.">A small scope.<br>A visible chain of evidence.</h2><div class="steps"><div class="step"><b>01 / ESTABLISH</b><h4>Define the failure</h4><p>Agree on one workflow, sample inputs, expected outputs and access restrictions.</p></div><div class="step"><b>02 / REPRODUCE</b><h4>Record the baseline</h4><p>Investigate in an approved local or staging setup and preserve the starting evidence.</p></div><div class="step"><b>03 / IMPLEMENT</b><h4>Verify the change</h4><p>Apply a scoped implementation and test the agreed normal and failure paths.</p></div><div class="step"><b>04 / HAND OFF</b><h4>Deliver the receipt</h4><p>Provide the code, setup, outcomes, known limits and next-step recommendations.</p></div></div></section>
-<section class="about"><div><div class="eyebrow">§04 / ABOUT</div><h2>Gustavo Lima Verde.</h2><p data-en="I'm Gustavo Lima Verde, in Ceará, Brazil. I take on well-defined software problems: the unexplained bug, the webhook that fires twice, the slow query, the data that will not reconcile. The work is AI-assisted and verified by tests you can rerun. I coordinate the scope and review the evidence before delivery." data-pt="Sou Gustavo Lima Verde, do Ceará. Trabalho com problemas de software bem definidos: o erro inexplicado, o webhook que dispara duas vezes, a consulta lenta, os dados que não fecham. O trabalho é assistido por IA e verificado por testes que você pode rodar. Coordeno o escopo e reviso as evidências antes da entrega.">I'm Gustavo Lima Verde, in Ceará, Brazil. I take on well-defined software problems: the unexplained bug, the webhook that fires twice, the slow query, the data that will not reconcile. The work is AI-assisted and verified by tests you can rerun. I coordinate the scope and review the evidence before delivery.</p><p data-en="Portuguese communication is excellent. Spoken English and Spanish are basic; written collaboration can be supported by translation. I am also a fifth-semester medical student at UECE with a strong interest in AI and programming." data-pt="Português excelente. Inglês e espanhol falados básicos; comunicação escrita pode ser apoiada por tradução. Também sou estudante do quinto semestre de Medicina da UECE, com interesse em IA e programação.">Portuguese communication is excellent. Spoken English and Spanish are basic; written collaboration can be supported by translation. I am also a fifth-semester medical student at UECE with a strong interest in AI and programming.</p></div><div class="faq"><details><summary>How is AI used in the delivery?</summary><p>Advanced AI coding tools assist investigation, implementation and documentation. Deliverables include reproducible checks. Client preferences, approved tools and data-processing restrictions are agreed before work begins.</p></details><details><summary>Are these results from client projects?</summary><p>ReplaySafe and EvidenceSearch are independent demonstrations using synthetic data. Their outcomes illustrate the stated fixture conditions. EngramaMed is shown separately as an own product.</p></details><details><summary>What does the $100 diagnostic include?</summary><p>One issue and up to 1.5 hours of technical investigation, followed by a concise findings report. Implementation, comprehensive audits and expanded investigation are separately scoped.</p></details><details><summary>Can the work be deployed to production?</summary><p>The base offer covers a local or staging handoff. Production access, deployment steps, rollback and approvals must be separately agreed with the client.</p></details></div></section>
-<section id="brief" class="brief"><div><div class="eyebrow">§05 / BRIEF</div><h2 data-en="Describe the problem.<br>Define the next step." data-pt="Descreva o problema.<br>Defina o próximo passo.">Describe the problem.<br>Define the next step.</h2><p class="lead" data-en="Prepare a structured brief to paste into your platform conversation." data-pt="Prepare um pedido estruturado para colar na conversa da plataforma.">Prepare a structured brief to paste into your platform conversation.</p><p class="small">This builder runs in your browser. It sends nothing and stores nothing. Do not include credentials or private records.</p></div><div><form id="briefForm"><label>Project / workflow<input id="projectName" required maxlength="120" placeholder="e.g. Order events are duplicated after a retry"></label><label>Service<select id="serviceChoice"></select></label><label>What happens, and what should happen instead?<textarea id="problem" required maxlength="2000" placeholder="Describe one concrete failure or outcome."></textarea></label><label>Stack, sample data and approved environment<input id="stack" maxlength="200" placeholder="e.g. Python, SQLite, synthetic inputs, staging"></label><button class="btn" type="submit">Prepare my brief ↗</button></form><div id="briefOutput" class="hidden" role="status"></div><div id="briefActions" class="actions hidden"><button class="btn light" id="copyBrief">Copy brief</button><button class="btn light" id="downloadBrief">Download .txt</button></div><p class="small" id="copyStatus" aria-live="polite"></p></div></section></main><div class="wrap"><footer><span>GUSTAVO LIMA VERDE / SOFTWARE RELIABILITY<br>AI-assisted technical delivery · Ceará, Brazil</span><span>Independent demonstrations · Synthetic data · 2026<br>Scope and acceptance agreed before purchase.</span></footer></div><script src="portfolio-data.js"></script><script src="catalog-data.js"></script><script>
-const $=id=>document.getElementById(id);let lang='en',briefText='';$('language').addEventListener('click',()=>{location.href=lang==='en'?'pt.html':'index.html'});
-const catalog=window.STUDIO_CATALOG?.services||[];catalog.forEach(s=>{const row=document.createElement('tr');[s.name,s.scope,s.boundary,'$'+s.starting_price_usd+(s.id==='maintenance'?'/month':'')].forEach(v=>{const cell=document.createElement('td');cell.textContent=v;row.append(cell)});$('catalogGrid').append(row);const opt=document.createElement('option');opt.value=s.id;opt.textContent=s.name+' · from $'+s.starting_price_usd;$('serviceChoice').append(opt)});
-const e=window.STUDIO_EVIDENCE;if(e){const r=e.replaysafe;$('heroDeliveries').textContent=r.deliveries.toLocaleString('en-US');$('heroEffects').textContent=r.protected_effects.toLocaleString('en-US');$('heroDuplicates').textContent='✓ '+r.protected_duplicates+' duplicate effects in the fixture';$('baselineDup').textContent=r.naive_duplicates.toLocaleString('en-US');$('protectedDup').textContent=r.protected_duplicates;const scenarios={replay:()=>`VERIFIED FIXTURE\n${r.deliveries} deliveries → ${r.unique_events} unique events\n${r.parallel_receivers} concurrent receiver threads\nUnprotected effects: ${r.naive_effects}\nProtected effects: ${r.protected_effects}\nDuplicate protected effects: ${r.protected_duplicates}`,ack:()=>`REGRESSION CHECK PASSED\nThe provider commits; its acknowledgement is lost.\nRetry uses the same event idempotency key.\nThe synthetic provider retains one unique effect.\nBulk fixture: ${r.lost_acknowledgements} lost acknowledgements.`,restart:()=>`REGRESSION CHECK PASSED\nThe inbox and outbox persist in SQLite.\nA fresh Inbox instance reads the pending outbox.\nDispatch after restart retains one unique effect.\nBulk fixture: ${r.provider_effects} unique provider effects.`,dead:()=>`REGRESSION CHECK PASSED\nA permanently failing provider reaches a dead-letter state.\nRetries stop after the configured attempt limit.\nThe failure remains explicit; no successful delivery is claimed.`};const updateReplay=()=>{$('replayOutput').textContent=scenarios[$('replayScenario').value]()};$('replayScenario').addEventListener('change',updateReplay);updateReplay();const q=e.retrieval;['baseline','improved'].forEach(k=>{for(let i=0;i<q.queries;i++){const dot=document.createElement('i');dot.className=i<q[k].top1_correct?'filled':'';$(k+'Dots').append(dot)}});$('baselineTop').textContent=q.baseline.top1_correct+'/'+q.queries;$('improvedTop').textContent=q.improved.top1_correct+'/'+q.queries;q.cases.forEach((v,i)=>{const opt=document.createElement('option');opt.value=i;opt.textContent=v.query;$('retrievalQuestion').append(opt)});const updateQuery=()=>{const v=q.cases[Number($('retrievalQuestion').value)];$('retrievalOutput').textContent=`EXPECTED SOURCE: ${v.expected}\nBASELINE RANKING: ${v.baseline.join(' → ')||'no match'}\nIMPROVED RANKING: ${v.improved.join(' → ')}\nFIRST SOURCE CORRECT: ${v.improved[0]===v.expected?'yes':'no — retained error'}\n\n${v.results.map(x=>x.source+'\n'+x.excerpt).join('\n\n')}`};$('retrievalQuestion').addEventListener('change',updateQuery);updateQuery()}
-$('briefForm').addEventListener('submit',ev=>{ev.preventDefault();const selected=catalog.find(x=>x.id===$('serviceChoice').value);briefText=`PROJECT BRIEF\nProject: ${$('projectName').value}\nService: ${selected?.name||''}\nStarting price: USD ${selected?.starting_price_usd||''}; exact scope to be agreed\nProblem / expected outcome: ${$('problem').value}\nStack / approved environment: ${$('stack').value}\n\nPlease confirm: sample inputs, expected outputs, acceptance criteria, access and AI-tool restrictions, deadline and funded budget. No credentials included.`;$('briefOutput').textContent=briefText;$('briefOutput').classList.remove('hidden');$('briefActions').classList.remove('hidden');$('copyStatus').textContent='Prepared locally. Nothing has been submitted.'});$('copyBrief').addEventListener('click',async()=>{try{await navigator.clipboard.writeText(briefText);$('copyStatus').textContent='Copied. Paste it into your approved platform conversation.'}catch{$('copyStatus').textContent='Clipboard unavailable. Select the brief text above or download the file.'}});$('downloadBrief').addEventListener('click',()=>{const u=URL.createObjectURL(new Blob([briefText],{type:'text/plain;charset=utf-8'}));const a=document.createElement('a');a.href=u;a.download='project-brief.txt';a.click();URL.revokeObjectURL(u)});
-</script></body></html>
+<header class="site-header">
+  <div class="wrap bar">
+    <a class="brand" href="#top">Gustavo Lima Verde<span>Software reliability · AI-assisted delivery</span></a>
+    <nav class="nav" aria-label="Main navigation">
+      <a href="#services">Services</a>
+      <a href="#work">Evidence</a>
+      <a href="#brief">Start a brief</a>
+    </nav>
+    <p class="lang"><a href="es.html" hreflang="es" lang="es" aria-label="Leer esta página en español">ES</a><a id="language" href="pt.html" hreflang="pt-BR" lang="pt-BR" aria-label="Ler esta página em português">PT</a><span aria-current="true" title="English">EN</span></p>
+  </div>
+</header>
+
+<main id="main">
+
+<section class="hero" id="top" aria-labelledby="heroTitle">
+  <div class="wrap">
+    <p class="eyebrow">Software reliability case files</p>
+    <h1 id="heroTitle">Every fix arrives with its <em>evidence.</em></h1>
+    <div class="hero-row">
+      <div class="hero-copy">
+        <p class="lead">Targeted bug diagnosis, bounded fixes and API/webhook integrations for software that has to work.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#services">Start with a $100 diagnostic <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn" href="#engramamed">Explore EngramaMed</a>
+        </div>
+        <p class="communication-note">Professional written collaboration in PT, EN and ES, with AI assistance. Meetings in Portuguese.</p>
+      </div>
+
+      <figure class="plate on-ink" id="exhibitA" aria-labelledby="plateTitle">
+        <div class="plate-art" aria-hidden="true">
+          <img class="plate-photo" alt="" hidden>
+          <svg class="plate-mark" viewBox="0 0 260 200" focusable="false">
+            <g fill="none" stroke="#2E473B" stroke-width="2">
+              <rect x="18" y="14" width="46" height="46"/>
+              <rect x="18" y="77" width="46" height="46"/>
+              <rect x="18" y="140" width="46" height="46"/>
+              <path d="M64 37C118 37 128 100 172 100M64 100H172M64 163C118 163 128 100 172 100"/>
+            </g>
+            <rect x="172" y="66" width="68" height="68" fill="#2E473B"/>
+          </svg>
+        </div>
+        <div class="plate-head"><span id="plateTitle">Exhibit A · ReplaySafe</span><span class="tag">Synthetic data</span></div>
+        <p class="plate-claim">Repeated deliveries in. One effect per event out.</p>
+        <div class="flow">
+          <span class="flow-gate" aria-hidden="true">durable inbox</span>
+          <div class="flow-fig">
+            <svg id="flowSvg" viewBox="0 0 520 212" role="img" aria-labelledby="flowTitle">
+              <title id="flowTitle">3,100 deliveries enter. 1,000 unique events reach the provider. 2,100 repeats are recognised by the inbox and create no new effect. Without protection they would become 2,100 excess effects.</title>
+              <rect class="b-src" x="0" y="0" width="12" height="200"/>
+              <path class="b-unique" id="fUnique" d="M12 0H508V64.52H12Z"/>
+              <rect class="b-dst" id="fDst" x="508" y="0" width="12" height="64.52"/>
+              <path class="b-repeat" id="fRepeat" d="M12 64.52C120 64.52 170 102.45 232 102.45C170 102.45 120 200 12 200Z"/>
+              <rect class="b-ghost" id="fGhost" x="248" y="74.52" width="260" height="135.48"/>
+              <rect class="b-gate" x="232" y="-6" width="7" height="218"/>
+            </svg>
+            <span class="flow-ghost-label" aria-hidden="true">unprotected <b id="heroGhost">+2,100</b> excess effects</span>
+          </div>
+        </div>
+        <dl class="legend">
+          <div class="k-src"><dt>Deliveries received</dt><dd id="heroDeliveries">3,100</dd></div>
+          <div class="k-eff"><dt>Unique effects</dt><dd id="heroEffects">1,000</dd></div>
+          <div class="k-rep"><dt>Repeats with no new effect</dt><dd id="heroRepeats">2,100</dd></div>
+        </dl>
+        <p class="zero"><b id="heroDuplicates">0</b><span>duplicate effects when protected, on the same fixture</span></p>
+        <figcaption class="plate-foot">Source: <a href="results.json">results.json</a> and <a href="CASE_REPLAYSAFE.md">CASE_REPLAYSAFE.md</a>. 10 checks passed. SQLite, single dispatcher, downstream supports idempotency keys. Independent demonstration; no client production claim.</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="sources" aria-labelledby="sourcesTitle">
+  <div class="wrap sources-in">
+    <div>
+      <h2 class="sources-title" id="sourcesTitle">Check before you hire</h2>
+      <p>Targeted diagnostics from US$100. Written, asynchronous collaboration.</p>
+    </div>
+    <ol class="cites">
+      <li><a href="https://www.upwork.com/freelancers/~0153456be778467e4e" target="_blank" rel="noopener noreferrer"><span class="cite-k">Upwork</span><span class="cite-v">View Upwork profile ↗</span><span class="cite-u">upwork.com/freelancers/~0153456be778467e4e</span></a></li>
+      <li><a href="https://www.99freelas.com.br/user/gustavo-1790992697889" target="_blank" rel="noopener noreferrer"><span class="cite-k">99Freelas</span><span class="cite-v">99Freelas profile ↗</span><span class="cite-u">99freelas.com.br/user/gustavo-1790992697889</span></a></li>
+      <li><a href="https://github.com/GustavoPMLV/freelance-software-evidence" target="_blank" rel="noopener noreferrer"><span class="cite-k">GitHub</span><span class="cite-v">Code on GitHub ↗</span><span class="cite-u">github.com/GustavoPMLV/freelance-software-evidence</span></a></li>
+    </ol>
+  </div>
+</section>
+
+<section id="services" class="services" aria-labelledby="servicesTitle">
+  <div class="wrap">
+    <header class="sec-head">
+      <h2 id="servicesTitle">Buy a defined outcome.</h2>
+      <p>Start small enough to establish the facts. Extend the engagement once the next scope is clear. Scoped diagnostics, API integrations and reproducible testing, coordinated by Gustavo and delivered with advanced AI tools.</p>
+    </header>
+
+    <ol class="ladder">
+      <li class="rung is-entry">
+        <p class="rung-when">Start here</p>
+        <p class="rung-name">Targeted diagnostic</p>
+        <h3>Find the failing path.</h3>
+        <p class="price"><span class="price-pre">Fixed scope</span><span class="price-num"><span class="price-cur">US$</span>100</span></p>
+        <p class="rung-desc">One reproducible issue, up to 1.5 hours of technical investigation, a concise report and next-step recommendation.</p>
+        <ul class="rung-list">
+          <li>Approved logs, code and sample inputs</li>
+          <li>Reproduction or explicit limitation</li>
+          <li>Findings and a scoped repair proposal</li>
+          <li>Implementation quoted separately</li>
+        </ul>
+        <a class="btn btn-primary" href="#brief" data-service="diagnostic">Define my diagnostic <span class="arr" aria-hidden="true">→</span></a>
+      </li>
+      <li class="rung">
+        <p class="rung-when">Quoted after diagnosis</p>
+        <p class="rung-name">Bounded repair</p>
+        <h3>Fix it. Verify it.</h3>
+        <p class="price"><span class="price-pre">Starting price</span><span class="price-num"><span class="price-cur">US$</span>500</span></p>
+        <p class="rung-desc">One confirmed root cause, a targeted correction, regression evidence and a documented local or staging handoff.</p>
+        <ul class="rung-list">
+          <li>Scope confirmed after investigation</li>
+          <li>Before-and-after regression test</li>
+          <li>Meaningful baseline checks</li>
+          <li>One pass against agreed criteria</li>
+        </ul>
+        <a class="btn" href="#brief" data-service="repair">Scope the correction <span class="arr" aria-hidden="true">→</span></a>
+      </li>
+      <li class="rung">
+        <p class="rung-when">Quoted after intake</p>
+        <p class="rung-name">Reliable integration</p>
+        <h3>Connect the critical systems.</h3>
+        <p class="price"><span class="price-pre">Starting price</span><span class="price-num"><span class="price-cur">US$</span>1,000</span></p>
+        <p class="rung-desc">One provider, up to two agreed event types, validation, duplicate handling, retries and failure-case verification.</p>
+        <ul class="rung-list">
+          <li>Provider semantics reviewed first</li>
+          <li>Durable state and explicit failures</li>
+          <li>Replay and restart fixtures</li>
+          <li>Run instructions and residual limits</li>
+        </ul>
+        <a class="btn" href="#brief" data-service="integration">Discuss the integration <span class="arr" aria-hidden="true">→</span></a>
+      </li>
+    </ol>
+
+    <p class="fineprint">Launch prices in USD. Exact scope, access, acceptance and support are agreed before purchase. Paid APIs and infrastructure require client funding. No unlimited revisions.</p>
+
+    <details class="catalog" id="catalog" open>
+      <summary><span class="cat-sum-t">Explore the complete service catalog</span><span class="cat-sum-n">12 entry points</span></summary>
+      <div class="cat-tools" role="group" aria-label="Filter the catalog by area"></div>
+      <div id="catalogGrid" class="cat-groups">
+        <section class="cat-group" data-group="fix" aria-labelledby="cg-fix">
+          <h3 id="cg-fix">Diagnose and repair</h3>
+          <ol class="cat-list">
+            <li class="cat-item"><h4>Targeted software diagnostic</h4><p class="cat-scope">One reproducible issue; logs/code review, a short findings report and next-step recommendation. No implementation included.</p><p class="cat-limit"><span class="cat-limit-k">Boundary</span>One issue · up to 1.5h · no patch</p><p class="cat-price"><span class="cat-price-k">From</span>$100</p><a class="cat-cta" href="#brief" data-service="diagnostic">Start a brief<span class="vh">: Targeted software diagnostic</span> <span class="arr" aria-hidden="true">→</span></a></li>
+            <li class="cat-item"><h4>Bounded bug correction</h4><p class="cat-scope">One agreed root cause, targeted patch, regression evidence and local/staging handoff. Quote after diagnosis.</p><p class="cat-limit"><span class="cat-limit-k">Boundary</span>One confirmed cause · quote after diagnosis</p><p class="cat-price"><span class="cat-price-k">From</span>$500</p><a class="cat-cta" href="#brief" data-service="repair">Start a brief<span class="vh">: Bounded bug correction</span> <span class="arr" aria-hidden="true">→</span></a></li>
+            <li class="cat-item"><h4>SQL query performance diagnostic</h4><p class="cat-scope">One query on a representative local/staging dataset, baseline measurement and targeted optimization proposal.</p><p class="cat-limit"><span class="cat-limit-k">Boundary</span>One query · local or staging</p><p class="cat-price"><span class="cat-price-k">From</span>$250</p><a class="cat-cta" href="#brief" data-service="sql">Start a brief<span class="vh">: SQL query performance diagnostic</span> <span class="arr" aria-hidden="true">→</span></a></li>
+          </ol>
+        </section>
+        <section class="cat-group" data-group="connect" aria-labelledby="cg-connect">
+          <h3 id="cg-connect">Integrate and automate</h3>
+          <ol class="cat-list">
+            <li class="cat-item"><h4>Reliable API or webhook integration</h4><p class="cat-scope">One provider, up to two event types, input validation, duplicate handling, retries and failure tests. Quote after intake.</p><p class="cat-limit"><span class="cat-limit-k">Boundary</span>One provider · up to two events</p><p class="cat-price"><span class="cat-price-k">From</span>$1,000</p><a class="cat-cta" href="#brief" data-service="integration">Start a brief<span class="vh">: Reliable API or webhook integration</span> <span class="arr" aria-hidden="true">→</span></a></li>
+            <li class="cat-item"><h4>Python workflow automation</h4><p class="cat-scope">One defined input-to-output workflow with sample data, validation and run instructions.</p><p class="cat-limit"><span class="cat-limit-k">Boundary</span>One input-to-output workflow</p><p class="cat-price"><span class="cat-price-k">From</span>$250</p><a class="cat-cta" href="#brief" data-service="automation">Start a brief<span class="vh">: Python workflow automation</span> <span class="arr" aria-hidden="true">→</span></a></li>
+            <li class="cat-item"><h4>Document-to-structured-data pipeline</h4><p class="cat-scope">One text-based document layout, up to 30 sample pages, JSON/CSV output and field validation. Scanned OCR scope separately quoted.</p><p class="cat-limit"><span class="cat-limit-k">Boundary</span>One text layout · up to 30 sample pages</p><p class="cat-price"><span class="cat-price-k">From</span>$300</p><a class="cat-cta" href="#brief" data-service="extraction">Start a brief<span class="vh">: Document-to-structured-data pipeline</span> <span class="arr" aria-hidden="true">→</span></a></li>
+          </ol>
+        </section>
+        <section class="cat-group" data-group="data" aria-labelledby="cg-data">
+          <h3 id="cg-data">Data and document retrieval</h3>
+          <ol class="cat-list">
+            <li class="cat-item"><h4>Data cleaning and quality report</h4><p class="cat-scope">One CSV/XLSX dataset and an agreed set of validation rules; corrected file and error report.</p><p class="cat-limit"><span class="cat-limit-k">Boundary</span>One dataset · agreed rules</p><p class="cat-price"><span class="cat-price-k">From</span>$150</p><a class="cat-cta" href="#brief" data-service="data_cleaning">Start a brief<span class="vh">: Data cleaning and quality report</span> <span class="arr" aria-hidden="true">→</span></a></li>
+            <li class="cat-item"><h4>Business data dashboard</h4><p class="cat-scope">One prepared dataset, up to four agreed indicators, interactive presentation and refresh instructions.</p><p class="cat-limit"><span class="cat-limit-k">Boundary</span>One dataset · up to four KPIs</p><p class="cat-price"><span class="cat-price-k">From</span>$400</p><a class="cat-cta" href="#brief" data-service="dashboard">Start a brief<span class="vh">: Business data dashboard</span> <span class="arr" aria-hidden="true">→</span></a></li>
+            <li class="cat-item"><h4>Document retrieval evaluation</h4><p class="cat-scope">One approved corpus, up to 30 labeled questions, baseline report, candidate tuning and residual error analysis. Paid model usage excluded unless client funded.</p><p class="cat-limit"><span class="cat-limit-k">Boundary</span>One corpus · up to 30 labeled questions</p><p class="cat-price"><span class="cat-price-k">From</span>$500</p><a class="cat-cta" href="#brief" data-service="retrieval">Start a brief<span class="vh">: Document retrieval evaluation</span> <span class="arr" aria-hidden="true">→</span></a></li>
+          </ol>
+        </section>
+        <section class="cat-group" data-group="keep" aria-labelledby="cg-keep">
+          <h3 id="cg-keep">Test, document, maintain</h3>
+          <ol class="cat-list">
+            <li class="cat-item"><h4>Regression tests for a critical workflow</h4><p class="cat-scope">Up to six agreed regression scenarios for one component, reproducible fixtures and execution instructions.</p><p class="cat-limit"><span class="cat-limit-k">Boundary</span>One component · up to six scenarios</p><p class="cat-price"><span class="cat-price-k">From</span>$350</p><a class="cat-cta" href="#brief" data-service="tests">Start a brief<span class="vh">: Regression tests for a critical workflow</span> <span class="arr" aria-hidden="true">→</span></a></li>
+            <li class="cat-item"><h4>Technical setup and handoff documentation</h4><p class="cat-scope">One repository and one development/deployment workflow, verified setup notes and handoff checklist.</p><p class="cat-limit"><span class="cat-limit-k">Boundary</span>One repository · one workflow</p><p class="cat-price"><span class="cat-price-k">From</span>$200</p><a class="cat-cta" href="#brief" data-service="documentation">Start a brief<span class="vh">: Technical setup and handoff documentation</span> <span class="arr" aria-hidden="true">→</span></a></li>
+            <li class="cat-item"><h4>Monthly bounded technical maintenance</h4><p class="cat-scope">Up to four scheduled hours per month on an agreed system; asynchronous support and change log. No 24/7 or unlimited support.</p><p class="cat-limit"><span class="cat-limit-k">Boundary</span>Up to four scheduled hours per month</p><p class="cat-price"><span class="cat-price-k">From</span>$300/month</p><a class="cat-cta" href="#brief" data-service="maintenance">Start a brief<span class="vh">: Monthly bounded technical maintenance</span> <span class="arr" aria-hidden="true">→</span></a></li>
+          </ol>
+        </section>
+      </div>
+    </details>
+  </div>
+</section>
+
+<section id="work" class="work" aria-labelledby="workTitle">
+  <div class="wrap">
+    <header class="sec-head">
+      <h2 id="workTitle">Open the work. Inspect the proof.</h2>
+      <p>One live product of my own and two independent engineering demonstrations. The demonstrations use synthetic data; results come from executed fixtures, with code and limitations included.</p>
+    </header>
+
+    <article class="exhibit ex-c featured-product" id="engramamed" aria-labelledby="emTitle">
+      <div>
+        <p class="ex-tag">Featured own SaaS · Medical education</p>
+        <h3 id="emTitle" class="product">EngramaMed</h3>
+        <p class="product-desc">An educational SaaS of my own for medical study and residency-exam preparation, created by Gustavo Lima Verde. A live platform combining a study interface, educational workflows and product development. The demonstrations below show specific engineering capabilities available as services.</p>
+        <a class="ex-link" href="https://engramamed.com.br" target="_blank" rel="noopener noreferrer">Visit EngramaMed <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="product-visual">
+        <img class="product-cover" src="assets/cover-engramamed-en.svg" width="1500" height="1002" loading="lazy" alt="EngramaMed: an own educational SaaS for medical study and residency exam preparation">
+      <dl class="product-facts">
+        <div><dt>Type</dt><dd>Own educational SaaS, live</dd></div>
+        <div><dt>Focus</dt><dd>Medical learning. Residency preparation.</dd></div>
+        <div><dt>Includes</dt><dd>Educational workflows, a study interface and a live domain.</dd></div>
+        <div><dt>Domain</dt><dd><a href="https://engramamed.com.br" target="_blank" rel="noopener noreferrer">engramamed.com.br ↗</a></dd></div>
+        <div><dt>Creator</dt><dd>Gustavo Lima Verde. Own educational SaaS.</dd></div>
+      </dl>
+      </div>
+    </article>
+
+    <article class="exhibit ex-a" id="replaysafe" aria-labelledby="rsTitle">
+      <div class="ex-head">
+        <p class="ex-tag">Exhibit A · Integration reliability</p>
+        <h3 id="rsTitle">ReplaySafe</h3>
+        <p class="ex-sum">Repeated delivery should not create repeated business effects. This demonstration applies a durable inbox and outbox, identity checks and downstream idempotency.</p>
+        <dl class="facts">
+          <div><dt>Deliveries</dt><dd>3,100</dd></div>
+          <div><dt>Unique events</dt><dd>1,000</dd></div>
+          <div><dt>Receiver threads</dt><dd>8</dd></div>
+          <div><dt>Transient failures</dt><dd>25</dd></div>
+          <div><dt>Lost acknowledgements</dt><dd>25</dd></div>
+          <div><dt>Checks</dt><dd>13 passed</dd></div>
+        </dl>
+        <a class="ex-link" href="CASE_REPLAYSAFE.md">Read the case and limitations <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="ex-body">
+        <p class="checks">Executed replay fixture</p>
+        <div class="compare reveal" role="group" aria-label="Excess effects on the same fixture">
+          <div class="cmp cmp-before"><span class="cmp-label">Unprotected excess effects</span><b class="cmp-num" id="baselineDup">2,100</b><i class="cmp-bar" aria-hidden="true"></i></div>
+          <div class="cmp cmp-after"><span class="cmp-label">Protected excess effects</span><b class="cmp-num" id="protectedDup">0</b><i class="cmp-bar" aria-hidden="true"></i></div>
+        </div>
+        <div class="runner">
+          <fieldset id="replayScenario" class="runner-list">
+            <legend>Inspect a verified scenario</legend>
+            <label class="run is-checked"><input type="radio" name="replayScenario" value="replay" checked><span class="run-mark" aria-hidden="true">✓</span><span class="run-name">Concurrent duplicate deliveries</span><span class="run-state">Passed · test_concurrent_replays</span></label>
+            <label class="run"><input type="radio" name="replayScenario" value="ack"><span class="run-mark" aria-hidden="true">✓</span><span class="run-name">Committed request, lost acknowledgement</span><span class="run-state">Passed · test_lost_ack_does_not_duplicate_remote_effect</span></label>
+            <label class="run"><input type="radio" name="replayScenario" value="restart"><span class="run-mark" aria-hidden="true">✓</span><span class="run-name">Restart with pending outbox</span><span class="run-state">Passed · test_persisted_outbox_recovers_after_restart</span></label>
+            <label class="run"><input type="radio" name="replayScenario" value="dead"><span class="run-mark" aria-hidden="true">✓</span><span class="run-name">Permanent provider failure</span><span class="run-state">Passed · test_permanent_failure_reaches_dead_letter</span></label>
+          </fieldset>
+          <div class="output" id="replayOutput" aria-live="polite">VERIFIED FIXTURE
+3,100 deliveries → 1,000 unique events
+8 concurrent receiver threads
+Unprotected effects: 3,100
+Protected effects: 1,000
+Duplicate protected effects: 0</div>
+        </div>
+        <p class="limit">Recorded test outcomes, not a live client system. SQLite; single dispatcher; downstream provider supports idempotency keys. No universal exactly-once or throughput claim.</p>
+      </div>
+    </article>
+
+    <article class="exhibit ex-b" id="evidencesearch" aria-labelledby="esTitle">
+      <div class="ex-top">
+        <div class="ex-head">
+          <p class="ex-tag">Exhibit B · Document retrieval quality</p>
+          <h3 id="esTitle">EvidenceSearch</h3>
+          <p class="ex-sum">A document assistant needs the right source before it can support an answer. Compare exact-token retrieval with a transparent scored pipeline, permissions and source excerpts.</p>
+          <dl class="facts">
+            <div><dt>Labeled questions</dt><dd>44</dd></div>
+            <div><dt>Synthetic documents</dt><dd>24</dd></div>
+            <div><dt>First-source errors</dt><dd>0</dd></div>
+            <div><dt>Checks</dt><dd>15 passed</dd></div>
+          </dl>
+          <a class="ex-link" href="CASE_EVIDENCESEARCH.md">Read the evaluation and method <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="score">
+          <div class="score-item before"><span>Baseline: correct first source</span><b id="baselineTop">31/44</b></div>
+          <span class="score-arrow" aria-hidden="true">→</span>
+          <div class="score-item after"><span>Improved: correct first source</span><b id="improvedTop">44/44</b></div>
+          <p class="score-sub">Recall@3: <span id="recallBase">86.4%</span> → <span id="recallImp">100%</span>. MRR@3: <span id="mrrBase">0.784</span> → <span id="mrrImp">1.000</span>. Synthetic fixture only.</p>
+        </div>
+      </div>
+      <details class="evaluation-details">
+        <summary>Inspect the evaluation: 44 of 44 first sources correct</summary>
+      <div class="ex-grid">
+        <div class="matrix-wrap reveal">
+          <p class="matrix-cap" id="matrixCap">All 44 questions, one square each<span>Select a square to see its sources. Arrow keys move between squares.</span></p>
+          <div id="queryMatrix" class="matrix" role="radiogroup" aria-labelledby="matrixCap"></div>
+          <ul id="mxLegend" class="mx-legend" aria-label="Legend by outcome">
+            <li><button type="button"><span class="mx-k c-both" aria-hidden="true"></span><span class="mx-k-t">Correct in both versions</span><span class="mx-k-n">31</span></button></li>
+            <li><button type="button"><span class="mx-k c-fixed" aria-hidden="true"></span><span class="mx-k-t">Fixed by the improvement</span><span class="mx-k-n">13</span></button></li>
+            <li><button type="button"><span class="mx-k c-miss" aria-hidden="true"></span><span class="mx-k-t">Wrong in both versions</span><span class="mx-k-n">0</span></button></li>
+            <li><button type="button"><span class="mx-k c-regress" aria-hidden="true"></span><span class="mx-k-t">Worse after the improvement</span><span class="mx-k-n">0</span></button></li>
+          </ul>
+        </div>
+        <div class="inspector">
+          <label for="retrievalQuestion">Inspect a labeled question and its sources</label>
+          <select id="retrievalQuestion"></select>
+          <div class="output" id="retrievalOutput" aria-live="polite">All 44 question-level outcomes are in results.json.</div>
+        </div>
+      </div>
+      </details>
+      <p class="limit">Another 22 synthetic development questions passed. They are not a blind real-corpus evaluation.</p>
+      <p class="limit">Hand-authored synthetic fixture. Exact lexical baseline vs domain normalization, field-normalized scoring and a topical-title prior. No LLM inference or embeddings. Results do not establish real-corpus generalization.</p>
+    </article>
+
+
+
+    <div class="dossier-files">
+      <div class="dossier-head"><h3>Files you can check</h3><p>The same files that produce the numbers above.</p></div>
+      <a class="file file-primary" href="reproducible-demos.zip" download><span class="file-ext">ZIP</span><span class="file-desc">Download code, tests and evidence</span><span class="file-name">reproducible-demos.zip · 27 kB</span><span class="arr" aria-hidden="true">↓</span></a>
+      <a class="file" href="results.json"><span class="file-ext">JSON</span><span class="file-desc">Inspect all 44 query outcomes</span><span class="file-name">results.json · 72 kB</span><span class="arr" aria-hidden="true">↗</span></a>
+      <a class="file" href="CASE_REPLAYSAFE.md"><span class="file-ext">MD</span><span class="file-desc">ReplaySafe: case and limitations</span><span class="file-name">CASE_REPLAYSAFE.md</span><span class="arr" aria-hidden="true">↗</span></a>
+      <a class="file" href="CASE_EVIDENCESEARCH.md"><span class="file-ext">MD</span><span class="file-desc">EvidenceSearch: evaluation and residual errors</span><span class="file-name">CASE_EVIDENCESEARCH.md</span><span class="arr" aria-hidden="true">↗</span></a>
+      <details class="zip-list">
+        <summary>What is inside the ZIP (13 files)</summary>
+        <ul>
+          <li>technical/README.md</li>
+          <li>technical/replaysafe.py</li>
+          <li>technical/test_replaysafe.py</li>
+          <li>technical/evidence_search.py</li>
+          <li>technical/test_evidence_search.py</li>
+          <li>technical/run_evidence.py</li>
+          <li>evidence/results.json</li>
+          <li>evidence/source-hashes.json</li>
+          <li>evidence/tests.txt</li>
+          <li>technical/fixtures/original-corpus.json</li>
+          <li>technical/fixtures/additional-retrieval.json</li>
+          <li>portfolio/CASE_REPLAYSAFE.md</li>
+          <li>portfolio/CASE_EVIDENCESEARCH.md</li>
+        </ul>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section id="process" class="process" aria-labelledby="processTitle">
+  <div class="wrap">
+    <h2 id="processTitle">A small scope. A visible chain of evidence.</h2>
+    <ol class="chain">
+      <li><h3>Define the failure</h3><p>Agree on one workflow, sample inputs, expected outputs and access restrictions.</p><p class="artifact">Record: scope and acceptance criteria</p></li>
+      <li><h3>Record the baseline</h3><p>Investigate in an approved local or staging setup and preserve the starting evidence.</p><p class="artifact">Record: evidence before the change</p></li>
+      <li><h3>Verify the change</h3><p>Apply a scoped implementation and test the agreed normal and failure paths.</p><p class="artifact">Record: change and executed tests</p></li>
+      <li><h3>Deliver the receipt</h3><p>Provide the code, setup, outcomes, known limits and next-step recommendations.</p><p class="artifact">Record: code, outcomes and limits</p></li>
+    </ol>
+  </div>
+</section>
+
+<section id="about" class="about" aria-labelledby="aboutTitle">
+  <div class="wrap about-grid">
+    <div class="about-copy">
+      <h2 id="aboutTitle">Gustavo Lima Verde.</h2>
+      <p>I'm Gustavo Lima Verde, in Ceará, Brazil. I take on well-defined software problems: the unexplained bug, the webhook that fires twice, the slow query, the data that will not reconcile. The work is AI-assisted and verified by tests you can rerun. I coordinate the scope and review the evidence before delivery.</p>
+      <p>Written collaboration is available in Portuguese, English and Spanish. AI tools support professional reading, writing and review in English and Spanish. Meetings are available in Portuguese; spoken English and Spanish are basic. I am also a fifth-semester medical student at UECE with a strong interest in AI and programming.</p>
+    </div>
+    <dl class="dossier">
+      <div><dt>Based in</dt><dd>Fortaleza, Ceará, Brazil</dd></div>
+      <div><dt>Education</dt><dd>Medical student at UECE (2024.2-2030), fifth semester</dd></div>
+      <div><dt>Languages</dt><dd>Excellent Portuguese. AI-assisted reading and writing in English and Spanish; basic spoken proficiency. Meetings in Portuguese.</dd></div>
+      <div><dt>Working mode</dt><dd>Written and asynchronous. AI-assisted execution; scope, access and evidence review by Gustavo.</dd></div>
+      <div><dt>Published proof</dt><dd>Two independent demonstrations on synthetic data and one own product.</dd></div>
+    </dl>
+    <div class="faq">
+      <h3>Questions</h3>
+      <details><summary>How is AI used in the delivery?</summary><p>Advanced AI coding tools assist investigation, implementation and documentation. Deliverables include reproducible checks. Client preferences, approved tools and data-processing restrictions are agreed before work begins.</p></details>
+      <details><summary>Are these results from client projects?</summary><p>ReplaySafe and EvidenceSearch are independent demonstrations using synthetic data. Their outcomes illustrate the stated fixture conditions. EngramaMed is shown separately as an own product.</p></details>
+      <details><summary>What does the $100 diagnostic include?</summary><p>One issue and up to 1.5 hours of technical investigation, followed by a concise findings report. Implementation, comprehensive audits and expanded investigation are separately scoped.</p></details>
+      <details><summary>Can the work be deployed to production?</summary><p>The base offer covers a local or staging handoff. Production access, deployment steps, rollback and approvals must be separately agreed with the client.</p></details>
+    </div>
+  </div>
+</section>
+
+<section id="brief" class="brief" aria-labelledby="briefTitle">
+  <div class="wrap brief-grid">
+    <div class="brief-intro">
+      <h2 id="briefTitle">Describe the problem. Define the next step.</h2>
+      <p class="lead">Prepare a structured brief to paste into your platform conversation.</p>
+      <p class="privacy">This builder runs in your browser. It sends nothing and stores nothing. Do not include credentials or private records.</p>
+    </div>
+    <div class="brief-form">
+      <form id="briefForm">
+        <div class="field">
+          <label for="projectName">Project / workflow</label>
+          <input id="projectName" name="projectName" required maxlength="120" autocomplete="off" placeholder="e.g. Order events are duplicated after a retry">
+        </div>
+        <div class="field">
+          <label for="serviceChoice">Service</label>
+          <select id="serviceChoice" name="serviceChoice" aria-describedby="serviceNote">
+            <optgroup label="Diagnose and repair">
+              <option value="diagnostic">Targeted software diagnostic · from $100</option>
+              <option value="repair">Bounded bug correction · from $500</option>
+              <option value="sql">SQL query performance diagnostic · from $250</option>
+            </optgroup>
+            <optgroup label="Integrate and automate">
+              <option value="integration">Reliable API or webhook integration · from $1,000</option>
+              <option value="automation">Python workflow automation · from $250</option>
+              <option value="extraction">Document-to-structured-data pipeline · from $300</option>
+            </optgroup>
+            <optgroup label="Data and document retrieval">
+              <option value="data_cleaning">Data cleaning and quality report · from $150</option>
+              <option value="dashboard">Business data dashboard · from $400</option>
+              <option value="retrieval">Document retrieval evaluation · from $500</option>
+            </optgroup>
+            <optgroup label="Test, document, maintain">
+              <option value="tests">Regression tests for a critical workflow · from $350</option>
+              <option value="documentation">Technical setup and handoff documentation · from $200</option>
+              <option value="maintenance">Monthly bounded technical maintenance · from $300/month</option>
+            </optgroup>
+          </select>
+          <p class="hint" id="serviceNote" aria-live="polite">Starting prices in USD; exact scope to be agreed.</p>
+        </div>
+        <div class="field">
+          <div class="field-row"><label for="problem">What happens, and what should happen instead?</label><span class="count" id="problemCount" aria-hidden="true">0/2000</span></div>
+          <textarea id="problem" name="problem" required maxlength="2000" placeholder="Describe one concrete failure or outcome."></textarea>
+        </div>
+        <div class="field">
+          <label for="stack">Stack, sample data and approved environment</label>
+          <input id="stack" name="stack" maxlength="200" autocomplete="off" placeholder="e.g. Python, SQLite, synthetic inputs, staging">
+        </div>
+        <div class="form-foot">
+          <button class="btn btn-primary" type="submit">Prepare my brief <span class="arr" aria-hidden="true">→</span></button>
+          <p class="hint">Nothing leaves your browser.</p>
+        </div>
+      </form>
+      <div id="briefOutput" class="hidden" role="status" hidden></div>
+      <div id="briefActions" class="hidden" hidden><button class="btn" id="copyBrief" type="button">Copy brief</button><button class="btn" id="downloadBrief" type="button">Download .txt</button></div>
+      <p id="copyStatus" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap foot-grid">
+    <p><strong>Gustavo Lima Verde / Software reliability</strong>AI-assisted technical delivery. Ceará, Brazil.</p>
+    <p>Independent demonstrations on synthetic data, 2026.<br>Scope and acceptance agreed before purchase.</p>
+    <ul class="foot-links">
+      <li><a href="https://www.upwork.com/freelancers/~0153456be778467e4e" target="_blank" rel="noopener noreferrer">Upwork ↗</a></li>
+      <li><a href="https://www.99freelas.com.br/user/gustavo-1790992697889" target="_blank" rel="noopener noreferrer">99Freelas ↗</a></li>
+      <li><a href="https://github.com/GustavoPMLV/freelance-software-evidence" target="_blank" rel="noopener noreferrer">GitHub ↗</a></li>
+      <li><a href="pt.html" hreflang="pt-BR" lang="pt-BR">Versão em português</a></li>
+      <li><a href="es.html" hreflang="es" lang="es">Versión en español</a></li>
+    </ul>
+  </div>
+</footer>
+
+<script src="portfolio-data.js"></script>
+<script src="catalog-data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

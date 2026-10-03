@@ -1,4 +1,4 @@
-import concurrent.futures,json,tempfile,unittest
+import concurrent.futures,json,tempfile,unittest,gc
 from pathlib import Path
 from replaysafe import Inbox,SyntheticProvider,Conflict
 
@@ -36,5 +36,33 @@ class Reliability(unittest.TestCase):
         self.assertEqual(self.box.counts()['dead'],1);self.assertEqual(self.box.counts()['sent'],0)
     def test_persisted_outbox_recovers_after_restart(self):
         self.box.receive({'id':'a','amount':1});other=Inbox(self.path);other.dispatch(SyntheticProvider(self.path));self.assertEqual(other.counts()['sent'],1)
+    def test_concurrent_identity_conflict_keeps_one_effect(self):
+        def receive(amount):
+            try:return self.box.receive({'id':'same','amount':amount})
+            except Conflict:return 'conflict'
+        with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
+            statuses=list(pool.map(receive,[10,20]))
+        self.assertCountEqual(statuses,['accepted','conflict'])
+        self.assertEqual(self.box.counts()['effects'],1)
+        self.assertEqual(self.box.counts()['outbox'],1)
+    def test_dead_letter_is_not_requeued_after_restart(self):
+        self.box.receive({'id':'a','amount':1})
+        provider=SyntheticProvider(self.path,fail_always=['a'])
+        for _ in range(3):self.box.dispatch(provider)
+        fresh=Inbox(self.path);fresh.dispatch(SyntheticProvider(self.path))
+        self.assertEqual(fresh.counts()['dead'],1)
+        self.assertEqual(fresh.counts()['sent'],0)
+    @unittest.skipUnless(Path('/proc/self/fd').is_dir(),'Requires Linux procfs')
+    def test_connections_do_not_accumulate_without_garbage_collection(self):
+        gc.collect();before=len(list(Path('/proc/self/fd').iterdir()))
+        enabled=gc.isenabled();gc.disable()
+        try:
+            for i in range(40):self.box.receive({'id':str(i),'amount':i})
+            self.box.dispatch(SyntheticProvider(self.path))
+            after=len(list(Path('/proc/self/fd').iterdir()))
+            self.assertLessEqual(after,before+4,'Connections must close without relying on GC')
+        finally:
+            if enabled:gc.enable()
+            gc.collect()
 
 if __name__=='__main__':unittest.main()

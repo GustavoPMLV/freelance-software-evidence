@@ -1,15 +1,13 @@
-# Independent reliability demonstrations
+# Reproduce the software demonstrations
 
-Run with Python 3.12+ and no third-party packages:
+Python 3.12, standard library only. Extract the complete ZIP and run from its root:
 
-```bash
-python3 run_evidence.py
-```
+    python3 technical/run_evidence.py
 
-All records, tenants, provider responses, documents and questions are synthetic. No API calls, live customer data or money movement occurs.
+The suite executes 28 regression tests, then regenerates the 3,100-delivery ReplaySafe fixture and all 44 original plus 22 additional EvidenceSearch questions. The original corpus, queries and expected labels are frozen in technical/fixtures/original-corpus.json and checked before results are produced. Additional questions are development checks, not a blind holdout.
 
-ReplaySafe receives duplicates concurrently into a durable SQLite inbox, commits a simulated business effect and outbox atomically, checks conflicting identities and recovers an outbox after restart. The synthetic provider supports idempotency keys; this is essential to the lost-acknowledgement result. The dispatcher is single-worker. This code is a small reproducible demonstration and requires provider-specific integration, operational limits and deployment review for client use.
+Results, per-question rankings, exact source excerpts, component test counts, environment, skipped tests (if any) and input hashes are recorded in evidence/. On the verified Linux/Python 3.12 environment all 28 tests passed without skips. A Linux /proc probe checks descriptor accumulation; on other systems that one probe is explicitly reported as skipped, never represented as passed.
 
-EvidenceSearch evaluates 44 hand-authored queries against 24 synthetic policy documents. It compares exact-token overlap with domain term normalization, BM25 and a title boost. Both pipelines share tenant/role filtering. It tests permissions, out-of-domain abstention, exact citation provenance and deterministic ordering. No generative model or embedding service runs. The fixed authored evaluation set illustrates measurement and does not establish performance on a held-out real-world corpus.
+ReplaySafe uses a temporary SQLite database, concurrent receivers, a single dispatcher and a synthetic provider with idempotency keys. Its resource test disables garbage collection to verify explicit connection closure. No external API, client records, financial transaction or paid model is used.
 
-The generated evidence/results.json records actual outcomes, evidence/tests.txt records executed checks, and source-hashes.json binds the evidence to the Python implementation.
+EvidenceSearch is a transparent lexical demonstration with tenant and role filtering before scoring. The first-source score is a ranking heuristic, not a calibrated confidence. Real-world deployment requires evaluation of the client's approved corpus and provider contracts.

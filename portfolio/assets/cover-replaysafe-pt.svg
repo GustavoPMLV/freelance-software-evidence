@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1002" viewBox="0 0 250 167" role="img" aria-labelledby="t d" xml:lang="pt-BR">
+  <title id="t">Capa ReplaySafe</title>
+  <desc id="d">ReplaySafe, webhooks sem duplicatas. Efeitos extras em 3.100 entregas: 2.100 sem proteção, 0 com proteção. Demonstração com dados sintéticos.</desc>
+  <rect width="250" height="167" fill="#10201A"/>
+  <g fill="none" stroke="#E9906F" stroke-width="1.3"><rect x="186.5" y="15.5" width="10" height="10"/><rect x="186.5" y="29.5" width="10" height="10"/><rect x="186.5" y="43.5" width="10" height="10"/></g>
+  <path d="M197 20.5C209 20.5 211 34.5 222 34.5M197 34.5H222M197 48.5C209 48.5 211 34.5 222 34.5" fill="none" stroke="#A9B5AD" stroke-width="1"/>
+  <rect x="222" y="26" width="17" height="17" fill="#A8D5B8"/>
+  <text x="14" y="40" font-family="'Iowan Old Style','Palatino Linotype',Palatino,Georgia,'DejaVu Serif',serif" font-size="27" fill="#F4F1E8" letter-spacing="-0.6">ReplaySafe</text>
+  <text x="14" y="56" font-family="Arial,Helvetica,'Liberation Sans','DejaVu Sans',sans-serif" font-size="10.5" fill="#A9B5AD">Webhooks sem duplicatas</text>
+  <path d="M14 67.5H236" stroke="#2E473B" stroke-width="1"/>
+  <text x="14" y="85" font-family="Arial,Helvetica,'Liberation Sans','DejaVu Sans',sans-serif" font-size="9" fill="#A9B5AD">efeitos extras em 3.100 entregas</text>
+  <text x="14" y="117" font-family="'SF Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="30" fill="#E9906F" letter-spacing="-1.2">2.100</text>
+  <text x="111" y="113" font-family="'SF Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="20" fill="#A9B5AD">→</text>
+  <text x="136" y="119" font-family="'SF Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="42" fill="#C6E24B">0</text>
+  <text x="14" y="131" font-family="Arial,Helvetica,'Liberation Sans','DejaVu Sans',sans-serif" font-size="9" fill="#E9906F">sem proteção</text>
+  <text x="136" y="131" font-family="Arial,Helvetica,'Liberation Sans','DejaVu Sans',sans-serif" font-size="9" fill="#C6E24B">com proteção</text>
+  <path d="M14 143.5H236" stroke="#2E473B" stroke-width="1"/>
+  <text x="14" y="157" font-family="Arial,Helvetica,'Liberation Sans','DejaVu Sans',sans-serif" font-size="9" fill="#A9B5AD">Demonstração com dados sintéticos</text>
+</svg>

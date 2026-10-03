@@ -1,7 +1,9 @@
 {
-  "technical/evidence_search.py": "d2678f16a67f71c15c7626f8e32a4d2a16614b93238afc82a608ac43083c5860",
-  "technical/replaysafe.py": "ad55d3d9d9634343911bf7c1e7846a1c76fe9fb04bf9ddc4096998ca0e221dd7",
-  "technical/run_evidence.py": "3604f2c87075185d621d2dc4dd4ee831440d3665529915314839c983e959b2ff",
-  "technical/test_evidence_search.py": "756597e76a9d5cd8ca4f4a466ac069e9204032719409b354fd768f7691aff663",
-  "technical/test_replaysafe.py": "a0e5699dfac0e248cc99c33d195018d15357fc2dcd105382d494adcafb921ec9"
+  "technical/evidence_search.py": "613921ec4c177272ff5a0cbb894cf550440b6e470c9df165a70c4694f9898aa1",
+  "technical/fixtures/additional-retrieval.json": "78c526757cc826032662a5e509785eb98a72b7ce1d86843eec887bb8fd43b188",
+  "technical/fixtures/original-corpus.json": "dedfb88d3b766e9799b2c1844edc639f1719f2dc0cccbdd14dba2b7cad41d82c",
+  "technical/replaysafe.py": "346176b3598138eeed1b98c19918eab6e524387a77f9ac9e94854d5058eb89d2",
+  "technical/run_evidence.py": "4f476eddde272d49684a2f02ac7a1786ab95e0f0c22d1c8cb6998584faa6d6e5",
+  "technical/test_evidence_search.py": "35444680ed6d3aaa5de61db52888a65b8c8cc9685f24205b09c7382fa8dfcbcd",
+  "technical/test_replaysafe.py": "34a4e74c2288a0adc7c75d84d24a86edd6d76df3442edc4ea46a44ad433a103b"
 }

@@ -8,7 +8,7 @@ A network retry can deliver the same event more than once. If every delivery cre
 ## Demonstrated result
 The executed fixture sent **3,100 deliveries representing 1,000 unique events** through **8 concurrent receiver threads**. An unprotected append-per-delivery baseline recorded **2,100 excess effects**. The durable inbox/outbox implementation recorded **1,000 effects with zero duplicates**. A synthetic downstream provider recorded 1,000 unique effects after 25 transient failures and 25 committed requests with lost acknowledgements.
 
-Ten executed regression tests cover duplicate delivery, identity conflict, input validation, transaction rollback, concurrent replay, restart, transient failures, lost acknowledgements, dead letters and outbox recovery.
+Thirteen executed regression tests cover duplicate delivery, identity conflict, input validation, transaction rollback, concurrent replay, restart, transient failures, lost acknowledgements, dead letters and outbox recovery. Additional checks cover concurrent identity conflicts, dead-letter persistence across restart and bounded connection use when garbage collection is disabled. SQLite connections are explicitly closed after each transaction; the prior resource accumulation was reproduced before the repair.
 
 ## Delivery approach
 Validate identity and payload, commit the durable inbox, business effect and outbox atomically, then send downstream with an idempotency key. Handle retries and explicitly surface permanent failures.

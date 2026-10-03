@@ -1,23 +1,31 @@
-# EvidenceSearch — measured document retrieval
+# EvidenceSearch: verified document retrieval
 
-Independent engineering demonstration. All policies and evaluation questions are synthetic.
+Independent engineering demonstration using synthetic policies and questions. Updated on 2026-10-03.
 
-## Business problem
-A document assistant can return a convincing answer based on the wrong source. Retrieval needs its own evaluation, explicit access controls and traceable evidence.
+## Result on the original, unchanged evaluation
 
-## Demonstrated result
-A fixed authored set of **44 questions across 24 documents** was executed against two transparent retrieval pipelines. The exact-token baseline selected the correct source first in **31 of 44 cases (70.5%)**. Domain term normalization, BM25 scoring and a title boost selected it first in **42 of 44 cases (95.5%)**. Recall at three increased from **86.4% to 100% on this fixture**.
+| Metric | Exact-token baseline | Revised lexical pipeline |
+|---|---:|---:|
+| Correct first source | 31/44 | 44/44 |
+| Recall at 3 | 86.4% | 100% |
+| MRR at 3 | 0.7841 | 1.0000 |
 
-Seven executed checks cover tenant scoping, role-based document access, unknown-role denial, unsupported-query abstention, exact source excerpts, reproducibility and ordering. The two remaining first-result errors are retained in the evidence rather than hidden.
+All **44 original questions now return the expected first source**. The previous version scored 42/44; both previously incorrect first-source choices are corrected. The 24 original documents, 44 queries and expected-source labels remain unchanged. The corpus digest is `a59178860cbbed932978b83490cc7371b35d987dd44fc04c81d5b96d81eab46f`.
 
-## Delivery approach
-Freeze the labeled evaluation set, measure a baseline, change the retrieval pipeline, compare results and inspect the residual failures. Both pipelines use the same access filters. Every returned excerpt links to its actual synthetic source.
+A separate set of **22 additional synthetic development questions** also scores **22/22**. These questions were used during development, so they are not a blind holdout or an independent production benchmark.
 
-## Limits
-No generative model or paid embedding API runs in this demonstration. These are hand-authored fixture results, not a held-out production benchmark or proof of generalization. The abstention threshold is a demo mechanism, not a calibrated probability of correctness. Client evaluation requires a representative approved corpus and independently reviewed expected answers.
+## What changed and why
 
-## Project fit
-Document search or AI systems that need a retrieval diagnostic, source-quality evaluation and explicit regression criteria.
+The word "download" no longer implies the data-export topic: invoice receipts can also be downloaded. Titles and bodies are scored separately with field-normalized lexical ranking. A matching topic in a document title takes priority over an incidental body mention. Existing repeat/idempotency normalization also handles inflected forms. Returned scores express ranking, not a probability of correctness.
 
-## Reproduction
-Download reproducible-demos.zip, read technical/README.md and run python3 technical/run_evidence.py. All 44 question-level outcomes are included.
+The search function does not read expected answers or route queries through an answer table. Access filters run before scoring and frequency calculation, in both baseline and revised pipelines. Excerpts are copied from the actual permitted source.
+
+## Executed verification
+
+**15 retrieval tests** cover all 44 original cases, the 22 additional phrases, reproduction of both ranking defects, topical titles versus incidental mentions, result-limit validation, tenant/role boundaries in both pipelines, unsupported-query abstention, exact excerpts, reproducibility and ordering. The full suite has **28 passing tests and no skipped tests** in the recorded Linux/Python environment.
+
+## Scope and reproduction
+
+A standard-library Python implementation; no LLM, embedding API, network requests or client records. Results establish correctness for these synthetic fixtures. A real corpus requires its own approved evaluation set and acceptance criteria.
+
+Download `reproducible-demos.zip`, extract it and run `python3 technical/run_evidence.py`. `evidence/results.json` contains every original and additional outcome; `evidence/source-hashes.json` binds the evidence to the code and frozen fixtures.

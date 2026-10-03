@@ -1,11 +1,22 @@
+test_additional_synthetic_paraphrases (test_evidence_search.Retrieval.test_additional_synthetic_paraphrases) ... ok
 test_citations_are_exact_source_excerpts (test_evidence_search.Retrieval.test_citations_are_exact_source_excerpts) ... ok
 test_cross_tenant_filter (test_evidence_search.Retrieval.test_cross_tenant_filter) ... ok
+test_download_does_not_override_invoice_context (test_evidence_search.Retrieval.test_download_does_not_override_invoice_context) ... ok
+test_empty_and_unknown_tenant_abstain (test_evidence_search.Retrieval.test_empty_and_unknown_tenant_abstain) ... ok
+test_invalid_result_limit_is_rejected (test_evidence_search.Retrieval.test_invalid_result_limit_is_rejected) ... ok
+test_limits_do_not_return_extra_results (test_evidence_search.Retrieval.test_limits_do_not_return_extra_results) ... ok
+test_original_44_queries_choose_the_expected_first_source (test_evidence_search.Retrieval.test_original_44_queries_choose_the_expected_first_source) ... ok
 test_owner_document_hidden_from_members (test_evidence_search.Retrieval.test_owner_document_hidden_from_members) ... ok
+test_permissions_apply_to_both_pipelines (test_evidence_search.Retrieval.test_permissions_apply_to_both_pipelines) ... ok
 test_reproducibility (test_evidence_search.Retrieval.test_reproducibility) ... ok
 test_score_order (test_evidence_search.Retrieval.test_score_order) ... ok
+test_topic_title_outranks_an_incidental_body_word (test_evidence_search.Retrieval.test_topic_title_outranks_an_incidental_body_word) ... ok
 test_unknown_role_is_denied (test_evidence_search.Retrieval.test_unknown_role_is_denied) ... ok
 test_unsupported_query_abstains (test_evidence_search.Retrieval.test_unsupported_query_abstains) ... ok
+test_concurrent_identity_conflict_keeps_one_effect (test_replaysafe.Reliability.test_concurrent_identity_conflict_keeps_one_effect) ... ok
 test_concurrent_replays (test_replaysafe.Reliability.test_concurrent_replays) ... ok
+test_connections_do_not_accumulate_without_garbage_collection (test_replaysafe.Reliability.test_connections_do_not_accumulate_without_garbage_collection) ... ok
+test_dead_letter_is_not_requeued_after_restart (test_replaysafe.Reliability.test_dead_letter_is_not_requeued_after_restart) ... ok
 test_duplicate_delivery (test_replaysafe.Reliability.test_duplicate_delivery) ... ok
 test_identity_conflict (test_replaysafe.Reliability.test_identity_conflict) ... ok
 test_invalid_payload_has_no_effect (test_replaysafe.Reliability.test_invalid_payload_has_no_effect) ... ok
@@ -17,6 +28,6 @@ test_rollback_before_commit (test_replaysafe.Reliability.test_rollback_before_co
 test_transient_retry (test_replaysafe.Reliability.test_transient_retry) ... ok
 
 ----------------------------------------------------------------------
-Ran 17 tests in 0.806s
+Ran 28 tests in 2.610s
 
 OK

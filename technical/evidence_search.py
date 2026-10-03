@@ -7,6 +7,11 @@ from dataclasses import dataclass
 ALIASES={'terminate':'cancel','termination':'cancel','cancellation':'cancel','unsubscribe':'cancel','plan':'subscription','plans':'subscription','subscriptions':'subscription','billed':'invoice','billing':'invoice','invoices':'invoice','receipt':'invoice','receipts':'invoice','credential':'password','credentials':'password','resetting':'reset','forgotten':'reset','forgot':'reset','refunds':'refund','reimbursement':'refund','reimburse':'refund','exporting':'export','download':'export','extract':'export','delete':'deletion','erase':'deletion','removal':'deletion','residency':'region','location':'region','rotate':'rotation','rotating':'rotation','secret':'key','token':'key','tokens':'key','quotas':'limit','throttle':'limit','throttling':'limit','retries':'retry','resend':'retry','resends':'retry','redelivery':'retry','duplicate':'idempotency','duplicates':'idempotency','repeat':'idempotency','bounces':'failure','failed':'failure','errors':'failure','permissions':'access','privileges':'access','invite':'invitation','invites':'invitation','employees':'members','coworker':'members','colleague':'members','team':'members','organisation':'organization','organisation_id':'organization','retained':'retention','storage':'retention','retaining':'retention','sessions':'session','logout':'session','timeout':'session','change':'update','modify':'update','edited':'update','currency':'currencies','fx':'currencies','audit':'history','activity':'history','logs':'history','custom':'domain','hostname':'domain','subdomain':'domain','attachments':'attachment','files':'attachment','capacity':'size','size':'size'}
 STOP=set('a an the is are to of in on for my our your how can do does what where when i we it with and or by be have has many should'.split())
 
+# Download is an action shared by invoices and data exports, not a synonym
+# for the export topic. Inflected forms retain the existing repeat meaning.
+ALIASES.pop('download', None)
+ALIASES.update({'repeated': 'idempotency', 'repeating': 'idempotency'})
+
 def tokens(text,expanded=False):
     ts=re.findall(r'[a-z0-9]+',text.lower())
     ts=[t for t in ts if t not in STOP]
@@ -47,22 +52,66 @@ DOCS=[Document(*p) for p in POLICIES]+[Document('admin-internal','Owner access r
 def permitted(d,tenant,role):return d.tenant==tenant and (d.role=='member' or role=='owner')
 
 def search(query,tenant='atlas',role='member',improved=True,k=3):
-    if role not in ['member','owner']:return []
-    docs=[d for d in DOCS if permitted(d,tenant,role)]
-    qt=tokens(query,improved); terms=[tokens(d.text,improved) for d in docs]; n=len(docs)
-    if not qt or not n:return []
-    avg=sum(map(len,terms))/n
-    df=Counter(t for ts in terms for t in set(ts));out=[]
-    for d,ts in zip(docs,terms):
-        c=Counter(ts)
+    """Rank permitted documents, using an explicit topical-title prior.
+
+    Improved ranking uses field-normalized lexical evidence (BM25F-style,
+    title weight 2, k1 1.2). A matching topic in the title takes priority
+    over an incidental body mention. Within each tier the lexical score
+    orders results. ``score`` is that composite ranking score, not a
+    probability; ``lexical_score`` exposes the underlying calculation.
+    No query text, expected answer, document ID or evaluation label is
+    consulted to route a query. The unexpanded baseline stays unchanged.
+    """
+    if type(k) is not int or k < 1:
+        raise ValueError('Result limit must be a positive integer')
+    if not isinstance(query, str):
+        raise ValueError('Query must be text')
+    if role not in ['member', 'owner']:
+        return []
+
+    # Filter BEFORE calculating frequencies or scores, in both pipelines.
+    docs = [d for d in DOCS if permitted(d, tenant, role)]
+    qt = tokens(query, improved)
+    if not qt or not docs:
+        return []
+    terms = [tokens(d.text, improved) for d in docs]
+    titles = [tokens(d.title, improved) for d in docs]
+    bodies = [tokens(d.body, improved) for d in docs]
+    n = len(docs)
+    avg_title = max(sum(map(len, titles)) / n, 1)
+    avg_body = max(sum(map(len, bodies)) / n, 1)
+    df = Counter(t for ts in terms for t in set(ts))
+    query_terms = set(qt)
+    scored = []
+
+    for d, ts, title, body in zip(docs, terms, titles, bodies):
         if improved:
-            coverage=len(set(qt)&set(ts))/len(set(qt))
-            if coverage<.25:continue
-            score=sum(math.log(1+(n-df[t]+.5)/(df[t]+.5))*c[t]*2.2/(c[t]+1.2*(.25+.75*len(ts)/avg)) for t in qt if c[t])
-            score*=1+sum(t in tokens(d.title,True) for t in set(qt))*.25
-        else:score=sum(c[t] for t in qt)
-        if score:out.append({'id':d.id,'title':d.title,'score':round(score,6),'excerpt':d.body,'tenant':d.tenant,'source':'synthetic-policy/'+d.id})
-    return sorted(out,key=lambda v:(-v['score'],v['id']))[:k]
+            coverage = len(query_terms & set(ts)) / len(query_terms)
+            if coverage < .25:
+                continue
+            title_counts, body_counts = Counter(title), Counter(body)
+            lexical = 0.0
+            for term in sorted(query_terms):
+                tf = (2 * title_counts[term] / (.7 + .3 * len(title) / avg_title)
+                      + body_counts[term] / (.25 + .75 * len(body) / avg_body))
+                if tf:
+                    idf = math.log(1 + (n - df[term] + .5) / (df[term] + .5))
+                    lexical += idf * tf * 2.2 / (tf + 1.2)
+            anchored = bool(query_terms & set(title))
+            score = int(anchored) + lexical / (1 + lexical)
+        else:
+            counts = Counter(ts)
+            lexical = score = sum(counts[t] for t in qt)
+        if not lexical:
+            continue
+        scored.append((score, {
+            'id': d.id, 'title': d.title, 'score': round(score, 6),
+            'lexical_score': round(lexical, 6), 'excerpt': d.body,
+            'tenant': d.tenant, 'source': 'synthetic-policy/' + d.id,
+        }))
+
+    # Sort at full precision; round only the values shown in the receipt.
+    return [r for _, r in sorted(scored, key=lambda v: (-v[0], v[1]['id']))[:k]]
 
 CASES=[
 ('How do I terminate my plan?','cancel'),('How do I unsubscribe from a subscription?','cancel'),

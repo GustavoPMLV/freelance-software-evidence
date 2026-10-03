@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1500" height="1002" viewBox="0 0 250 167" role="img" aria-labelledby="t d" xml:lang="pt-BR">
+  <title id="t">Capa EngramaMed</title>
+  <desc id="d">EngramaMed, SaaS educacional próprio de estudo de Medicina e preparação para residência. Em operação. Sem métricas de usuários, receita ou resultados clínicos.</desc>
+  <rect width="250" height="167" fill="#1F5A43"/>
+  <text x="14" y="40" font-family="'Iowan Old Style','Palatino Linotype',Palatino,Georgia,'DejaVu Serif',serif" font-size="27" fill="#F4F1E8" letter-spacing="-0.6">EngramaMed</text>
+  <text x="14" y="56" font-family="Arial,Helvetica,'Liberation Sans','DejaVu Sans',sans-serif" font-size="10.5" fill="#A8D5B8">Estudo de Medicina</text>
+  <text x="14" y="70" font-family="Arial,Helvetica,'Liberation Sans','DejaVu Sans',sans-serif" font-size="10.5" fill="#F4F1E8">Preparação para residência</text>
+  <g fill="none" stroke="#A8D5B8" stroke-width="1.2"><rect x="165.6" y="84.6" width="56" height="36"/><rect x="171.6" y="90.6" width="56" height="36"/><rect x="177.6" y="96.6" width="56" height="36"/></g>
+  <rect x="177" y="96" width="57" height="37" fill="#F4F1E8"/>
+  <rect x="184" y="104" width="30" height="3.4" fill="#1F5A43"/>
+  <rect x="184" y="111" width="42" height="2.2" fill="#5A655F"/>
+  <rect x="184" y="116" width="36" height="2.2" fill="#5A655F"/>
+  <rect x="184" y="121" width="24" height="2.2" fill="#5A655F"/>
+  <text x="14" y="104" font-family="'SF Mono',Menlo,Consolas,'DejaVu Sans Mono','Liberation Mono',monospace" font-size="9" fill="#A8D5B8" letter-spacing="0.9">SAAS PRÓPRIO</text>
+  <text x="14" y="121" font-family="'Iowan Old Style','Palatino Linotype',Palatino,Georgia,'DejaVu Serif',serif" font-size="13" fill="#F4F1E8">SaaS em operação</text>
+  <path d="M14 143.5H236" stroke="#A8D5B8" stroke-opacity="0.45" stroke-width="1"/>
+  <text x="14" y="157" font-family="Arial,Helvetica,'Liberation Sans','DejaVu Sans',sans-serif" font-size="9" fill="#A8D5B8">Educação médica</text>
+</svg>

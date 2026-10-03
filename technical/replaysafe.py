@@ -2,6 +2,7 @@
 from __future__ import annotations
 import hashlib,json,sqlite3,time
 from pathlib import Path
+from contextlib import contextmanager,closing
 
 class Conflict(ValueError): pass
 class RetryLater(Exception): pass
@@ -17,10 +18,15 @@ class Inbox:
             CREATE TABLE IF NOT EXISTS outbox(id TEXT PRIMARY KEY,attempts INTEGER NOT NULL DEFAULT 0,status TEXT NOT NULL DEFAULT 'pending',error TEXT);
             CREATE TABLE IF NOT EXISTS sent(id TEXT PRIMARY KEY,payload TEXT NOT NULL);
             ''')
+    @contextmanager
     def db(self):
         c=sqlite3.connect(self.path,timeout=20)
-        c.execute('PRAGMA busy_timeout=20000')
-        return c
+        try:
+            c.execute('PRAGMA busy_timeout=20000')
+            with c:
+                yield c
+        finally:
+            c.close()
     def receive(self,event, fail_before_commit=False):
         if set(event)!={'id','amount'} or not isinstance(event['id'],str) or not event['id'] or type(event['amount']) is not int or event['amount']<0:
             raise ValueError('Invalid event schema')
@@ -66,7 +72,7 @@ class SyntheticProvider:
         if key in self.fail_always: raise RetryLater('provider unavailable')
         if key in self.fail_once:
             self.fail_once.remove(key); raise RetryLater('transient failure')
-        with sqlite3.connect(self.path,timeout=20) as c:
+        with closing(sqlite3.connect(self.path,timeout=20)) as c, c:
             c.execute('INSERT OR IGNORE INTO sent VALUES(?,?)',(key,json.dumps(payload,sort_keys=True)))
         if key in self.ambiguous:
             self.ambiguous.remove(key); raise RetryLater('provider committed; acknowledgement lost')

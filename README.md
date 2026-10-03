@@ -68,3 +68,11 @@ Portfólio técnico de Gustavo Lima Verde com demonstrações reproduzíveis de 
 ## Verified improvements (2026-10-03)
 
 Both previously incorrect first-source choices were repaired without changing the original queries, expected labels or documents. The frozen corpus digest is a59178860cbbed932978b83490cc7371b35d987dd44fc04c81d5b96d81eab46f. ReplaySafe also explicitly closes SQLite connections; a Linux stress check with garbage collection disabled guards against descriptor accumulation. The published results are synthetic fixture evidence, not universal production guarantees. Written collaboration is available in Portuguese, English and Spanish with AI assistance; meetings in Portuguese and basic spoken English/Spanish.
+
+## B2B pilot: batch comparison
+
+[Conferência de Lotes](https://gustavo-lima-verde-software.gustavo-pmlv6.chatgpt.site/b2b/) is a functional pilot for comparing approved-order CSVs against an ERP import file by order/SKU, integer quantity and exact unit-price cents. It runs locally in the browser, blocks duplicate or invalid keys, reports physical source lines and exports CSV/JSON. It does not connect to or approve an ERP import.
+
+The [source, limits and run instructions](b2b/README.md) describe the reference format. Twenty-two engine tests cover malformed CSV, duplicate identity, exact arithmetic, spreadsheet-safe reports and 10,000-record batches. PT/EN/ES pages and 320/390/1366px layouts were checked locally. Commercial configuration is a proposed bounded pilot; no buyers, license revenue or recurring revenue have been validated.
+
+Claude Opus 5.5 at xhigh effort supplied the visual direction and the final multilingual commercial pages; Codex built and tested the engine and runtime. Higgsfield brandkit was used locally for review boards and an original vector diagram. No cloud generation was completed.

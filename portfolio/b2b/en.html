@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Batch Check | Check before importing into the ERP</title>
+<meta name="description" content="Compare the approved orders CSV with the CSV prepared for ERP import. Differences by order and SKU, with the source line of every issue, processed in your browser.">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="../favicon.svg">
+<link rel="stylesheet" href="styles.css?v=b380e5b20248">
+</head>
+<body>
+<a class="skip" href="#demo">Skip to the demonstration</a>
+<header class="site-header">
+<div class="wrap header-row">
+<a class="brand" href="../index.html">Gustavo Lima Verde<span>Batch Check</span></a>
+<nav class="nav-pages" aria-label="On this page"><a href="#demo">Demo</a><a href="#pilot">Pilot</a><a href="#brief">Brief</a><a href="../index.html">Portfolio</a></nav>
+<nav class="nav-langs" aria-label="Language"><a href="index.html" lang="pt-BR" hreflang="pt-BR" title="Português">PT</a><a href="en.html" lang="en" hreflang="en" title="English" aria-current="page">EN</a><a href="es.html" lang="es" hreflang="es" title="Español">ES</a></nav>
+</div>
+</header>
+
+<main>
+<section class="hero" aria-labelledby="hero-title">
+<div class="wrap">
+<p class="eyebrow">B2B pilot <span aria-hidden="true">·</span> one operational workflow <span aria-hidden="true">·</span> working demonstration</p>
+<h1 id="hero-title">Check the batch <em>before</em> it reaches the ERP.</h1>
+<div class="hero-grid">
+<div class="hero-copy">
+<p class="lead">Compare the approved orders CSV with the CSV prepared for import. Every quantity or price difference, and every missing, unexpected or repeated item, is shown with its source line.</p>
+<ul class="facts">
+<li>Processed in this browser</li>
+<li>No upload, analytics or persistent storage</li>
+<li>Line-level report in CSV and JSON</li>
+</ul>
+<div class="actions"><a class="button primary" href="#demo">Try the example <span aria-hidden="true">&#8600;</span></a><a class="button" href="#pilot">Pilot from BRL497</a></div>
+</div>
+<figure class="hero-figure">
+<img src="assets/flow.svg?v=7cdf267e70e1" width="720" height="440" alt="Diagram: stack A, approved orders, and stack B, prepared for the ERP, pass through the order + SKU key and become one check sheet with a status for each line.">
+<ul class="legend" aria-label="Status of each line in the report">
+<li><span class="mk mk-matched" aria-hidden="true"></span><span><b>Matching</b> same key, quantity and price</span></li>
+<li><span class="mk mk-changed" aria-hidden="true"></span><span><b>Different</b> quantity or price does not match</span></li>
+<li><span class="mk mk-missing" aria-hidden="true"></span><span><b>Missing from import</b> approved in A, absent from B</span></li>
+<li><span class="mk mk-unexpected" aria-hidden="true"></span><span><b>Unexpected</b> in B, with no approved order in A</span></li>
+<li><span class="mk mk-blocked" aria-hidden="true"></span><span><b>Blocked</b> repeated key or invalid row, never summed</span></li>
+</ul>
+<figcaption>Two stacks go in, one check sheet comes out. Conceptual diagram, no customer data.</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+<section class="rules" id="rules" aria-labelledby="rules-title">
+<div class="wrap">
+<div class="section-head">
+<p class="eyebrow">How the check decides</p>
+<h2 id="rules-title">Written rules. No guesses about your file.</h2>
+<p>Reading a CSV in the browser is only the start. The value is in the rules: which key identifies a line, how prices are compared and what happens when something repeats. Every rule is explicit and shows up in the report.</p>
+</div>
+<ol class="rule-list">
+<li><h3>Text keys</h3><p>Order + SKU are read as text. Leading zeros and letter case count.</p><p class="specimen"><code>0042 ≠ 42</code></p></li>
+<li><h3>Exact cents</h3><p>Whole-number quantities and prices in cents, with no rounding. An equal total cannot hide a different field.</p><p class="specimen"><code>BRL 19.90 → 1990 cents</code></p></li>
+<li><h3>Repeats block</h3><p>A repeated key or invalid row is never summed or overwritten, and the batch is not reported as issue-free.</p><p class="specimen"><code>2 × same key → blocked</code></p></li>
+<li><h3>Source line</h3><p>Every issue points to the physical line in both files, even after blank lines or fields with line breaks.</p><p class="specimen"><code>line 4 in A · missing in B</code></p></li>
+</ol>
+</div>
+</section>
+
+<section id="demo" class="demo" aria-labelledby="demo-title">
+<div class="wrap">
+<div class="section-head">
+<p class="eyebrow">Demonstration</p>
+<h2 id="demo-title">Try it now, with the example or two CSVs.</h2>
+<p>The synthetic example contains deliberate problems so you can see each status. If you use your own files, they are read in this browser and are not sent to any server.</p>
+</div>
+<div class="bench-grid">
+<div class="bench">
+<div class="bench-top">
+<p class="local-note"><span class="mk mk-matched" aria-hidden="true"></span>Processed in this browser. No file is uploaded.</p>
+<button type="button" id="demo-btn">Load synthetic example</button>
+</div>
+<ol class="steps">
+<li class="step">
+<h3>Choose both files</h3>
+<div class="file-grid">
+<div class="file-box file-a">
+<label for="expected-file"><span class="tag">A</span><span>Approved orders CSV</span></label>
+<div class="file-body">
+<input id="expected-file" type="file" accept=".csv,text/csv" aria-describedby="expected-hint">
+<p class="hint" id="expected-hint">UTF-8 · up to 2 MiB · up to 10,000 records</p>
+<p id="expected-status" class="file-status" aria-live="polite"></p>
+</div>
+</div>
+<div class="file-box file-b">
+<label for="actual-file"><span class="tag">B</span><span>CSV prepared for import</span></label>
+<div class="file-body">
+<input id="actual-file" type="file" accept=".csv,text/csv" aria-describedby="actual-hint">
+<p class="hint" id="actual-hint">UTF-8 · up to 2 MiB · up to 10,000 records</p>
+<p id="actual-status" class="file-status" aria-live="polite"></p>
+</div>
+</div>
+</div>
+</li>
+<li class="step">
+<h3>Set the format</h3>
+<div class="options">
+<div class="field"><label for="delimiter">Column separator</label><select id="delimiter"><option value=";">Semicolon (;)</option><option value=",">Comma (,)</option></select></div>
+<div class="field"><label for="decimal">Decimal separator</label><select id="decimal"><option value=",">Comma (,)</option><option value=".">Dot (.)</option></select></div>
+</div>
+<p class="hint">Nothing is guessed: choose the separators used in both files.</p>
+</li>
+<li class="step">
+<h3>Check</h3>
+<div class="actions"><button type="button" class="primary" id="compare-btn" disabled>Check batch</button><button type="button" id="clear-btn">Clear files</button></div>
+<p id="run-status" aria-live="polite"></p>
+<div id="errors-output" role="alert"></div>
+</li>
+</ol>
+</div>
+<aside class="spec" aria-labelledby="spec-title">
+<h3 id="spec-title">Reference format</h3>
+<dl>
+<div><dt>Files</dt><dd>2 UTF-8 CSVs, up to 2 MiB and 10,000 records each.</dd></div>
+<div><dt>Headers</dt><dd><span class="chips"><code>pedido</code> <code>sku</code> <code>quantidade</code> <code>preco_unitario</code></span>Extra columns are accepted if headers are unique.</dd></div>
+<div><dt>Separators</dt><dd>Columns <code>;</code> or <code>,</code> · decimal <code>,</code> or <code>.</code> Explicit choice, no guessing.</dd></div>
+<div><dt>Order and SKU</dt><dd>Text up to 120 characters. Leading zeros and letter case preserved.</dd></div>
+<div><dt>Quantity</dt><dd>Integer from 1 to 1,000,000.</dd></div>
+<div><dt>Unit price</dt><dd>Nonnegative, up to 2 decimal places, no thousands separator, up to BRL9,999,999,999.99.</dd></div>
+<div><dt>Blocks</dt><dd>A repeated key or invalid row prevents an issue-free result.</dd></div>
+</dl>
+<p class="samples"><span>Example files</span><a href="examples/pedidos-exemplo.csv?v=1f6373cab3e9" download>pedidos-exemplo.csv <span aria-hidden="true">&#8595;</span></a><a href="examples/importacao-exemplo.csv?v=7b88835e3aa6" download>importacao-exemplo.csv <span aria-hidden="true">&#8595;</span></a></p>
+</aside>
+</div>
+
+<section id="results-section" hidden aria-labelledby="results-title">
+<div class="results-head"><h3 id="results-title">Comparison result</h3><p>Calculated in this browser from the two loaded files.</p></div>
+<div id="summary-output"></div>
+<div id="report-output"></div>
+<div class="actions export-row"><button type="button" id="export-csv-btn" disabled>Download CSV report</button><button type="button" id="export-json-btn" disabled>Download JSON report</button></div>
+<p class="hint">Downloads only happen when you click. The CSV neutralizes content that could become a spreadsheet formula; the JSON records the SHA-256 of both files.</p>
+</section>
+
+<div class="bounds">
+<div class="bounds-copy">
+<h3>What this version does not do</h3>
+<p>A no-differences result covers only the rules above. The decision to import stays with the person responsible for the operation.</p>
+<p><a href="https://github.com/GustavoPMLV/freelance-software-evidence/tree/main/b2b">Inspect code and tests <span aria-hidden="true">&#8599;</span></a></p>
+</div>
+<ul>
+<li>Does not read PDFs, images (OCR) or email attachments.</li>
+<li>Does not connect to the ERP: it does not import, repair or approve orders, and it does not execute payments.</li>
+<li>Does not check tax, inventory, master-data or ERP-specific rules.</li>
+<li>Does not claim integration, certification or partnership with specific ERPs.</li>
+</ul>
+</div>
+<noscript><p class="noscript">The check needs JavaScript to read files in this browser. No file is uploaded.</p></noscript>
+</div>
+</section>
+
+<section id="pilot" class="pilot" aria-labelledby="pilot-title">
+<div class="wrap pilot-grid">
+<div class="pilot-main">
+<p class="eyebrow">Configuration pilot</p>
+<h2 id="pilot-title">From the reference format to your file.</h2>
+<p class="lead">The pilot adapts the check to a real workflow: the two CSVs your operation already uses, with columns, rules and acceptance criteria agreed in writing.</p>
+<ol class="process">
+<li><h3>You describe the workflow</h3><p>ERP, the two files, volume and the error to prevent. Sanitized sample, no credentials.</p></li>
+<li><h3>Review and proposal</h3><p>Format, rules and acceptance criteria in writing. Price and timeline confirmed after reviewing the samples.</p></li>
+<li><h3>Configuration and delivery</h3><p>Columns and rules configured, line-level discrepancy report and one execution example.</p></li>
+<li><h3>Revision and fixes</h3><p>One revision round and defect corrections within the delivered scope for 7 days.</p></li>
+</ol>
+<div class="who">
+<h3>Who it is for</h3>
+<p>Commerce operations that check orders before importing, and ERP consultancies that prepare these files during implementations. For a consultancy, the pilot complements file preparation; it does not replace implementation work.</p>
+</div>
+<p class="status-note"><strong>Current status</strong>Working demonstration of one reference workflow. There are no validated buyers, licenses sold or recurring revenue yet. Reusing the same format across companies is the product hypothesis; new formats receive a new scope.</p>
+</div>
+<aside class="offer" aria-labelledby="offer-title">
+<p class="eyebrow" id="offer-title">First workflow configuration</p>
+<p class="price"><span>from</span>BRL497</p>
+<p class="price-note">Proposed launch price to validate the offer. Final price confirmed after reviewing format, rules and sanitized samples.</p>
+<h3>Includes</h3>
+<ul class="offer-in">
+<li>One agreed workflow and two CSV layouts</li>
+<li>One column and rule configuration</li>
+<li>Line-level discrepancy report and one execution example</li>
+<li>One revision round</li>
+<li>Defect corrections within the delivered scope for 7 days</li>
+</ul>
+<h3>Not included</h3>
+<ul class="offer-out">
+<li>Integration, import or writing into the ERP</li>
+<li>New formats or workflows, PDF or OCR</li>
+<li>Unlimited support or automatic monthly billing</li>
+<li>Guaranteed timeline, savings or revenue</li>
+</ul>
+<a class="button primary" href="#brief">Prepare a brief <span aria-hidden="true">&#8600;</span></a>
+<p class="fine">No contract or charge happens on this page.</p>
+</aside>
+</div>
+</section>
+
+<section id="faq" class="faq" aria-labelledby="faq-title">
+<div class="wrap faq-grid">
+<div class="section-head">
+<p class="eyebrow">Before we talk</p>
+<h2 id="faq-title">Direct questions, bounded answers.</h2>
+</div>
+<div class="faq-list">
+<details><summary>Does it already work with my ERP?</summary><p>The demonstration compares the reference format described above. Your layout needs to be reviewed in the pilot. No integration, certification or partnership with specific ERPs is claimed.</p></details>
+<details><summary>Why not use a spreadsheet and VLOOKUP?</summary><p>For a one-off check, that may be enough. The pilot delivers written rules for your format: composite key, exact cents, repeats blocked instead of summed, and a line-level report someone else can re-check.</p></details>
+<details><summary>Do my files leave my computer?</summary><p>Not in the demonstration. Reading and checking happen in this browser, with no upload, analytics or persistent storage. To evaluate a pilot, share only sanitized samples, with no credentials or personal data.</p></details>
+<details><summary>Does a no-differences result approve the import?</summary><p>No. It reports only the rules that were checked. Tax, inventory, master-data and ERP rules may require further checks by the person responsible.</p></details>
+<details><summary>How does the pilot avoid becoming unlimited support?</summary><p>The proposal records layouts, rules, acceptance criteria and the limit of one revision round. Format changes, integrations and new workflows receive a separate quote.</p></details>
+<details><summary>Is anyone using it already?</summary><p>Not yet. This is a working demonstration with no validated buyers. The first pilots exist to confirm whether the problem repeats and whether the configuration is worth the price.</p></details>
+</div>
+</div>
+</section>
+
+<section id="brief" class="brief" aria-labelledby="brief-title">
+<div class="wrap brief-grid">
+<div class="brief-intro">
+<p class="eyebrow">Briefing</p>
+<h2 id="brief-title">Prepare a useful conversation.</h2>
+<p>Describe your workflow. The brief is assembled in this browser: you review it, copy it and send it through the platform you prefer.</p>
+<h3>Include</h3>
+<ul class="checklist">
+<li>Your ERP and how the two files are produced</li>
+<li>Columns, frequency and batch volume</li>
+<li>The error you need to prevent</li>
+<li>What counts as an approved check</li>
+</ul>
+<h3>Do not include</h3>
+<p>Passwords, tokens, personal or customer data. If you need to show a file, use a sanitized sample.</p>
+</div>
+<div class="brief-form">
+<label for="brief-note">Workflow context</label>
+<p class="hint" id="brief-note-hint">Up to 2,000 characters. Nothing leaves this page.</p>
+<textarea id="brief-note" maxlength="2000" rows="6" aria-describedby="brief-note-hint" placeholder="E.g. how both files are produced, how many batches per week and which error has already happened."></textarea>
+<button type="button" class="primary" id="brief-btn">Prepare brief</button>
+<label for="brief-output">Brief for review</label>
+<textarea id="brief-output" readonly rows="9"></textarea>
+<div class="actions"><button type="button" id="copy-brief-btn">Copy brief</button></div>
+<p id="brief-status" aria-live="polite"></p>
+<div class="contact">
+<p class="contact-title">Send it through a platform</p>
+<div class="actions"><a class="button" href="https://www.99freelas.com.br/user/gustavo-1790992697889">Contact on 99Freelas <span aria-hidden="true">&#8599;</span></a><a class="button" href="https://www.upwork.com/freelancers/~0153456be778467e4e">Contact on Upwork <span aria-hidden="true">&#8599;</span></a></div>
+<p class="hint">The links open the public profile. Paste the brief into your message; this page sends nothing.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="site-footer">
+<div class="wrap footer-grid">
+<div>
+<p class="footer-brand">Gustavo Lima Verde<span>Batch Check · pilot product</span></p>
+<p><a href="../index.html">Back to portfolio</a></p>
+</div>
+<p>AI-assisted development. Written collaboration in PT, EN and ES with AI assistance; meetings in Portuguese, basic spoken English and Spanish.</p>
+<p>This demonstration has no file uploads, analytics or persistent storage. Clear removes session data; reloading does too. Downloads remain under your control.</p>
+</div>
+</footer>
+<script src="engine.js?v=9c5bf84ee2cb"></script><script src="app.js?v=f72cba36847b"></script>
+</body>
+</html>

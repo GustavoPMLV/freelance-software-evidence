@@ -1,0 +1,117 @@
+{
+  "schema": "lote-compare/v1",
+  "options": {
+    "delimiter": ";",
+    "decimal": ","
+  },
+  "allClear": false,
+  "summary": {
+    "matched": 1,
+    "changed": 1,
+    "missing": 1,
+    "unexpected": 1,
+    "blocked": 1,
+    "issues": 1,
+    "expectedRecords": 4,
+    "actualRecords": 5,
+    "expectedValidTotalCents": "24480",
+    "actualValidTotalCents": "19779",
+    "totalsAreComplete": false
+  },
+  "rows": [
+    {
+      "status": "blocked",
+      "pedido": "0004",
+      "sku": "ITEM-D",
+      "expected": {
+        "line": 5,
+        "quantity": 2,
+        "unitCents": "1250",
+        "totalCents": "2500"
+      },
+      "actual": null,
+      "blockedLines": {
+        "expected": [
+          5
+        ],
+        "actual": [
+          4,
+          5
+        ]
+      }
+    },
+    {
+      "status": "changed",
+      "pedido": "0002",
+      "sku": "ITEM-B",
+      "expected": {
+        "line": 3,
+        "quantity": 1,
+        "unitCents": "15000",
+        "totalCents": "15000"
+      },
+      "actual": {
+        "line": 3,
+        "quantity": 1,
+        "unitCents": "14999",
+        "totalCents": "14999"
+      },
+      "blockedLines": null
+    },
+    {
+      "status": "missing",
+      "pedido": "0003",
+      "sku": "ITEM-C",
+      "expected": {
+        "line": 4,
+        "quantity": 3,
+        "unitCents": "1000",
+        "totalCents": "3000"
+      },
+      "actual": null,
+      "blockedLines": null
+    },
+    {
+      "status": "unexpected",
+      "pedido": "0005",
+      "sku": "ITEM-E",
+      "expected": null,
+      "actual": {
+        "line": 6,
+        "quantity": 1,
+        "unitCents": "800",
+        "totalCents": "800"
+      },
+      "blockedLines": null
+    },
+    {
+      "status": "matched",
+      "pedido": "0001",
+      "sku": "ITEM-A",
+      "expected": {
+        "line": 2,
+        "quantity": 2,
+        "unitCents": "1990",
+        "totalCents": "3980"
+      },
+      "actual": {
+        "line": 2,
+        "quantity": 2,
+        "unitCents": "1990",
+        "totalCents": "3980"
+      },
+      "blockedLines": null
+    }
+  ],
+  "issues": [
+    {
+      "side": "actual",
+      "line": 5,
+      "pedido": "0004",
+      "sku": "ITEM-D",
+      "codes": [
+        "DUPLICATE"
+      ]
+    }
+  ]
+}

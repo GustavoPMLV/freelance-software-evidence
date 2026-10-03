@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Conferencia de Lotes | Compruebe antes de importar al ERP</title>
+<meta name="description" content="Compare el CSV de pedidos aprobados con el CSV preparado para importar al ERP. Diferencias por pedido y SKU, con la fila de origen de cada incidencia, procesadas en su navegador.">
+<meta name="color-scheme" content="light">
+<link rel="icon" href="../favicon.svg">
+<link rel="stylesheet" href="styles.css?v=b380e5b20248">
+</head>
+<body>
+<a class="skip" href="#demo">Ir a la demostración</a>
+<header class="site-header">
+<div class="wrap header-row">
+<a class="brand" href="../es.html">Gustavo Lima Verde<span>Conferencia de Lotes</span></a>
+<nav class="nav-pages" aria-label="En esta página"><a href="#demo">Demo</a><a href="#pilot">Piloto</a><a href="#brief">Briefing</a><a href="../es.html">Portafolio</a></nav>
+<nav class="nav-langs" aria-label="Idioma"><a href="index.html" lang="pt-BR" hreflang="pt-BR" title="Português">PT</a><a href="en.html" lang="en" hreflang="en" title="English">EN</a><a href="es.html" lang="es" hreflang="es" title="Español" aria-current="page">ES</a></nav>
+</div>
+</header>
+
+<main>
+<section class="hero" aria-labelledby="hero-title">
+<div class="wrap">
+<p class="eyebrow">Piloto B2B <span aria-hidden="true">·</span> un flujo operativo <span aria-hidden="true">·</span> demostración funcional</p>
+<h1 id="hero-title">Compruebe el lote <em>antes</em> de que llegue al ERP.</h1>
+<div class="hero-grid">
+<div class="hero-copy">
+<p class="lead">Compare el CSV de pedidos aprobados con el CSV preparado para importar. Cada diferencia de cantidad o precio, y cada elemento ausente, no previsto o repetido, aparece con su fila de origen.</p>
+<ul class="facts">
+<li>Procesado en este navegador</li>
+<li>Sin subida de archivos, analytics ni almacenamiento persistente</li>
+<li>Informe por fila en CSV y JSON</li>
+</ul>
+<div class="actions"><a class="button primary" href="#demo">Probar con el ejemplo <span aria-hidden="true">&#8600;</span></a><a class="button" href="#pilot">Piloto desde R$497</a></div>
+</div>
+<figure class="hero-figure">
+<img src="assets/flow.svg?v=7cdf267e70e1" width="720" height="440" alt="Diagrama: la pila A, de pedidos aprobados, y la pila B, preparada para el ERP, pasan por la clave pedido + SKU y se convierten en una hoja de comprobación con un estado por fila.">
+<ul class="legend" aria-label="Estado de cada fila en el informe">
+<li><span class="mk mk-matched" aria-hidden="true"></span><span><b>Coincidentes</b> misma clave, cantidad y precio</span></li>
+<li><span class="mk mk-changed" aria-hidden="true"></span><span><b>Diferentes</b> la cantidad o el precio no coincide</span></li>
+<li><span class="mk mk-missing" aria-hidden="true"></span><span><b>Ausentes en la importación</b> aprobados en A, fuera de B</span></li>
+<li><span class="mk mk-unexpected" aria-hidden="true"></span><span><b>No previstos</b> en B, sin pedido aprobado en A</span></li>
+<li><span class="mk mk-blocked" aria-hidden="true"></span><span><b>Bloqueados</b> clave repetida o fila inválida, nunca sumada</span></li>
+</ul>
+<figcaption>Entran dos pilas, sale una hoja de comprobación. Diagrama conceptual, sin datos de clientes.</figcaption>
+</figure>
+</div>
+</div>
+</section>
+
+<section class="rules" id="rules" aria-labelledby="rules-title">
+<div class="wrap">
+<div class="section-head">
+<p class="eyebrow">Cómo decide la comprobación</p>
+<h2 id="rules-title">Reglas escritas. Ninguna suposición sobre su archivo.</h2>
+<p>Leer un CSV en el navegador es solo el comienzo. El valor está en las reglas: qué clave identifica la fila, cómo se compara el precio y qué ocurre cuando algo se repite. Todas son explícitas y aparecen en el informe.</p>
+</div>
+<ol class="rule-list">
+<li><h3>Clave de texto</h3><p>Pedido + SKU se leen como texto. Los ceros iniciales y las mayúsculas cuentan.</p><p class="specimen"><code>0042 ≠ 42</code></p></li>
+<li><h3>Centavos exactos</h3><p>Cantidad entera y precio en centavos, sin redondeo. Un total igual no oculta un campo diferente.</p><p class="specimen"><code>R$ 19,90 → 1990 centavos</code></p></li>
+<li><h3>La repetición bloquea</h3><p>Una clave repetida o una fila inválida nunca se suma ni se sobrescribe, y el lote no se declara sin incidencias.</p><p class="specimen"><code>2 × misma clave → bloqueo</code></p></li>
+<li><h3>Fila de origen</h3><p>Cada incidencia indica la fila física en los dos archivos, incluso después de filas vacías o campos con saltos de línea.</p><p class="specimen"><code>fila 4 en A · ausente en B</code></p></li>
+</ol>
+</div>
+</section>
+
+<section id="demo" class="demo" aria-labelledby="demo-title">
+<div class="wrap">
+<div class="section-head">
+<p class="eyebrow">Demostración</p>
+<h2 id="demo-title">Pruébelo ahora, con el ejemplo o con dos CSV.</h2>
+<p>El ejemplo sintético contiene problemas puestos a propósito para mostrar cada estado. Si usa sus propios archivos, se leen en este navegador y no se envían a ningún servidor.</p>
+</div>
+<div class="bench-grid">
+<div class="bench">
+<div class="bench-top">
+<p class="local-note"><span class="mk mk-matched" aria-hidden="true"></span>Procesamiento en este navegador. No se envía ningún archivo.</p>
+<button type="button" id="demo-btn">Cargar ejemplo sintético</button>
+</div>
+<ol class="steps">
+<li class="step">
+<h3>Elija los dos archivos</h3>
+<div class="file-grid">
+<div class="file-box file-a">
+<label for="expected-file"><span class="tag">A</span><span>CSV de pedidos aprobados</span></label>
+<div class="file-body">
+<input id="expected-file" type="file" accept=".csv,text/csv" aria-describedby="expected-hint">
+<p class="hint" id="expected-hint">UTF-8 · hasta 2 MiB · hasta 10.000 registros</p>
+<p id="expected-status" class="file-status" aria-live="polite"></p>
+</div>
+</div>
+<div class="file-box file-b">
+<label for="actual-file"><span class="tag">B</span><span>CSV preparado para importar</span></label>
+<div class="file-body">
+<input id="actual-file" type="file" accept=".csv,text/csv" aria-describedby="actual-hint">
+<p class="hint" id="actual-hint">UTF-8 · hasta 2 MiB · hasta 10.000 registros</p>
+<p id="actual-status" class="file-status" aria-live="polite"></p>
+</div>
+</div>
+</div>
+</li>
+<li class="step">
+<h3>Indique el formato</h3>
+<div class="options">
+<div class="field"><label for="delimiter">Separador de columnas</label><select id="delimiter"><option value=";">Punto y coma (;)</option><option value=",">Coma (,)</option></select></div>
+<div class="field"><label for="decimal">Separador decimal</label><select id="decimal"><option value=",">Coma (,)</option><option value=".">Punto (.)</option></select></div>
+</div>
+<p class="hint">No se adivina nada: elija los separadores usados en los dos archivos.</p>
+</li>
+<li class="step">
+<h3>Compruebe</h3>
+<div class="actions"><button type="button" class="primary" id="compare-btn" disabled>Comprobar lote</button><button type="button" id="clear-btn">Limpiar archivos</button></div>
+<p id="run-status" aria-live="polite"></p>
+<div id="errors-output" role="alert"></div>
+</li>
+</ol>
+</div>
+<aside class="spec" aria-labelledby="spec-title">
+<h3 id="spec-title">Formato de referencia</h3>
+<dl>
+<div><dt>Archivos</dt><dd>2 CSV en UTF-8, hasta 2 MiB y 10.000 registros cada uno.</dd></div>
+<div><dt>Encabezados</dt><dd><span class="chips"><code>pedido</code> <code>sku</code> <code>quantidade</code> <code>preco_unitario</code></span>Se aceptan columnas adicionales si los encabezados son únicos.</dd></div>
+<div><dt>Separadores</dt><dd>Columnas <code>;</code> o <code>,</code> · decimal <code>,</code> o <code>.</code> Elección explícita, sin adivinar.</dd></div>
+<div><dt>Pedido y SKU</dt><dd>Texto de hasta 120 caracteres. Se conservan ceros iniciales y mayúsculas.</dd></div>
+<div><dt>Cantidad</dt><dd>Entera, de 1 a 1.000.000.</dd></div>
+<div><dt>Precio unitario</dt><dd>No negativo, hasta 2 decimales, sin separador de miles, hasta R$9.999.999.999,99.</dd></div>
+<div><dt>Bloqueos</dt><dd>Una clave repetida o una fila inválida impide declarar el lote sin incidencias.</dd></div>
+</dl>
+<p class="samples"><span>Archivos del ejemplo</span><a href="examples/pedidos-exemplo.csv?v=1f6373cab3e9" download>pedidos-exemplo.csv <span aria-hidden="true">&#8595;</span></a><a href="examples/importacao-exemplo.csv?v=7b88835e3aa6" download>importacao-exemplo.csv <span aria-hidden="true">&#8595;</span></a></p>
+</aside>
+</div>
+
+<section id="results-section" hidden aria-labelledby="results-title">
+<div class="results-head"><h3 id="results-title">Resultado de la comprobación</h3><p>Calculado en este navegador a partir de los dos archivos cargados.</p></div>
+<div id="summary-output"></div>
+<div id="report-output"></div>
+<div class="actions export-row"><button type="button" id="export-csv-btn" disabled>Descargar informe CSV</button><button type="button" id="export-json-btn" disabled>Descargar informe JSON</button></div>
+<p class="hint">La descarga solo ocurre cuando usted hace clic. El CSV neutraliza contenidos que podrían convertirse en fórmula; el JSON registra el SHA-256 de los dos archivos.</p>
+</section>
+
+<div class="bounds">
+<div class="bounds-copy">
+<h3>Lo que esta versión no hace</h3>
+<p>Un resultado sin diferencias vale solo para las reglas anteriores. La decisión de importar sigue siendo de la persona responsable de la operación.</p>
+<p><a href="https://github.com/GustavoPMLV/freelance-software-evidence/tree/main/b2b">Inspeccionar código y pruebas <span aria-hidden="true">&#8599;</span></a></p>
+</div>
+<ul>
+<li>No lee PDF, imágenes (OCR) ni adjuntos de correo.</li>
+<li>No se conecta al ERP: no importa, corrige ni aprueba pedidos, y no ejecuta pagos.</li>
+<li>No verifica reglas fiscales, de inventario, de registros maestros ni del propio ERP.</li>
+<li>No declara integración, homologación ni alianza con ERPs específicos.</li>
+</ul>
+</div>
+<noscript><p class="noscript">La comprobación necesita JavaScript para leer los archivos en este navegador. No se envía ningún archivo.</p></noscript>
+</div>
+</section>
+
+<section id="pilot" class="pilot" aria-labelledby="pilot-title">
+<div class="wrap pilot-grid">
+<div class="pilot-main">
+<p class="eyebrow">Piloto de configuración</p>
+<h2 id="pilot-title">Del formato de referencia a su archivo.</h2>
+<p class="lead">El piloto adapta la comprobación a un flujo real: los dos CSV que su operación ya usa, con columnas, reglas y criterios de aceptación acordados por escrito.</p>
+<ol class="process">
+<li><h3>Usted describe el flujo</h3><p>ERP, los dos archivos, volumen y el error que quiere evitar. Muestra anonimizada, sin credenciales.</p></li>
+<li><h3>Evaluación y propuesta</h3><p>Formato, reglas y criterios de aceptación por escrito. Precio y plazo confirmados después de evaluar las muestras.</p></li>
+<li><h3>Configuración y entrega</h3><p>Columnas y reglas configuradas, informe de diferencias por fila y un ejemplo de ejecución.</p></li>
+<li><h3>Ajuste y correcciones</h3><p>Una ronda de ajustes y corrección de defectos del alcance entregado durante 7 días.</p></li>
+</ol>
+<div class="who">
+<h3>Para quién</h3>
+<p>Operaciones comerciales que comprueban pedidos antes de importarlos y consultoras de ERP que preparan esos archivos en implantaciones. Para la consultora, el piloto complementa la preparación de archivos; no sustituye el trabajo de implantación.</p>
+</div>
+<p class="status-note"><strong>Situación actual</strong>Demostración funcional de un flujo de referencia. Aún no hay compradores validados, licencias vendidas ni ingresos recurrentes. Reutilizar el mismo formato en otras empresas es la hipótesis de producto; los formatos nuevos reciben un alcance nuevo.</p>
+</div>
+<aside class="offer" aria-labelledby="offer-title">
+<p class="eyebrow" id="offer-title">Configuración del primer flujo</p>
+<p class="price"><span>desde</span>R$497</p>
+<p class="price-note">Precio de lanzamiento propuesto para validar la oferta. Precio final confirmado después de evaluar formato, reglas y muestras anonimizadas.</p>
+<h3>Incluye</h3>
+<ul class="offer-in">
+<li>Un flujo y dos formatos CSV acordados</li>
+<li>Una configuración de columnas y reglas</li>
+<li>Informe de diferencias por fila y un ejemplo de ejecución</li>
+<li>Una ronda de ajustes</li>
+<li>Corrección de defectos del alcance entregado durante 7 días</li>
+</ul>
+<h3>No incluye</h3>
+<ul class="offer-out">
+<li>Integración, importación o escritura en el ERP</li>
+<li>Nuevos formatos o flujos, PDF u OCR</li>
+<li>Soporte ilimitado o mensualidad automática</li>
+<li>Garantía de plazo, ahorro o ingresos</li>
+</ul>
+<a class="button primary" href="#brief">Preparar briefing <span aria-hidden="true">&#8600;</span></a>
+<p class="fine">En esta página no se contrata ni se cobra nada.</p>
+</aside>
+</div>
+</section>
+
+<section id="faq" class="faq" aria-labelledby="faq-title">
+<div class="wrap faq-grid">
+<div class="section-head">
+<p class="eyebrow">Antes de conversar</p>
+<h2 id="faq-title">Preguntas directas, respuestas con límites.</h2>
+</div>
+<div class="faq-list">
+<details><summary>¿Ya funciona con mi ERP?</summary><p>La demostración compara el formato de referencia descrito arriba. Su formato debe evaluarse en el piloto. No se declara integración, homologación ni alianza con ERPs específicos.</p></details>
+<details><summary>¿Por qué no resolverlo con una hoja de cálculo y BUSCARV?</summary><p>Para una comprobación puntual, puede bastar. El piloto entrega reglas escritas para su formato: clave compuesta, centavos exactos, repeticiones bloqueadas en lugar de sumadas y un informe por fila que otra persona puede volver a comprobar.</p></details>
+<details><summary>¿Mis archivos salen de mi equipo?</summary><p>En la demostración, no. La lectura y la comprobación ocurren en este navegador, sin subida, analytics ni almacenamiento persistente. Para evaluar un piloto, comparta solo muestras anonimizadas, sin credenciales ni datos personales.</p></details>
+<details><summary>¿Un resultado sin diferencias aprueba la importación?</summary><p>No. Solo informa las reglas comprobadas. Las reglas fiscales, de inventario, de registros y del ERP pueden requerir revisiones adicionales de la persona responsable.</p></details>
+<details><summary>¿Cómo se evita que el piloto se convierta en soporte ilimitado?</summary><p>La propuesta registra formatos, reglas, criterios de aceptación y el límite de una ronda de ajustes. Los cambios de formato, integraciones y nuevos flujos reciben otro presupuesto.</p></details>
+<details><summary>¿Ya hay clientes usándolo?</summary><p>Todavía no. Es una demostración funcional, sin compradores validados. Los primeros pilotos sirven para confirmar si el problema se repite y si la configuración vale su precio.</p></details>
+</div>
+</div>
+</section>
+
+<section id="brief" class="brief" aria-labelledby="brief-title">
+<div class="wrap brief-grid">
+<div class="brief-intro">
+<p class="eyebrow">Briefing</p>
+<h2 id="brief-title">Prepare una conversación útil.</h2>
+<p>Describa su flujo. El briefing se arma en este navegador: usted lo revisa, lo copia y lo envía por la plataforma que prefiera.</p>
+<h3>Incluya</h3>
+<ul class="checklist">
+<li>El ERP y cómo se generan los dos archivos</li>
+<li>Columnas, frecuencia y volumen de los lotes</li>
+<li>El error que necesita evitar</li>
+<li>Qué cuenta como comprobación aprobada</li>
+</ul>
+<h3>No incluya</h3>
+<p>Contraseñas, tokens, datos personales o de clientes. Si necesita mostrar un archivo, use una muestra anonimizada.</p>
+</div>
+<div class="brief-form">
+<label for="brief-note">Contexto del flujo</label>
+<p class="hint" id="brief-note-hint">Hasta 2.000 caracteres. Nada sale de esta página.</p>
+<textarea id="brief-note" maxlength="2000" rows="6" aria-describedby="brief-note-hint" placeholder="Ej.: cómo se generan los dos archivos, cuántos lotes por semana y qué error ya ocurrió."></textarea>
+<button type="button" class="primary" id="brief-btn">Preparar briefing</button>
+<label for="brief-output">Briefing para revisar</label>
+<textarea id="brief-output" readonly rows="9"></textarea>
+<div class="actions"><button type="button" id="copy-brief-btn">Copiar briefing</button></div>
+<p id="brief-status" aria-live="polite"></p>
+<div class="contact">
+<p class="contact-title">Envíelo por una plataforma</p>
+<div class="actions"><a class="button" href="https://www.99freelas.com.br/user/gustavo-1790992697889">Contactar en 99Freelas <span aria-hidden="true">&#8599;</span></a><a class="button" href="https://www.upwork.com/freelancers/~0153456be778467e4e">Contactar en Upwork <span aria-hidden="true">&#8599;</span></a></div>
+<p class="hint">Los enlaces abren el perfil público. Pegue el briefing en el mensaje; esta página no envía nada.</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="site-footer">
+<div class="wrap footer-grid">
+<div>
+<p class="footer-brand">Gustavo Lima Verde<span>Conferencia de Lotes · producto piloto</span></p>
+<p><a href="../es.html">Volver al portafolio</a></p>
+</div>
+<p>Desarrollo asistido por IA. Colaboración escrita en PT, EN y ES con asistencia de IA; reuniones en portugués, conversación básica en inglés y español.</p>
+<p>Sin envío de archivos, analytics ni almacenamiento persistente en esta demostración. Limpiar elimina los datos de la sesión; recargar también. Las descargas quedan bajo su control.</p>
+</div>
+</footer>
+<script src="engine.js?v=9c5bf84ee2cb"></script><script src="app.js?v=f72cba36847b"></script>
+</body>
+</html>

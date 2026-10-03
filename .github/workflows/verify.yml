@@ -17,3 +17,9 @@ jobs:
       - name: Reproduce tests and fixtures
         working-directory: technical
         run: python3 run_evidence.py
+      - name: Check B2B comparison engine
+        working-directory: b2b
+        run: node --test tests/engine.test.cjs
+      - name: Check three B2B pages and static contracts
+        working-directory: b2b
+        run: python3 tests/validate_site.py

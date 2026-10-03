@@ -1,0 +1,5 @@
+pedido;sku;quantidade;preco_unitario
+0001;ITEM-A;2;19,90
+0002;ITEM-B;1;150,00
+0003;ITEM-C;3;10,00
+0004;ITEM-D;2;12,50
